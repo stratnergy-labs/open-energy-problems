@@ -1,0 +1,10 @@
+name: New contribution
+about: Propose a contribution or artefact card
+body:
+  - type: textarea
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Include source URL, licence notes, and problem fit.
+    validations:
+      required: true

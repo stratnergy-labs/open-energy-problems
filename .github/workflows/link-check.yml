@@ -1,0 +1,13 @@
+name: Link Check
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * 1'
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/check_links.py

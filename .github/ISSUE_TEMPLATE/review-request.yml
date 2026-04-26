@@ -1,0 +1,10 @@
+name: Review request
+about: Request review of a card, score, or status
+body:
+  - type: textarea
+    id: review
+    attributes:
+      label: Review request
+      description: What needs review and why?
+    validations:
+      required: true

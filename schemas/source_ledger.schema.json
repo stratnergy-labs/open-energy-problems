@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source Ledger Front Matter",
+  "type": "object",
+  "required": [
+    "source_id",
+    "problem_id",
+    "source_title",
+    "source_url",
+    "source_type",
+    "date_accessed",
+    "licence_status",
+    "reuse_status",
+    "notes",
+    "hash"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "problem_id": {
+      "type": "string"
+    },
+    "source_title": {
+      "type": "string"
+    },
+    "source_url": {},
+    "source_type": {
+      "type": "string"
+    },
+    "date_accessed": {
+      "type": "string"
+    },
+    "licence_status": {
+      "type": "string"
+    },
+    "reuse_status": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "hash": {}
+  }
+}

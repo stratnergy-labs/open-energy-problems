@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Problem Card Front Matter",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "lane",
+    "status",
+    "openness_level",
+    "evidence_strength",
+    "geography",
+    "asset_class",
+    "market_scope",
+    "ai_relevance",
+    "market_integrity_risk",
+    "last_updated",
+    "maintainer",
+    "related_contributions"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^EP-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "lane": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "openness_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6
+    },
+    "evidence_strength": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    "geography": {
+      "type": "string"
+    },
+    "asset_class": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "market_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ai_relevance": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "market_integrity_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "last_updated": {
+      "type": "string"
+    },
+    "maintainer": {
+      "type": "string"
+    },
+    "related_contributions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "public_post_url": {},
+    "paid_analysis_url": {},
+    "interactive_url": {}
+  }
+}

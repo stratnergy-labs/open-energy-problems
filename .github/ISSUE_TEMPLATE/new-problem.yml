@@ -1,0 +1,10 @@
+name: New problem
+about: Propose a new open energy problem card
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: State the problem and why it belongs here.
+    validations:
+      required: true
