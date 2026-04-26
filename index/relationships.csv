@@ -1,0 +1,8 @@
+evidence_strength,id,last_checked,path,relationship_type,review_status,source_id,target_id
+C,rel-bundesapi-marktstammdaten-api-official-mastr-register,2026-04-26,relationships/rel-bundesapi-marktstammdaten-api-official-mastr-register.md,documents_api,needs_review,bundesapi-marktstammdaten-api,official-mastr-register
+C,rel-marktstammdatenregister-dev-official-mastr-register,2026-04-26,relationships/rel-marktstammdatenregister-dev-official-mastr-register.md,uses_data_source,needs_review,marktstammdatenregister-dev,official-mastr-register
+D,rel-mastr-mcp-server-bundesapi-marktstammdaten-api,2026-04-26,relationships/rel-mastr-mcp-server-bundesapi-marktstammdaten-api.md,integration_candidate,needs_review,mastr-mcp-server,bundesapi-marktstammdaten-api
+D,rel-mastr-mcp-server-marktstammdatenregister-dev,2026-04-26,relationships/rel-mastr-mcp-server-marktstammdatenregister-dev.md,alternative_implementation,needs_review,mastr-mcp-server,marktstammdatenregister-dev
+C,rel-mastr-mcp-server-official-mastr-register,2026-04-26,relationships/rel-mastr-mcp-server-official-mastr-register.md,uses_data_source,needs_review,mastr-mcp-server,official-mastr-register
+C,rel-mastr-mcp-server-open-mastr,2026-04-26,relationships/rel-mastr-mcp-server-open-mastr.md,shared_data_source,needs_review,mastr-mcp-server,open-mastr
+C,rel-open-mastr-official-mastr-register,2026-04-26,relationships/rel-open-mastr-official-mastr-register.md,uses_data_source,needs_review,open-mastr,official-mastr-register

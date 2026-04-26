@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contribution Card Front Matter",
+  "type": "object",
+  "required": [
+    "id",
+    "problem_id",
+    "title",
+    "type",
+    "openness_level",
+    "evidence_strength",
+    "maturity",
+    "ai_relevance",
+    "review_status",
+    "last_checked"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "problem_id": {
+      "type": "string",
+      "pattern": "^EP-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "project_url": {},
+    "repository_url": {},
+    "license_code": {},
+    "license_data": {},
+    "openness_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6
+    },
+    "evidence_strength": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    "maturity": {
+      "type": "string"
+    },
+    "ai_relevance": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "last_checked": {
+      "type": "string"
+    }
+  }
+}

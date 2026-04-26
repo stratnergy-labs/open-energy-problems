@@ -1,0 +1,57 @@
+name: New contribution
+description: Propose a contribution or artefact card
+title: "Reference: "
+labels: ["reference", "needs-review"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Reference name
+      description: Project, dataset, benchmark, schema, simulator, disclosure, or method.
+      placeholder: "Example: ISEA Battery Revenue Index"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source URL
+      description: Link to the repository, documentation, dataset, paper, or disclosure.
+      placeholder: "https://..."
+    validations:
+      required: true
+  - type: input
+    id: problem
+    attributes:
+      label: Related problem ID
+      description: Use the problem ID if known. Leave blank if you are unsure.
+      placeholder: "EP-001"
+  - type: textarea
+    id: fit
+    attributes:
+      label: Why it belongs
+      description: Say what problem this helps with and what the source actually shows.
+      placeholder: "This looks relevant because..."
+    validations:
+      required: true
+  - type: textarea
+    id: licence
+    attributes:
+      label: Licence and reuse notes
+      description: Separate code licence, data licence, methodology openness, and reuse rights where possible.
+      placeholder: "Code licence: ... Data licence: ... Reuse notes: ..."
+  - type: textarea
+    id: caveats
+    attributes:
+      label: Caveats or review needs
+      description: Note anything unclear, unverified, commercial, restricted, or potentially safety-sensitive.
+  - type: checkboxes
+    id: guardrails
+    attributes:
+      label: Guardrails
+      options:
+        - label: This does not include live trading positions, current bids, dispatch instructions, confidential data, or restricted dataset copies.
+          required: true
+        - label: I have not presented an AI-generated claim as evidence without a public source or human check.
+          required: true
+    validations:
+      required: true

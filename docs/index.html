@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Energy Problems</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #17211e;
+      background: #f8f6f1;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1240px; margin: 0 auto; padding: 36px 18px 64px; }
+    header { display: grid; gap: 18px; padding: 32px 0 24px; border-bottom: 1px solid #d8d0c0; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px; }
+    nav a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .eyebrow { margin: 0; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; color: #64736d; }
+    h1 { margin: 0; max-width: 900px; font-size: clamp(38px, 7vw, 78px); line-height: .96; }
+    .lede { max-width: 780px; margin: 0; font-size: 19px; color: #3f4b46; }
+    .stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 24px 0; }
+    .stat { background: #fffdfa; border-top: 3px solid #2f6358; padding: 14px; }
+    .stat strong { display: block; font-size: 30px; }
+    .stat span { color: #64736d; }
+    .context { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; margin: 22px 0 8px; }
+    .context section { background: #fffdfa; border: 1px solid #d8d0c0; border-radius: 8px; padding: 18px; }
+    .context p { margin: 0 0 10px; color: #3f4b46; line-height: 1.5; }
+    .controls { display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 10px; margin: 0 0 18px; }
+    label { display: grid; gap: 5px; color: #64736d; font-size: 12px; text-transform: uppercase; }
+    select, input { width: 100%; border: 1px solid #c8c0b0; border-radius: 6px; background: #fffdfa; padding: 10px; color: #17211e; }
+    table { width: 100%; border-collapse: collapse; background: #fffdfa; border: 1px solid #d8d0c0; }
+    th, td { padding: 11px 10px; border-bottom: 1px solid #e4ded1; text-align: left; vertical-align: top; }
+    th { font-size: 12px; color: #64736d; text-transform: uppercase; background: #f1ede3; position: sticky; top: 0; }
+    td { font-size: 14px; }
+    td a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .id { font-weight: 700; color: #285f55; white-space: nowrap; }
+    .problem-title { font-weight: 700; }
+    .problem-title a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .repo-note { display: block; margin-top: 6px; color: #64736d; font-size: 12px; }
+    .pill { display: inline-flex; align-items: center; min-height: 24px; border: 1px solid #c8c0b0; border-radius: 999px; padding: 3px 8px; font-size: 12px; color: #3f4b46; background: #f8f6f1; }
+    .section-head { display: grid; gap: 6px; margin: 26px 0 12px; }
+    .section-head h2 { margin: 0; font-size: 24px; }
+    .section-head p { margin: 0; max-width: 760px; color: #3f4b46; line-height: 1.5; }
+    .reference-title { font-weight: 700; }
+    .muted { color: #64736d; }
+    .network-panel { background: #fffdfa; border: 1px solid #d8d0c0; border-radius: 8px; padding: 12px; overflow-x: auto; }
+    .network-panel svg { display: block; width: 100%; height: auto; }
+    .network-edge { fill: none; stroke: #b9c4ba; stroke-width: 1.4; }
+    .network-edge.relationship { stroke: #9f6b49; stroke-dasharray: 6 5; }
+    .network-node circle { stroke: #fffdfa; stroke-width: 2; }
+    .network-node.problem circle { fill: #2f6358; }
+    .network-node.reference circle { fill: #b8874f; }
+    .network-node text { fill: #17211e; font-size: 12px; dominant-baseline: middle; }
+    .network-node .node-id { fill: #64736d; font-size: 10px; text-transform: uppercase; }
+    .network-node .node-title { font-weight: 700; }
+    .network-label-box { fill: #fffdfa; stroke: #d8d0c0; stroke-width: 1; }
+    .network-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; color: #64736d; font-size: 13px; }
+    .legend-swatch { display: inline-flex; align-items: center; gap: 6px; }
+    .legend-swatch::before { content: ""; display: inline-block; width: 18px; height: 3px; background: #b9c4ba; }
+    .legend-swatch.relationship::before { background: #9f6b49; border-top: 1px dashed #9f6b49; height: 0; }
+    .network-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 10px; }
+    button { border: 1px solid #2f6358; border-radius: 6px; background: #2f6358; color: #fffdfa; padding: 9px 12px; font: inherit; cursor: pointer; }
+    .network-mode { margin: 0; color: #64736d; font-size: 14px; }
+    .review-panel { background: #fffdfa; border: 1px solid #d8d0c0; border-radius: 8px; padding: 16px; margin: 20px 0 10px; }
+    .review-panel h2 { margin: 0 0 8px; font-size: 20px; }
+    .review-panel p { margin: 0; color: #3f4b46; line-height: 1.5; }
+    .review-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
+    .review-grid span { border: 1px solid #c8c0b0; border-radius: 6px; padding: 9px; color: #3f4b46; background: #f8f6f1; font-size: 13px; }
+    .review-link { display: inline-flex; margin-top: 12px; color: #285f55; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .contribute-panel { background: #fffdfa; border-left: 4px solid #2f6358; padding: 16px 18px; margin: 18px 0 8px; }
+    .contribute-panel h2 { margin: 0 0 8px; font-size: 20px; }
+    .contribute-panel p { max-width: 780px; margin: 0 0 12px; color: #3f4b46; line-height: 1.5; }
+    .contribute-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contribute-actions a { color: #285f55; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+    .legend section { background: #fffdfa; border: 1px solid #d8d0c0; padding: 14px; border-radius: 8px; }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 5px 0; }
+    @media (max-width: 820px) {
+      .stats, .context, .controls, .legend, .review-grid { grid-template-columns: 1fr; }
+      th:nth-child(4), td:nth-child(4), th:nth-child(6), td:nth-child(6) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Open energy register</p>
+      <h1>Open Energy Problems</h1>
+      <p class="lede">A Germany-first public register for the open work modern energy systems need: benchmarks, schemas, datasets, simulators, replay packages, source ledgers, validated methods, and careful public disclosures.</p>
+      <nav>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems">GitHub repository</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/problems">Problem cards</a>
+        <a href="#solution-network">Solution network</a>
+        <a href="#tracked-projects">Find a tracked project</a>
+        <a href="#review-track">Review track</a>
+        <a href="#contribute">Contribute</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/contributions">Tracked references</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/docs/seed-fit-review.md">Scope review</a>
+      </nav>
+    </header>
+
+    <section class="context" aria-label="Project context">
+      <section>
+        <h2>Why It Exists</h2>
+        <p>Germany's grid is becoming a stress test for software-defined energy: storage economics, congestion, balancing markets, demand response, asset data, and flexibility claims all need better public evidence.</p>
+        <p>Many capable teams are solving pieces of the puzzle. This register makes that progress visible, comparable, and easier to build on.</p>
+      </section>
+      <section>
+        <h2>How To Read It</h2>
+        <p>Green means a useful reference exists for a stated scope. Yellow means partial progress or public disclosure. Red means no accepted open reference is listed yet.</p>
+        <p>Click a problem to open its GitHub card. Looking for a specific project? Search by project name to see where it fits and which caveats still need review.</p>
+      </section>
+    </section>
+
+    <section class="stats" aria-label="Repository statistics">
+      <div class="stat"><strong id="problemCount">0</strong><span>problems</span></div>
+      <div class="stat"><strong id="referenceCount">0</strong><span>tracked references</span></div>
+      <div class="stat"><strong id="relationshipCount">0</strong><span>relationships</span></div>
+      <div class="stat"><strong id="areaCount">0</strong><span>areas</span></div>
+      <div class="stat"><strong id="matchCount">0</strong><span>results</span></div>
+    </section>
+
+    <section class="controls" aria-label="Problem filters">
+      <label>Search<input id="search" type="search" placeholder="ISEA Battery Revenue Index, OpenSTEF, HiGHS, MaStR"></label>
+      <label>Area<select id="area"></select></label>
+      <label>Status<select id="status"></select></label>
+      <label>Evidence<select id="evidence"></select></label>
+    </section>
+
+    <section class="review-panel" id="review-track" aria-label="Review track">
+      <p class="eyebrow">Review track</p>
+      <h2>Review wanted</h2>
+      <p>Listed references are starting points, not endorsements. Help check a source, licence, fit, evidence level, or safety caveat.</p>
+      <div class="review-grid" aria-label="Review types">
+        <span>Source</span>
+        <span>Licence</span>
+        <span>Fit</span>
+        <span>Evidence</span>
+        <span>Safety</span>
+      </div>
+      <p>A useful review can be small: one URL checked, one licence clarified, one overclaim corrected.</p>
+      <a class="review-link" href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=review-request.yml">Submit a review note</a>
+    </section>
+
+    <section class="contribute-panel" id="contribute" aria-label="Contribute">
+      <p class="eyebrow">Contribute</p>
+      <h2>Help make the map sharper</h2>
+      <p>Suggest a missing reference, check a source, clarify a licence, or improve a problem statement. One careful correction is enough to move the register forward.</p>
+      <div class="contribute-actions">
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=new-contribution.yml">Suggest a reference</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=review-request.yml">Review an entry</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/HOW_TO_CONTRIBUTE.md">How to contribute</a>
+      </div>
+    </section>
+
+    <section class="section-head" id="solution-network" aria-label="Solution network heading">
+      <p class="eyebrow">Solution network</p>
+      <h2>How problems and references connect</h2>
+      <p>The network shows public problems on the left and tracked references on the right. Solid lines link references to problems; dashed lines show verified or review-pending relationships between references. Expand it when you want the full map.</p>
+    </section>
+
+    <section class="network-panel" aria-label="Solution network">
+      <div class="network-actions">
+        <button id="networkToggle" type="button">Show full network</button>
+        <p class="network-mode" id="networkMode">Relationship highlights. Search, filter, or expand for the full map.</p>
+      </div>
+      <svg id="solutionNetwork" viewBox="0 0 1100 520" role="img" aria-label="Network of open energy problems and tracked references"></svg>
+      <div class="network-legend">
+        <span class="legend-swatch">Problem to reference</span>
+        <span class="legend-swatch relationship">Reference relationship</span>
+      </div>
+    </section>
+
+    <section class="section-head" aria-label="Problem list heading">
+      <h2>Problems</h2>
+      <p>The register starts from important public problems, then records which open references exist for each one. Problem titles open the detailed GitHub cards.</p>
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Problem card</th>
+          <th>Area</th>
+          <th>Status</th>
+          <th>Open Solution</th>
+          <th>Evidence</th>
+          <th>Tracked References</th>
+        </tr>
+      </thead>
+      <tbody id="problemRows"></tbody>
+    </table>
+
+    <section class="section-head" id="tracked-projects" aria-label="Tracked project list heading">
+      <p class="eyebrow">Tracked projects</p>
+      <h2>Find a project in the register</h2>
+      <p>This list is for people arriving from a project announcement or repository. Inclusion gives a project a public place in the problem map; it is recognition of relevance, not endorsement or a claim that the problem is solved.</p>
+    </section>
+
+    <table aria-label="Tracked references">
+      <thead>
+        <tr>
+          <th>Reference</th>
+          <th>Related Problem</th>
+          <th>Area</th>
+          <th>Type</th>
+          <th>Review track</th>
+          <th>Evidence</th>
+          <th>Source</th>
+          <th>Relations</th>
+        </tr>
+      </thead>
+      <tbody id="referenceRows"></tbody>
+    </table>
+
+    <section class="legend" aria-label="Classification legend">
+      <section>
+        <h2>Status</h2>
+        <ul>
+          <li>Open: problem stated, no accepted open reference.</li>
+          <li>Partial: meaningful progress, but important gaps remain.</li>
+          <li>Reference available: useful public reference exists.</li>
+          <li>Solved for scope: open reference exists for a narrow stated scope.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Open-Solution Level</h2>
+        <ul>
+          <li>0: no accepted open reference.</li>
+          <li>3: public methodology.</li>
+          <li>4: open code.</li>
+          <li>5: reproducible benchmark.</li>
+          <li>6: open reference infrastructure.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Evidence</h2>
+        <ul>
+          <li>A: open code, data, reproducible result, independent review.</li>
+          <li>B: open code, documented method, sample data.</li>
+          <li>C: public method or figures, limited reproducibility.</li>
+          <li>D: public claim or unclear detail.</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const state = { problems: [], contributions: [], relationships: [], search: '', area: 'all', status: 'all', evidence: 'all', showFullNetwork: false };
+    const byId = (id) => document.getElementById(id);
+    const unique = (rows, field) => Array.from(new Set(rows.map((row) => row[field]))).filter(Boolean).sort();
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+    const labelFor = (value) => String(value)
+      .replace(/_/g, ' ')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+    const statusLabels = {
+      OPEN: 'Open',
+      PARTIAL: 'Partial',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_AVAILABLE: 'Reference available',
+      SOLVED_FOR_SCOPE: 'Solved for scope'
+    };
+    const typeLabels = {
+      AI_ASSISTED_ANALYSIS: 'AI-assisted analysis',
+      BENCHMARK: 'Benchmark',
+      DATASET: 'Dataset',
+      MCP_CONNECTOR: 'MCP connector',
+      METHODOLOGY: 'Methodology',
+      PARTIAL_PROGRESS: 'Partial progress',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_SOLUTION: 'Reference solution',
+      SCHEMA: 'Schema',
+      SOFTWARE_INFRASTRUCTURE: 'Software infrastructure',
+      SIMULATOR: 'Simulator'
+    };
+    const reviewLabels = {
+      accepted: 'Accepted',
+      needs_review: 'Review wanted',
+      rejected: 'Rejected'
+    };
+    const relationshipLabels = {
+      uses_component: 'Uses',
+      uses_data_source: 'Uses data source',
+      wraps_project: 'Wraps',
+      extends_project: 'Extends',
+      documents_api: 'Documents API',
+      shared_data_source: 'Shared data source',
+      shared_standard: 'Shared standard',
+      same_problem_context: 'Same problem context',
+      alternative_implementation: 'Alternative implementation',
+      integration_candidate: 'Integration candidate'
+    };
+    const reverseRelationshipLabels = {
+      uses_component: 'Used by',
+      uses_data_source: 'Input to',
+      wraps_project: 'Wrapped by',
+      extends_project: 'Extended by',
+      documents_api: 'Documented by',
+      shared_data_source: 'Shared data source',
+      shared_standard: 'Shared standard',
+      same_problem_context: 'Same problem context',
+      alternative_implementation: 'Alternative implementation',
+      integration_candidate: 'Integration candidate'
+    };
+
+    function fillSelect(id, values, label = labelFor) {
+      const select = byId(id);
+      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(label(value))}</option>`).join('');
+      select.addEventListener('change', () => {
+        state[id] = select.value;
+        render();
+      });
+    }
+
+    function problemHaystack(problem, related) {
+      return [problem.id, problem.title, problem.lane, problem.status, problem.geography, problem.evidence_strength, problem.ai_relevance, related.map((item) => item.title).join(' ')].join(' ').toLowerCase();
+    }
+
+    function referenceHaystack(reference, problem) {
+      return [
+        reference.id,
+        reference.title,
+        reference.type,
+        reference.review_status,
+        reference.evidence_strength,
+        reference.ai_relevance,
+        reference.repository_url,
+        reference.project_url,
+        problem ? problem.id : '',
+        problem ? problem.title : '',
+        problem ? problem.lane : '',
+        problem ? problem.status : ''
+      ].join(' ').toLowerCase();
+    }
+
+    function sourceLink(reference) {
+      const url = reference.repository_url || reference.project_url;
+      if (!url) {
+        return '<span class="muted">Source review wanted</span>';
+      }
+      return `<a href="${escapeHtml(url)}">Source</a>`;
+    }
+
+    function problemUrl(problem) {
+      return `https://github.com/stratnergy-labs/open-energy-problems/blob/main/${escapeHtml(problem.path)}`;
+    }
+
+    function reviewUrl(reference) {
+      const title = encodeURIComponent(`Review: ${reference.title}`);
+      const body = encodeURIComponent(`Card ID: ${reference.id}\nReview type:\nSource checked:\nNotes:`);
+      return `https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=review-request.yml&title=${title}&body=${body}`;
+    }
+
+    function reviewStatus(reference) {
+      const label = reviewLabels[reference.review_status] || labelFor(reference.review_status);
+      if (reference.review_status !== 'needs_review') {
+        return escapeHtml(label);
+      }
+      return `<a href="${reviewUrl(reference)}">${escapeHtml(label)}</a>`;
+    }
+
+    function relationshipsFor(reference) {
+      return state.relationships.filter((item) => item.source_id === reference.id || item.target_id === reference.id);
+    }
+
+    function relatedReferenceLabel(reference, relationship) {
+      const isSource = relationship.source_id === reference.id;
+      const otherId = isSource ? relationship.target_id : relationship.source_id;
+      const other = state.contributions.find((item) => item.id === otherId);
+      const labelMap = isSource ? relationshipLabels : reverseRelationshipLabels;
+      const label = labelMap[relationship.relationship_type] || labelFor(relationship.relationship_type);
+      const otherTitle = other ? other.title : otherId;
+      return `${escapeHtml(label)} <a href="#reference-${escapeHtml(otherId)}">${escapeHtml(otherTitle)}</a>`;
+    }
+
+    function relationshipSummary(reference) {
+      const relationships = relationshipsFor(reference);
+      if (!relationships.length) {
+        return '<span class="muted">None recorded</span>';
+      }
+      return relationships.map((relationship) => relatedReferenceLabel(reference, relationship)).join('<br>');
+    }
+
+    function truncate(value, length = 36) {
+      const text = String(value);
+      return text.length > length ? `${text.slice(0, length - 1)}...` : text;
+    }
+
+    function renderNetwork(problemMatches, referenceMatches) {
+      const svg = byId('solutionNetwork');
+      const isFocused = Boolean(state.search) || state.area !== 'all' || state.status !== 'all' || state.evidence !== 'all';
+      const relationshipReferenceIds = new Set();
+      state.relationships.forEach((relationship) => {
+        relationshipReferenceIds.add(relationship.source_id);
+        relationshipReferenceIds.add(relationship.target_id);
+      });
+      const graphReferences = (!state.showFullNetwork && !isFocused)
+        ? referenceMatches.filter((reference) => relationshipReferenceIds.has(reference.id))
+        : referenceMatches;
+      byId('networkToggle').textContent = state.showFullNetwork ? 'Collapse network' : 'Show full network';
+      byId('networkMode').textContent = isFocused
+        ? 'Search and filters are shaping the network below.'
+        : state.showFullNetwork
+          ? 'Full problem-reference network.'
+          : 'Relationship highlights. Search, filter, or expand for the full map.';
+
+      const visibleProblemIds = new Set(problemMatches.map((item) => item.id));
+      const problemOrder = new Map(state.problems.map((problem, index) => [problem.id, index]));
+      const references = graphReferences
+        .filter((item) => visibleProblemIds.has(item.problem_id))
+        .sort((left, right) => {
+          const problemDelta = (problemOrder.get(left.problem_id) ?? 0) - (problemOrder.get(right.problem_id) ?? 0);
+          return problemDelta || left.title.localeCompare(right.title);
+        });
+      const problems = problemMatches.filter((problem) => references.some((reference) => reference.problem_id === problem.id));
+      if (!references.length || !problems.length) {
+        svg.setAttribute('viewBox', '0 0 1100 180');
+        svg.innerHTML = '<text x="40" y="90" fill="#64736d">No network entries match the current filters.</text>';
+        return;
+      }
+
+      const width = 980;
+      const top = 72;
+      const gap = 72;
+      const height = Math.max(360, top * 2 + (references.length - 1) * gap);
+      const problemBoxX = 30;
+      const problemBoxWidth = 280;
+      const problemX = 335;
+      const referenceX = 555;
+      const referenceBoxX = 580;
+      const referenceBoxWidth = 360;
+      const referencePositions = new Map();
+      references.forEach((reference, index) => {
+        referencePositions.set(reference.id, top + index * gap);
+      });
+      const problemPositions = new Map();
+      problems.forEach((problem) => {
+        const ys = references
+          .filter((reference) => reference.problem_id === problem.id)
+          .map((reference) => referencePositions.get(reference.id));
+        problemPositions.set(problem.id, ys.reduce((sum, value) => sum + value, 0) / ys.length);
+      });
+
+      const problemEdges = references.map((reference) => {
+        const y1 = problemPositions.get(reference.problem_id);
+        const y2 = referencePositions.get(reference.id);
+        return `<path class="network-edge" d="M ${problemX + 14} ${y1} C 430 ${y1}, 460 ${y2}, ${referenceX - 14} ${y2}" />`;
+      });
+      const relationshipEdges = state.relationships
+        .filter((relationship) => referencePositions.has(relationship.source_id) && referencePositions.has(relationship.target_id))
+        .map((relationship) => {
+          const y1 = referencePositions.get(relationship.source_id);
+          const y2 = referencePositions.get(relationship.target_id);
+          return `<path class="network-edge relationship" d="M ${referenceX + 16} ${y1} C 520 ${y1}, 520 ${y2}, ${referenceX + 16} ${y2}" />`;
+        });
+      const problemNodes = problems.map((problem) => {
+        const y = problemPositions.get(problem.id);
+        return `<a href="${problemUrl(problem)}">
+          <g class="network-node problem">
+            <rect class="network-label-box" x="${problemBoxX}" y="${y - 25}" width="${problemBoxWidth}" height="50" rx="7"></rect>
+            <circle cx="${problemX}" cy="${y}" r="12"><title>${escapeHtml(problem.title)}</title></circle>
+            <text class="node-id" x="${problemBoxX + 14}" y="${y - 9}">${escapeHtml(problem.id)}</text>
+            <text class="node-title" x="${problemBoxX + 14}" y="${y + 10}">${escapeHtml(truncate(problem.title, 28))}</text>
+          </g>
+        </a>`;
+      });
+      const referenceNodes = references.map((reference) => {
+        const y = referencePositions.get(reference.id);
+        return `<a href="#reference-${escapeHtml(reference.id)}">
+          <g class="network-node reference">
+            <rect class="network-label-box" x="${referenceBoxX}" y="${y - 25}" width="${referenceBoxWidth}" height="50" rx="7"></rect>
+            <circle cx="${referenceX}" cy="${y}" r="12"><title>${escapeHtml(reference.title)}</title></circle>
+            <text class="node-id" x="${referenceBoxX + 14}" y="${y - 9}">${escapeHtml(typeLabels[reference.type] || labelFor(reference.type))}</text>
+            <text class="node-title" x="${referenceBoxX + 14}" y="${y + 10}">${escapeHtml(truncate(reference.title, 38))}</text>
+          </g>
+        </a>`;
+      });
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      svg.innerHTML = [...problemEdges, ...relationshipEdges, ...problemNodes, ...referenceNodes].join('');
+    }
+
+    function render() {
+      const problemMatches = state.problems.filter((problem) => {
+        const related = state.contributions.filter((item) => item.problem_id === problem.id);
+        const queryOk = !state.search || problemHaystack(problem, related).includes(state.search.toLowerCase());
+        return queryOk
+          && (state.area === 'all' || problem.lane === state.area)
+          && (state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || problem.evidence_strength === state.evidence);
+      });
+      const directReferenceMatches = state.contributions.filter((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        const queryOk = !state.search || referenceHaystack(reference, problem).includes(state.search.toLowerCase());
+        return queryOk
+          && (!problem || state.area === 'all' || problem.lane === state.area)
+          && (!problem || state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || reference.evidence_strength === state.evidence);
+      });
+      const referenceMatchIds = new Set(directReferenceMatches.map((reference) => reference.id));
+      directReferenceMatches.forEach((reference) => {
+        relationshipsFor(reference).forEach((relationship) => {
+          referenceMatchIds.add(relationship.source_id === reference.id ? relationship.target_id : relationship.source_id);
+        });
+      });
+      const referenceMatches = state.contributions.filter((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        return referenceMatchIds.has(reference.id)
+          && (!problem || state.area === 'all' || problem.lane === state.area)
+          && (!problem || state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || reference.evidence_strength === state.evidence);
+      });
+      byId('problemCount').textContent = state.problems.length;
+      byId('referenceCount').textContent = state.contributions.length;
+      byId('relationshipCount').textContent = state.relationships.length;
+      byId('areaCount').textContent = unique(state.problems, 'lane').length;
+      byId('matchCount').textContent = problemMatches.length + referenceMatches.length;
+      renderNetwork(problemMatches, referenceMatches);
+      byId('problemRows').innerHTML = problemMatches.map((problem) => {
+        const related = state.contributions.filter((item) => item.problem_id === problem.id);
+        const references = related.length ? related.map((item) => `<a href="#reference-${escapeHtml(item.id)}">${escapeHtml(item.title)}</a>`).join('<br>') : '<span class="pill">None yet</span>';
+        return `<tr>
+          <td class="id">${escapeHtml(problem.id)}</td>
+          <td><div class="problem-title"><a href="${problemUrl(problem)}">${escapeHtml(problem.title)}</a></div><span class="repo-note">GitHub problem card</span><span class="pill">AI relevance: ${escapeHtml(labelFor(problem.ai_relevance))}</span></td>
+          <td>${escapeHtml(labelFor(problem.lane))}</td>
+          <td>${escapeHtml(statusLabels[problem.status] || labelFor(problem.status))}</td>
+          <td>Level ${escapeHtml(problem.openness_level)}</td>
+          <td>${escapeHtml(problem.evidence_strength)}</td>
+          <td>${references}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="7">No matching problems.</td></tr>';
+      byId('referenceRows').innerHTML = referenceMatches.map((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        const problemTitle = problem ? `${problem.id}: ${problem.title}` : reference.problem_id;
+        return `<tr id="reference-${escapeHtml(reference.id)}">
+          <td><div class="reference-title">${escapeHtml(reference.title)}</div><span class="muted">${escapeHtml(reference.id)}</span></td>
+          <td>${problem ? `<a href="${problemUrl(problem)}">${escapeHtml(problemTitle)}</a>` : escapeHtml(problemTitle)}</td>
+          <td>${problem ? escapeHtml(labelFor(problem.lane)) : '<span class="muted">Unknown</span>'}</td>
+          <td>${escapeHtml(typeLabels[reference.type] || labelFor(reference.type))}</td>
+          <td>${reviewStatus(reference)}</td>
+          <td>${escapeHtml(reference.evidence_strength)}</td>
+          <td>${sourceLink(reference)}</td>
+          <td>${relationshipSummary(reference)}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="8">No matching tracked references.</td></tr>';
+    }
+
+    async function init() {
+      const [problems, contributions, relationships] = await Promise.all([
+        fetch('data/problems.json').then((response) => response.json()),
+        fetch('data/contributions.json').then((response) => response.json()),
+        fetch('data/relationships.json').then((response) => response.json())
+      ]);
+      state.problems = problems;
+      state.contributions = contributions;
+      state.relationships = relationships;
+      fillSelect('area', unique(problems, 'lane'));
+      fillSelect('status', unique(problems, 'status'), (value) => statusLabels[value] || labelFor(value));
+      fillSelect('evidence', unique(problems, 'evidence_strength'));
+      byId('search').addEventListener('input', (event) => {
+        state.search = event.target.value;
+        render();
+      });
+      byId('networkToggle').addEventListener('click', () => {
+        state.showFullNetwork = !state.showFullNetwork;
+        render();
+      });
+      render();
+    }
+
+    init().catch((error) => {
+      byId('problemRows').innerHTML = `<tr><td colspan="7">Unable to load generated JSON: ${escapeHtml(error.message)}</td></tr>`;
+    });
+  </script>
+</body>
+</html>

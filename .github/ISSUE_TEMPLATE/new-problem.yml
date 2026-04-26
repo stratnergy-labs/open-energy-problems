@@ -1,0 +1,54 @@
+name: New problem
+description: Propose a new open energy problem card
+title: "Problem: "
+labels: ["problem", "needs-review"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Problem title
+      placeholder: "Example: Open congestion replay benchmark"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Likely area
+      options:
+        - market-benchmarks
+        - forecasting
+        - trading-logic
+        - virtualisation
+        - market-simulation
+        - grid-stress
+        - demand-response
+        - open-data
+        - terminology
+        - energy-enabling-infrastructure
+        - unsure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: State the problem and why it belongs here.
+      placeholder: "The open problem is..."
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and scope
+      description: Include geography, asset class, market scope, or grid context if relevant.
+      placeholder: "Geography: Germany. Scope: ..."
+  - type: textarea
+    id: references
+    attributes:
+      label: Known references
+      description: Link any projects, datasets, papers, methods, or public disclosures that may be relevant.
+  - type: textarea
+    id: caveats
+    attributes:
+      label: Caveats
+      description: Note unclear licences, restricted data, market-integrity risks, or claims that need review.

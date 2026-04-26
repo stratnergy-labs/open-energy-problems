@@ -1,0 +1,53 @@
+name: Review request
+description: Review a source, licence, fit, evidence level, or safety caveat
+title: "Review: "
+labels: ["review", "needs-review"]
+body:
+  - type: input
+    id: card
+    attributes:
+      label: Card ID
+      description: Problem or reference ID, for example EP-901 or highs.
+      placeholder: EP-001 or isea-battery-revenue-index
+    validations:
+      required: true
+  - type: dropdown
+    id: review_type
+    attributes:
+      label: Review type
+      options:
+        - Source review
+        - Licence review
+        - Fit review
+        - Evidence review
+        - Safety review
+        - Other / mixed review
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source checked
+      description: URL, file, repository, paper, or other source.
+      placeholder: https://...
+    validations:
+      required: false
+  - type: textarea
+    id: review
+    attributes:
+      label: Review notes
+      description: What did you check, what did you conclude, and what caveats remain?
+      placeholder: "Example: The repository URL is correct. Code licence appears to be MIT. Data licence is still unclear."
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I am not submitting live trading logic, current bids, operational dispatch instructions, or confidential data.
+          required: true
+        - label: I have separated code licence from data licence where relevant.
+          required: false
+        - label: I have disclosed AI assistance if used.
+          required: false

@@ -1,0 +1,3 @@
+# Market Integrity Policy
+
+This repository is for public, delayed, synthetic, educational, benchmark, and research artefacts. Do not contribute live trading positions, current bids, asset dispatch instructions, confidential optimiser logic, inside information, coordinated market behaviour, commercially sensitive customer or asset data, or material designed to manipulate wholesale energy markets. Allowed material includes synthetic scenarios, delayed public data, open benchmark strategies, simplified reference implementations, public commercial disclosures, reproducible research artefacts, and regulatory or system-risk scenario definitions.

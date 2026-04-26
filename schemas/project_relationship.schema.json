@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project Relationship Front Matter",
+  "type": "object",
+  "required": [
+    "id",
+    "source_id",
+    "target_id",
+    "relationship_type",
+    "review_status",
+    "evidence_strength",
+    "last_checked"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^rel-[a-z0-9-]+$"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "target_id": {
+      "type": "string"
+    },
+    "relationship_type": {
+      "type": "string",
+      "enum": [
+        "uses_component",
+        "uses_data_source",
+        "wraps_project",
+        "extends_project",
+        "documents_api",
+        "shared_data_source",
+        "shared_standard",
+        "same_problem_context",
+        "alternative_implementation",
+        "integration_candidate"
+      ]
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "evidence_strength": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    "last_checked": {
+      "type": "string"
+    }
+  }
+}
