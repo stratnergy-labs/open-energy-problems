@@ -42,7 +42,7 @@
     </header>
 
     <section class="controls" aria-label="Problem filters">
-      <label>Area<select id="lane"></select></label>
+      <label>Area<select id="area"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
     </section>
@@ -57,7 +57,7 @@
   </main>
 
   <script>
-    const state = { lane: 'all', status: 'all', evidence: 'all', problems: [], contributions: [] };
+    const state = { area: 'all', status: 'all', evidence: 'all', problems: [], contributions: [] };
     const byId = (id) => document.getElementById(id);
     const unique = (rows, field) => Array.from(new Set(rows.map((row) => row[field]))).sort();
     const labelFor = (value) => String(value)
@@ -84,7 +84,7 @@
 
     function render() {
       const matches = state.problems.filter((problem) =>
-        (state.lane === 'all' || problem.lane === state.lane) &&
+        (state.area === 'all' || problem.lane === state.area) &&
         (state.status === 'all' || problem.status === state.status) &&
         (state.evidence === 'all' || problem.evidence_strength === state.evidence)
       );
@@ -111,7 +111,7 @@
       ]);
       state.problems = problems;
       state.contributions = contributions;
-      fillSelect('lane', unique(problems, 'lane'));
+      fillSelect('area', unique(problems, 'lane'));
       fillSelect('status', unique(problems, 'status'));
       fillSelect('evidence', unique(problems, 'evidence_strength'));
       render();
