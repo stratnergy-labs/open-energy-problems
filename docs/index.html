@@ -34,9 +34,15 @@
     th, td { padding: 11px 10px; border-bottom: 1px solid #e4ded1; text-align: left; vertical-align: top; }
     th { font-size: 12px; color: #64736d; text-transform: uppercase; background: #f1ede3; position: sticky; top: 0; }
     td { font-size: 14px; }
+    td a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
     .id { font-weight: 700; color: #285f55; white-space: nowrap; }
     .problem-title { font-weight: 700; }
     .pill { display: inline-flex; align-items: center; min-height: 24px; border: 1px solid #c8c0b0; border-radius: 999px; padding: 3px 8px; font-size: 12px; color: #3f4b46; background: #f8f6f1; }
+    .section-head { display: grid; gap: 6px; margin: 26px 0 12px; }
+    .section-head h2 { margin: 0; font-size: 24px; }
+    .section-head p { margin: 0; max-width: 760px; color: #3f4b46; line-height: 1.5; }
+    .reference-title { font-weight: 700; }
+    .muted { color: #64736d; }
     .legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
     .legend section { background: #fffdfa; border: 1px solid #d8d0c0; padding: 14px; border-radius: 8px; }
     h2 { margin: 0 0 10px; font-size: 18px; }
@@ -57,6 +63,7 @@
       <nav>
         <a href="https://github.com/stratnergy-labs/open-energy-problems">GitHub repository</a>
         <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/problems">Problem cards</a>
+        <a href="#tracked-projects">Find a tracked project</a>
         <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/contributions">Tracked references</a>
         <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/docs/seed-fit-review.md">Scope review</a>
       </nav>
@@ -71,7 +78,7 @@
       <section>
         <h2>How To Read It</h2>
         <p>Green means a useful reference exists for a stated scope. Yellow means partial progress or public disclosure. Red means no accepted open reference is listed yet.</p>
-        <p>The table is deliberately conservative: it tracks inspectable evidence, not hype, vendor claims, or live trading logic.</p>
+        <p>Looking for a specific project? Search by project name. Each tracked reference below shows the problem it is linked to and whether it still needs review.</p>
       </section>
     </section>
 
@@ -79,14 +86,19 @@
       <div class="stat"><strong id="problemCount">0</strong><span>problems</span></div>
       <div class="stat"><strong id="referenceCount">0</strong><span>tracked references</span></div>
       <div class="stat"><strong id="areaCount">0</strong><span>areas</span></div>
-      <div class="stat"><strong id="matchCount">0</strong><span>matches</span></div>
+      <div class="stat"><strong id="matchCount">0</strong><span>current matches</span></div>
     </section>
 
     <section class="controls" aria-label="Problem filters">
-      <label>Search<input id="search" type="search" placeholder="battery, forecast, grid"></label>
+      <label>Search<input id="search" type="search" placeholder="MaStR MCP Server, open-MaStR, battery"></label>
       <label>Area<select id="area"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
+    </section>
+
+    <section class="section-head" aria-label="Problem list heading">
+      <h2>Problems</h2>
+      <p>The core register starts from important public problems, then records which open references exist for each one.</p>
     </section>
 
     <table>
@@ -102,6 +114,27 @@
         </tr>
       </thead>
       <tbody id="problemRows"></tbody>
+    </table>
+
+    <section class="section-head" id="tracked-projects" aria-label="Tracked project list heading">
+      <p class="eyebrow">Tracked projects</p>
+      <h2>Find a project in the register</h2>
+      <p>This list is for people arriving from a project announcement or repository. Inclusion means the project is tracked as relevant evidence or progress; it is not an endorsement or a claim that the problem is solved.</p>
+    </section>
+
+    <table aria-label="Tracked references">
+      <thead>
+        <tr>
+          <th>Reference</th>
+          <th>Related Problem</th>
+          <th>Area</th>
+          <th>Type</th>
+          <th>Review</th>
+          <th>Evidence</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody id="referenceRows"></tbody>
     </table>
 
     <section class="legend" aria-label="Classification legend">
@@ -152,6 +185,23 @@
       REFERENCE_AVAILABLE: 'Reference available',
       SOLVED_FOR_SCOPE: 'Solved for scope'
     };
+    const typeLabels = {
+      AI_ASSISTED_ANALYSIS: 'AI-assisted analysis',
+      BENCHMARK: 'Benchmark',
+      DATASET: 'Dataset',
+      MCP_CONNECTOR: 'MCP connector',
+      METHODOLOGY: 'Methodology',
+      PARTIAL_PROGRESS: 'Partial progress',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_SOLUTION: 'Reference solution',
+      SCHEMA: 'Schema',
+      SIMULATOR: 'Simulator'
+    };
+    const reviewLabels = {
+      accepted: 'Accepted',
+      needs_review: 'Needs review',
+      rejected: 'Rejected'
+    };
 
     function fillSelect(id, values, label = labelFor) {
       const select = byId(id);
@@ -166,8 +216,33 @@
       return [problem.id, problem.title, problem.lane, problem.status, problem.geography, problem.evidence_strength, problem.ai_relevance, related.map((item) => item.title).join(' ')].join(' ').toLowerCase();
     }
 
+    function referenceHaystack(reference, problem) {
+      return [
+        reference.id,
+        reference.title,
+        reference.type,
+        reference.review_status,
+        reference.evidence_strength,
+        reference.ai_relevance,
+        reference.repository_url,
+        reference.project_url,
+        problem ? problem.id : '',
+        problem ? problem.title : '',
+        problem ? problem.lane : '',
+        problem ? problem.status : ''
+      ].join(' ').toLowerCase();
+    }
+
+    function sourceLink(reference) {
+      const url = reference.repository_url || reference.project_url;
+      if (!url) {
+        return '<span class="muted">Needs source review</span>';
+      }
+      return `<a href="${escapeHtml(url)}">Source</a>`;
+    }
+
     function render() {
-      const matches = state.problems.filter((problem) => {
+      const problemMatches = state.problems.filter((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
         const queryOk = !state.search || problemHaystack(problem, related).includes(state.search.toLowerCase());
         return queryOk
@@ -175,13 +250,21 @@
           && (state.status === 'all' || problem.status === state.status)
           && (state.evidence === 'all' || problem.evidence_strength === state.evidence);
       });
+      const referenceMatches = state.contributions.filter((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        const queryOk = !state.search || referenceHaystack(reference, problem).includes(state.search.toLowerCase());
+        return queryOk
+          && (!problem || state.area === 'all' || problem.lane === state.area)
+          && (!problem || state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || reference.evidence_strength === state.evidence);
+      });
       byId('problemCount').textContent = state.problems.length;
       byId('referenceCount').textContent = state.contributions.length;
       byId('areaCount').textContent = unique(state.problems, 'lane').length;
-      byId('matchCount').textContent = matches.length;
-      byId('problemRows').innerHTML = matches.map((problem) => {
+      byId('matchCount').textContent = problemMatches.length + referenceMatches.length;
+      byId('problemRows').innerHTML = problemMatches.map((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
-        const references = related.length ? related.map((item) => escapeHtml(item.title)).join('<br>') : '<span class="pill">None yet</span>';
+        const references = related.length ? related.map((item) => `<a href="#reference-${escapeHtml(item.id)}">${escapeHtml(item.title)}</a>`).join('<br>') : '<span class="pill">None yet</span>';
         return `<tr>
           <td class="id">${escapeHtml(problem.id)}</td>
           <td><div class="problem-title">${escapeHtml(problem.title)}</div><span class="pill">AI relevance: ${escapeHtml(labelFor(problem.ai_relevance))}</span></td>
@@ -191,7 +274,20 @@
           <td>${escapeHtml(problem.evidence_strength)}</td>
           <td>${references}</td>
         </tr>`;
-      }).join('');
+      }).join('') || '<tr><td colspan="7">No matching problems.</td></tr>';
+      byId('referenceRows').innerHTML = referenceMatches.map((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        const problemTitle = problem ? `${problem.id}: ${problem.title}` : reference.problem_id;
+        return `<tr id="reference-${escapeHtml(reference.id)}">
+          <td><div class="reference-title">${escapeHtml(reference.title)}</div><span class="muted">${escapeHtml(reference.id)}</span></td>
+          <td>${problem ? `<a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/${escapeHtml(problem.path)}">${escapeHtml(problemTitle)}</a>` : escapeHtml(problemTitle)}</td>
+          <td>${problem ? escapeHtml(labelFor(problem.lane)) : '<span class="muted">Unknown</span>'}</td>
+          <td>${escapeHtml(typeLabels[reference.type] || labelFor(reference.type))}</td>
+          <td>${escapeHtml(reviewLabels[reference.review_status] || labelFor(reference.review_status))}</td>
+          <td>${escapeHtml(reference.evidence_strength)}</td>
+          <td>${sourceLink(reference)}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="7">No matching tracked references.</td></tr>';
     }
 
     async function init() {
