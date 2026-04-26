@@ -36,21 +36,21 @@
 <body>
   <main>
     <header>
-      <p class="eyebrow">Public reference layer</p>
+      <p class="eyebrow">Open energy register</p>
       <h1>Open Energy Problems</h1>
-      <p>AI x OSS reference problems for software-defined energy markets.</p>
+      <p>A Germany-first register of energy-market and grid problems, tracking open benchmarks, datasets, models, methods, and gaps.</p>
     </header>
 
     <section class="controls" aria-label="Problem filters">
-      <label>Lane<select id="lane"></select></label>
+      <label>Area<select id="lane"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
     </section>
 
     <section class="summary">
       <div><strong id="problemCount">0</strong><span>problems</span></div>
-      <div><strong id="contributionCount">0</strong><span>contributions</span></div>
-      <div><strong id="shownCount">0</strong><span>shown</span></div>
+      <div><strong id="contributionCount">0</strong><span>tracked references</span></div>
+      <div><strong id="matchCount">0</strong><span>matches</span></div>
     </section>
 
     <section class="grid" id="grid"></section>
@@ -60,10 +60,22 @@
     const state = { lane: 'all', status: 'all', evidence: 'all', problems: [], contributions: [] };
     const byId = (id) => document.getElementById(id);
     const unique = (rows, field) => Array.from(new Set(rows.map((row) => row[field]))).sort();
+    const labelFor = (value) => String(value)
+      .replace(/_/g, ' ')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+    const statusLabels = {
+      OPEN: 'Open',
+      PARTIAL: 'Partial',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_AVAILABLE: 'Reference available',
+      SOLVED_FOR_SCOPE: 'Solved for scope'
+    };
 
     function fillSelect(id, values) {
       const select = byId(id);
-      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${value}">${value}</option>`).join('');
+      const label = id === 'status' ? (value) => statusLabels[value] || labelFor(value) : labelFor;
+      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${value}">${label(value)}</option>`).join('');
       select.addEventListener('change', () => {
         state[id] = select.value;
         render();
@@ -71,22 +83,22 @@
     }
 
     function render() {
-      const shown = state.problems.filter((problem) =>
+      const matches = state.problems.filter((problem) =>
         (state.lane === 'all' || problem.lane === state.lane) &&
         (state.status === 'all' || problem.status === state.status) &&
         (state.evidence === 'all' || problem.evidence_strength === state.evidence)
       );
       byId('problemCount').textContent = state.problems.length;
       byId('contributionCount').textContent = state.contributions.length;
-      byId('shownCount').textContent = shown.length;
-      byId('grid').innerHTML = shown.map((problem) => {
+      byId('matchCount').textContent = matches.length;
+      byId('grid').innerHTML = matches.map((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
         return `<article class="card">
-          <div class="cardTop"><span>${problem.id}</span><span>O${problem.openness_level} / ${problem.evidence_strength}</span></div>
+          <div class="cardTop"><span>${problem.id}</span><span>Open level ${problem.openness_level} / Evidence ${problem.evidence_strength}</span></div>
           <h2>${problem.title}</h2>
-          <p>${problem.lane} · ${problem.status} · ${problem.geography}</p>
-          <div class="chips"><span>AI ${problem.ai_relevance}</span><span>Risk ${problem.market_integrity_risk}</span></div>
-          <h3>Related artefacts</h3>
+          <p>${labelFor(problem.lane)} · ${statusLabels[problem.status] || labelFor(problem.status)} · ${problem.geography}</p>
+          <div class="chips"><span>AI relevance: ${labelFor(problem.ai_relevance)}</span><span>Market-integrity risk: ${labelFor(problem.market_integrity_risk)}</span></div>
+          <h3>Tracked references</h3>
           <ul>${related.map((item) => `<li>${item.title}</li>`).join('')}</ul>
         </article>`;
       }).join('');

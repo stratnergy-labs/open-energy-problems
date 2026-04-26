@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Energy Problems Status</title>
+  <title>Open Energy Problems</title>
   <style>
     :root {
       color-scheme: light;
@@ -51,40 +51,40 @@
 <body>
   <main>
     <header>
-      <p class="eyebrow">Public reference layer</p>
-      <h1>Open Energy Problems Status</h1>
+      <p class="eyebrow">Open energy register</p>
+      <h1>Open Energy Problems</h1>
       <p class="lede">A Germany-first public register of energy-market and grid problems, tracking how far each has an open benchmark, schema, dataset, simulator, replay package, source ledger, validated method, or public disclosure.</p>
       <nav>
         <a href="https://github.com/stratnergy-labs/open-energy-problems">GitHub repository</a>
         <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/problems">Problem cards</a>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/contributions">Contribution cards</a>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/docs/seed-fit-review.md">Seed fit review</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/contributions">Tracked references</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/docs/seed-fit-review.md">Scope review</a>
       </nav>
     </header>
 
     <section class="context" aria-label="Project context">
       <section>
-        <h2>Purpose</h2>
-        <p>This is a problem register, not a project directory. It starts from the questions that matter for software-defined energy systems, then tracks the open artefacts that make progress inspectable.</p>
-        <p>Germany is the first anchor because its grid and market design expose many hard problems at once: renewables, storage economics, flexibility evidence, balancing markets, open registries, and grid stress.</p>
+        <h2>Why It Exists</h2>
+        <p>The German grid is becoming a stress test for software-defined energy: storage economics, congestion, balancing markets, demand response, asset data, and flexibility claims all need better public evidence.</p>
+        <p>This register starts with those problems and asks what open references already exist, what they prove, and what is still missing.</p>
       </section>
       <section>
         <h2>How To Read It</h2>
-        <p>Green means a useful reference artefact exists for a stated scope. Yellow means partial progress or public disclosure. Red means no accepted reference artefact is listed yet.</p>
-        <p>The GitHub repository remains the public evidence layer. Stratnergy essays and newsletters may interpret what the map means, but the public register should stand on its own.</p>
+        <p>Green means a useful reference exists for a stated scope. Yellow means partial progress or public disclosure. Red means no accepted open reference is listed yet.</p>
+        <p>The table is deliberately conservative: it tracks inspectable evidence, not hype, vendor claims, or live trading logic.</p>
       </section>
     </section>
 
     <section class="stats" aria-label="Repository statistics">
       <div class="stat"><strong id="problemCount">0</strong><span>problems</span></div>
-      <div class="stat"><strong id="contributionCount">0</strong><span>contributions</span></div>
-      <div class="stat"><strong id="laneCount">0</strong><span>lanes</span></div>
-      <div class="stat"><strong id="shownCount">0</strong><span>shown</span></div>
+      <div class="stat"><strong id="referenceCount">0</strong><span>tracked references</span></div>
+      <div class="stat"><strong id="areaCount">0</strong><span>areas</span></div>
+      <div class="stat"><strong id="matchCount">0</strong><span>matches</span></div>
     </section>
 
     <section class="controls" aria-label="Problem filters">
       <label>Search<input id="search" type="search" placeholder="battery, forecast, grid"></label>
-      <label>Lane<select id="lane"></select></label>
+      <label>Area<select id="area"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
     </section>
@@ -94,11 +94,11 @@
         <tr>
           <th>ID</th>
           <th>Problem</th>
-          <th>Lane</th>
+          <th>Area</th>
           <th>Status</th>
-          <th>Open</th>
+          <th>Open Solution</th>
           <th>Evidence</th>
-          <th>Artefacts</th>
+          <th>Tracked References</th>
         </tr>
       </thead>
       <tbody id="problemRows"></tbody>
@@ -108,16 +108,16 @@
       <section>
         <h2>Status</h2>
         <ul>
-          <li>OPEN: problem stated, no accepted reference artefact.</li>
-          <li>PARTIAL: meaningful progress, remaining gaps.</li>
-          <li>REFERENCE_AVAILABLE: useful public reference exists.</li>
-          <li>SOLVED_FOR_SCOPE: reference artefact exists for a narrow stated scope.</li>
+          <li>Open: problem stated, no accepted open reference.</li>
+          <li>Partial: meaningful progress, but important gaps remain.</li>
+          <li>Reference available: useful public reference exists.</li>
+          <li>Solved for scope: open reference exists for a narrow stated scope.</li>
         </ul>
       </section>
       <section>
-        <h2>Openness</h2>
+        <h2>Open-Solution Level</h2>
         <ul>
-          <li>0: closed.</li>
+          <li>0: no accepted open reference.</li>
           <li>3: public methodology.</li>
           <li>4: open code.</li>
           <li>5: reproducible benchmark.</li>
@@ -137,14 +137,25 @@
   </main>
 
   <script>
-    const state = { problems: [], contributions: [], search: '', lane: 'all', status: 'all', evidence: 'all' };
+    const state = { problems: [], contributions: [], search: '', area: 'all', status: 'all', evidence: 'all' };
     const byId = (id) => document.getElementById(id);
     const unique = (rows, field) => Array.from(new Set(rows.map((row) => row[field]))).filter(Boolean).sort();
     const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+    const labelFor = (value) => String(value)
+      .replace(/_/g, ' ')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+    const statusLabels = {
+      OPEN: 'Open',
+      PARTIAL: 'Partial',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_AVAILABLE: 'Reference available',
+      SOLVED_FOR_SCOPE: 'Solved for scope'
+    };
 
-    function fillSelect(id, values) {
+    function fillSelect(id, values, label = labelFor) {
       const select = byId(id);
-      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join('');
+      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(label(value))}</option>`).join('');
       select.addEventListener('change', () => {
         state[id] = select.value;
         render();
@@ -156,29 +167,29 @@
     }
 
     function render() {
-      const shown = state.problems.filter((problem) => {
+      const matches = state.problems.filter((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
         const queryOk = !state.search || problemHaystack(problem, related).includes(state.search.toLowerCase());
         return queryOk
-          && (state.lane === 'all' || problem.lane === state.lane)
+          && (state.area === 'all' || problem.lane === state.area)
           && (state.status === 'all' || problem.status === state.status)
           && (state.evidence === 'all' || problem.evidence_strength === state.evidence);
       });
       byId('problemCount').textContent = state.problems.length;
-      byId('contributionCount').textContent = state.contributions.length;
-      byId('laneCount').textContent = unique(state.problems, 'lane').length;
-      byId('shownCount').textContent = shown.length;
-      byId('problemRows').innerHTML = shown.map((problem) => {
+      byId('referenceCount').textContent = state.contributions.length;
+      byId('areaCount').textContent = unique(state.problems, 'lane').length;
+      byId('matchCount').textContent = matches.length;
+      byId('problemRows').innerHTML = matches.map((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
-        const artefacts = related.length ? related.map((item) => escapeHtml(item.title)).join('<br>') : '<span class="pill">None yet</span>';
+        const references = related.length ? related.map((item) => escapeHtml(item.title)).join('<br>') : '<span class="pill">None yet</span>';
         return `<tr>
           <td class="id">${escapeHtml(problem.id)}</td>
-          <td><div class="problem-title">${escapeHtml(problem.title)}</div><span class="pill">AI ${escapeHtml(problem.ai_relevance)}</span></td>
-          <td>${escapeHtml(problem.lane)}</td>
-          <td>${escapeHtml(problem.status)}</td>
-          <td>O${escapeHtml(problem.openness_level)}</td>
+          <td><div class="problem-title">${escapeHtml(problem.title)}</div><span class="pill">AI relevance: ${escapeHtml(labelFor(problem.ai_relevance))}</span></td>
+          <td>${escapeHtml(labelFor(problem.lane))}</td>
+          <td>${escapeHtml(statusLabels[problem.status] || labelFor(problem.status))}</td>
+          <td>Level ${escapeHtml(problem.openness_level)}</td>
           <td>${escapeHtml(problem.evidence_strength)}</td>
-          <td>${artefacts}</td>
+          <td>${references}</td>
         </tr>`;
       }).join('');
     }
@@ -190,8 +201,8 @@
       ]);
       state.problems = problems;
       state.contributions = contributions;
-      fillSelect('lane', unique(problems, 'lane'));
-      fillSelect('status', unique(problems, 'status'));
+      fillSelect('area', unique(problems, 'lane'));
+      fillSelect('status', unique(problems, 'status'), (value) => statusLabels[value] || labelFor(value));
       fillSelect('evidence', unique(problems, 'evidence_strength'));
       byId('search').addEventListener('input', (event) => {
         state.search = event.target.value;
