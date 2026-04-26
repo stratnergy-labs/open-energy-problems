@@ -42,6 +42,14 @@ def write_csv(path: Path, rows: list[dict]) -> None:
             writer.writerow({field: scalar_for_csv(row.get(field)) for field in fieldnames})
 
 
+def mirror_site_data(problems: list[dict], contributions: list[dict]) -> None:
+    data_dir = ROOT / "docs" / "data"
+    if not data_dir.exists():
+        return
+    write_json(data_dir / "problems.json", problems)
+    write_json(data_dir / "contributions.json", contributions)
+
+
 def main() -> int:
     run_validation()
     index_dir = ROOT / "index"
@@ -57,6 +65,7 @@ def main() -> int:
     write_csv(index_dir / "contributions.csv", contributions)
     write_csv(index_dir / "artefacts.csv", contributions)
     write_csv(index_dir / "projects.csv", contributions)
+    mirror_site_data(problems, contributions)
     print(f"Wrote {len(problems)} problems and {len(contributions)} contributions to index/.")
     return 0
 

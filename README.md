@@ -27,7 +27,15 @@ The public repository must remain useful without a subscription. Paid surfaces m
 - AI attempt logs, source ledgers, reviews, and benchmark notes.
 - Generated indexes in `index/`.
 - JSON schemas in `schemas/`.
-- A minimal static preview in `site/`.
+- A GitHub Pages status explorer in `docs/`.
+
+## Status Page
+
+The public status page is intended to live at:
+
+<https://stratnergy-labs.github.io/open-energy-problems/>
+
+It reads generated JSON from `docs/data/` and gives a Tao-style public table for problem status, evidence strength, openness, and related artefacts.
 
 ## Start Here
 
