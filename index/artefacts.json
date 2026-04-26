@@ -18,6 +18,24 @@
     "type": "SIMULATOR"
   },
   {
+    "ai_relevance": "high",
+    "body": "# bundesAPI Marktstammdaten API\n\n## Summary\n\nOpen documentation and API-description work for public Marktstammdatenregister access.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-701` as an API-description and access-support reference for MaStR data.\n\n## Caveats\n\n- Licence status needs maintainer review.\n- This card should not be treated as an official Bundesnetzagentur source unless that status is independently verified.",
+    "evidence_strength": "C",
+    "id": "bundesapi-marktstammdaten-api",
+    "last_checked": "2026-04-26",
+    "license_code": null,
+    "license_data": null,
+    "maturity": "PARTIAL",
+    "openness_level": 4,
+    "path": "contributions/EP-701/bundesapi-marktstammdaten-api.md",
+    "problem_id": "EP-701",
+    "project_url": "https://marktstammdaten.api.bund.dev/",
+    "repository_url": "https://github.com/bundesAPI/marktstammdaten-api",
+    "review_status": "needs_review",
+    "title": "bundesAPI Marktstammdaten API",
+    "type": "SCHEMA"
+  },
+  {
     "ai_relevance": "low",
     "body": "# enspired Portfolio Performance\n\n## Summary\n\nInitial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-002` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.\n\n## Caveats\n\n- Placeholder URLs are intentional until a maintainer verifies canonical sources.\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
     "evidence_strength": "C",
@@ -108,6 +126,24 @@
     "type": "METHODOLOGY"
   },
   {
+    "ai_relevance": "medium",
+    "body": "# Marktstammdatenregister.dev\n\n## Summary\n\nPublic Datasette-style access layer for exploring and querying Marktstammdatenregister data.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-701` as an alternative public access interface for German energy asset registry data.\n\n## Caveats\n\n- Licence status and source-update process need maintainer review.\n- This card records data-access relevance, not endorsement or completeness.",
+    "evidence_strength": "C",
+    "id": "marktstammdatenregister-dev",
+    "last_checked": "2026-04-26",
+    "license_code": null,
+    "license_data": null,
+    "maturity": "PARTIAL",
+    "openness_level": 3,
+    "path": "contributions/EP-701/marktstammdatenregister-dev.md",
+    "problem_id": "EP-701",
+    "project_url": "https://marktstammdatenregister.dev/",
+    "repository_url": "https://github.com/marktstammdatenregister-dev",
+    "review_status": "needs_review",
+    "title": "Marktstammdatenregister.dev",
+    "type": "DATASET"
+  },
+  {
     "ai_relevance": "high",
     "body": "# MaStR MCP Server\n\n## Summary\n\nMCP server for read access to the German Marktstammdatenregister. The project is tracked here because it makes public energy asset data more directly usable by AI assistants and agent workflows.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-701` as a candidate connector for AI-accessible energy asset registries.\n\n## Caveats\n\n- Code licence and data licence must be reviewed separately.\n- API credentials and MaStR data reuse terms must be handled outside this repository.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
     "evidence_strength": "B",
@@ -124,6 +160,24 @@
     "review_status": "needs_review",
     "title": "MaStR MCP Server",
     "type": "MCP_CONNECTOR"
+  },
+  {
+    "ai_relevance": "high",
+    "body": "# Official Marktstammdatenregister\n\n## Summary\n\nOfficial German electricity and gas market master-data register operated by the Bundesnetzagentur.\n\n## Fit To Problem\n\nThis is the authoritative input source for MaStR access tools and registry connectors tracked under `EP-701`.\n\n## Caveats\n\n- Licence and reuse status must be reviewed from official source terms before derived data is republished.\n- This card records the public source, not a claim that all MaStR data can be freely reused without restrictions.",
+    "evidence_strength": "C",
+    "id": "official-mastr-register",
+    "last_checked": "2026-04-26",
+    "license_code": null,
+    "license_data": null,
+    "maturity": "REFERENCE_AVAILABLE",
+    "openness_level": 3,
+    "path": "contributions/EP-701/official-mastr-register.md",
+    "problem_id": "EP-701",
+    "project_url": "https://www.marktstammdatenregister.de/MaStR",
+    "repository_url": null,
+    "review_status": "needs_review",
+    "title": "Official Marktstammdatenregister",
+    "type": "DATASET"
   },
   {
     "ai_relevance": "medium",

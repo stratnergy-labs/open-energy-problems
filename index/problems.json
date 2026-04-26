@@ -365,7 +365,10 @@
     "path": "problems/EP-701-ai-accessible-energy-asset-registries.md",
     "public_post_url": null,
     "related_contributions": [
+      "official-mastr-register",
       "open-mastr",
+      "bundesapi-marktstammdaten-api",
+      "marktstammdatenregister-dev",
       "mastr-mcp-server"
     ],
     "status": "PARTIAL",

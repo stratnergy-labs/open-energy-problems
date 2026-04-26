@@ -82,6 +82,7 @@ The public repository must remain useful without a subscription. Stratnergy prod
 
 - Problem cards in `problems/`.
 - Tracked reference cards in `contributions/`.
+- Project relationship cards in `relationships/`.
 - AI attempt logs, source ledgers, reviews, and benchmark notes.
 - Generated indexes in `index/`.
 - JSON schemas in `schemas/`.
@@ -108,6 +109,22 @@ Generated files:
 - `index/problems.csv`
 - `index/contributions.json`
 - `index/contributions.csv`
+- `index/relationships.json`
+- `index/relationships.csv`
+
+## Relationship Map
+
+The register distinguishes problem-to-project links from project-to-project
+relationships.
+
+Problem cards say which references are relevant to a public problem.
+Relationship cards say how two tracked references relate to each other, for
+example `uses_component`, `uses_data_source`, `wraps_project`, `documents_api`,
+`shared_data_source`, or `alternative_implementation`.
+
+Do not mark one project as using another unless the source is verified. When
+the relationship is only contextual, use a weaker type such as
+`shared_data_source` or `same_problem_context`.
 
 ## Guardrails
 

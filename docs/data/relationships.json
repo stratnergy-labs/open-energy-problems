@@ -1,0 +1,79 @@
+[
+  {
+    "body": "# bundesAPI Marktstammdaten API and Official MaStR\n\n## Relationship\n\nThe bundesAPI project is tracked as documentation/API-description work around Marktstammdatenregister access paths.\n\n## Caveat\n\nThis relationship records API documentation relevance. It does not assert that the project is an official Bundesnetzagentur publication.",
+    "evidence_strength": "C",
+    "id": "rel-bundesapi-marktstammdaten-api-official-mastr-register",
+    "last_checked": "2026-04-26",
+    "path": "relationships/rel-bundesapi-marktstammdaten-api-official-mastr-register.md",
+    "relationship_type": "documents_api",
+    "review_status": "needs_review",
+    "source_id": "bundesapi-marktstammdaten-api",
+    "target_id": "official-mastr-register"
+  },
+  {
+    "body": "# Marktstammdatenregister.dev and Official MaStR\n\n## Relationship\n\nMarktstammdatenregister.dev is tracked as an alternative public access and exploration layer for MaStR data.\n\n## Caveat\n\nThis relationship records source-data dependence. Update cadence, licence status, and completeness require review.",
+    "evidence_strength": "C",
+    "id": "rel-marktstammdatenregister-dev-official-mastr-register",
+    "last_checked": "2026-04-26",
+    "path": "relationships/rel-marktstammdatenregister-dev-official-mastr-register.md",
+    "relationship_type": "uses_data_source",
+    "review_status": "needs_review",
+    "source_id": "marktstammdatenregister-dev",
+    "target_id": "official-mastr-register"
+  },
+  {
+    "body": "# MaStR MCP Server and bundesAPI Marktstammdaten API\n\n## Relationship\n\nBoth projects are tracked around AI- and developer-accessible MaStR queries. The API-description work may be useful context for connector review.\n\n## Caveat\n\nThis is a review candidate relationship, not a verified dependency or integration.",
+    "evidence_strength": "D",
+    "id": "rel-mastr-mcp-server-bundesapi-marktstammdaten-api",
+    "last_checked": "2026-04-26",
+    "path": "relationships/rel-mastr-mcp-server-bundesapi-marktstammdaten-api.md",
+    "relationship_type": "integration_candidate",
+    "review_status": "needs_review",
+    "source_id": "mastr-mcp-server",
+    "target_id": "bundesapi-marktstammdaten-api"
+  },
+  {
+    "body": "# MaStR MCP Server and Marktstammdatenregister.dev\n\n## Relationship\n\nBoth projects are tracked as different public access patterns for MaStR data: one as an MCP connector and one as a Datasette-style exploration layer.\n\n## Caveat\n\nThis relationship records alternative access patterns. It does not imply equivalent scope or functionality.",
+    "evidence_strength": "D",
+    "id": "rel-mastr-mcp-server-marktstammdatenregister-dev",
+    "last_checked": "2026-04-26",
+    "path": "relationships/rel-mastr-mcp-server-marktstammdatenregister-dev.md",
+    "relationship_type": "alternative_implementation",
+    "review_status": "needs_review",
+    "source_id": "mastr-mcp-server",
+    "target_id": "marktstammdatenregister-dev"
+  },
+  {
+    "body": "# MaStR MCP Server and Official MaStR\n\n## Relationship\n\nMaStR MCP Server is tracked as a connector that reads from public and credentialed Marktstammdatenregister access paths.\n\n## Caveat\n\nThis relationship records input-source dependence. It does not assert any ownership, endorsement, or official status.",
+    "evidence_strength": "C",
+    "id": "rel-mastr-mcp-server-official-mastr-register",
+    "last_checked": "2026-04-26",
+    "path": "relationships/rel-mastr-mcp-server-official-mastr-register.md",
+    "relationship_type": "uses_data_source",
+    "review_status": "needs_review",
+    "source_id": "mastr-mcp-server",
+    "target_id": "official-mastr-register"
+  },
+  {
+    "body": "# MaStR MCP Server and open-MaStR\n\n## Relationship\n\nBoth projects are tracked under `EP-701` because they improve developer access to the German Marktstammdatenregister.\n\n## Caveat\n\nThis relationship records shared registry context. It does not claim that MaStR MCP Server depends on, reuses, or wraps open-MaStR code.",
+    "evidence_strength": "C",
+    "id": "rel-mastr-mcp-server-open-mastr",
+    "last_checked": "2026-04-26",
+    "path": "relationships/rel-mastr-mcp-server-open-mastr.md",
+    "relationship_type": "shared_data_source",
+    "review_status": "needs_review",
+    "source_id": "mastr-mcp-server",
+    "target_id": "open-mastr"
+  },
+  {
+    "body": "# open-MaStR and Official MaStR\n\n## Relationship\n\nopen-MaStR is tracked as a package for downloading, accessing, and processing official Marktstammdatenregister data.\n\n## Caveat\n\nThis relationship records source-data dependence. It does not change the need to review official MaStR data reuse terms.",
+    "evidence_strength": "C",
+    "id": "rel-open-mastr-official-mastr-register",
+    "last_checked": "2026-04-26",
+    "path": "relationships/rel-open-mastr-official-mastr-register.md",
+    "relationship_type": "uses_data_source",
+    "review_status": "needs_review",
+    "source_id": "open-mastr",
+    "target_id": "official-mastr-register"
+  }
+]

@@ -18,7 +18,10 @@ market_integrity_risk: low
 last_updated: 2026-04-26
 maintainer: stratnergy
 related_contributions:
+  - official-mastr-register
   - open-mastr
+  - bundesapi-marktstammdaten-api
+  - marktstammdatenregister-dev
   - mastr-mcp-server
 public_post_url: null
 paid_analysis_url: null

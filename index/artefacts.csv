@@ -1,11 +1,14 @@
 ai_relevance,evidence_strength,id,last_checked,license_code,license_data,maturity,openness_level,path,problem_id,project_url,repository_url,review_status,title,type
 medium,B,assume,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-401/assume.md,EP-401,,,needs_review,ASSUME,SIMULATOR
+high,C,bundesapi-marktstammdaten-api,2026-04-26,,,PARTIAL,4,contributions/EP-701/bundesapi-marktstammdaten-api.md,EP-701,https://marktstammdaten.api.bund.dev/,https://github.com/bundesAPI/marktstammdaten-api,needs_review,bundesAPI Marktstammdaten API,SCHEMA
 low,C,enspired-portfolio-performance,2026-04-26,,,PUBLIC_DISCLOSURE,2,contributions/EP-002/enspired-portfolio-performance.md,EP-002,,,needs_review,enspired Portfolio Performance,PUBLIC_DISCLOSURE
 high,C,flexmeasures,2026-04-26,,,PARTIAL,4,contributions/EP-601/flexmeasures.md,EP-601,,,needs_review,FlexMeasures,PARTIAL_PROGRESS
 medium,B,gigastorage-battery-trading-benchmark,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-003/gigastorage-battery-trading-benchmark.md,EP-003,,,needs_review,GigaStorage Battery Trading Benchmark,BENCHMARK
 low,B,isea-battery-revenue-index,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-001/isea-battery-revenue-index.md,EP-001,,,needs_review,ISEA Battery Revenue Index,REFERENCE_SOLUTION
 medium,B,lf-energy-power-grid-model,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-501/lf-energy-power-grid-model.md,EP-501,,,needs_review,LF Energy Power Grid Model,METHODOLOGY
+medium,C,marktstammdatenregister-dev,2026-04-26,,,PARTIAL,3,contributions/EP-701/marktstammdatenregister-dev.md,EP-701,https://marktstammdatenregister.dev/,https://github.com/marktstammdatenregister-dev,needs_review,Marktstammdatenregister.dev,DATASET
 high,B,mastr-mcp-server,2026-04-26,MIT,,REFERENCE_AVAILABLE,4,contributions/EP-701/mastr-mcp-server.md,EP-701,,https://github.com/UliRCS/mastr-mcp-server,needs_review,MaStR MCP Server,MCP_CONNECTOR
+high,C,official-mastr-register,2026-04-26,,,REFERENCE_AVAILABLE,3,contributions/EP-701/official-mastr-register.md,EP-701,https://www.marktstammdatenregister.de/MaStR,,needs_review,Official Marktstammdatenregister,DATASET
 medium,B,open-energy-ontology,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-801/open-energy-ontology.md,EP-801,,,needs_review,Open Energy Ontology,METHODOLOGY
 high,B,open-mastr,2026-04-26,AGPL-3.0-or-later,DL-DE-BY-2.0,REFERENCE_AVAILABLE,4,contributions/EP-701/open-mastr.md,EP-701,https://open-mastr.readthedocs.io/en/latest/,https://github.com/OpenEnergyPlatform/open-MaStR,needs_review,open-MaStR,DATASET
 medium,C,openems,2026-04-26,,,PARTIAL,4,contributions/EP-601/openems.md,EP-601,,,needs_review,OpenEMS,PARTIAL_PROGRESS

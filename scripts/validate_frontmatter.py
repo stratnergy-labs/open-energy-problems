@@ -17,10 +17,26 @@ CONTRIBUTION_REQUIRED = [
     "id", "problem_id", "title", "type", "openness_level", "evidence_strength",
     "maturity", "ai_relevance", "review_status", "last_checked",
 ]
+RELATIONSHIP_REQUIRED = [
+    "id", "source_id", "target_id", "relationship_type", "review_status",
+    "evidence_strength", "last_checked",
+]
 
 VALID_EVIDENCE = {"A", "B", "C", "D", "E"}
 VALID_RELEVANCE = {"low", "medium", "high"}
 VALID_RISK = {"low", "medium", "high"}
+VALID_RELATIONSHIP_TYPES = {
+    "uses_component",
+    "uses_data_source",
+    "wraps_project",
+    "extends_project",
+    "documents_api",
+    "shared_data_source",
+    "shared_standard",
+    "same_problem_context",
+    "alternative_implementation",
+    "integration_candidate",
+}
 
 
 def validate_problem(path: Path, data: dict) -> list[str]:
@@ -56,10 +72,22 @@ def validate_contribution(path: Path, data: dict) -> list[str]:
     return errors
 
 
+def validate_relationship(path: Path, data: dict) -> list[str]:
+    errors = require_fields(path, data, RELATIONSHIP_REQUIRED)
+    if data.get("evidence_strength") not in VALID_EVIDENCE:
+        errors.append(f"{path}: evidence_strength must be A-E")
+    if data.get("relationship_type") not in VALID_RELATIONSHIP_TYPES:
+        errors.append(f"{path}: relationship_type is not recognized")
+    if data.get("source_id") == data.get("target_id"):
+        errors.append(f"{path}: source_id and target_id must differ")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     problem_ids: set[str] = set()
     contribution_ids: set[str] = set()
+    relationship_ids: set[str] = set()
     problem_related: dict[str, list[str]] = {}
 
     for path in iter_markdown(ROOT / "problems"):
@@ -82,6 +110,18 @@ def main() -> int:
         if data.get("problem_id") not in problem_ids:
             errors.append(f"{path}: unknown problem_id {data.get('problem_id')}")
 
+    relationships_root = ROOT / "relationships"
+    if relationships_root.exists():
+        for path in iter_markdown(relationships_root):
+            data, _ = parse_markdown(path)
+            errors.extend(validate_relationship(path, data))
+            if data.get("id") in relationship_ids:
+                errors.append(f"{path}: duplicate relationship id {data.get('id')}")
+            relationship_ids.add(data.get("id"))
+            for field in ("source_id", "target_id"):
+                if data.get(field) not in contribution_ids:
+                    errors.append(f"{path}: unknown {field} {data.get(field)}")
+
     for problem_id, related_ids in problem_related.items():
         for contribution_id in related_ids:
             if contribution_id not in contribution_ids:
@@ -92,7 +132,11 @@ def main() -> int:
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
-    print(f"Validated {len(problem_ids)} problems and {len(contribution_ids)} contributions.")
+    print(
+        f"Validated {len(problem_ids)} problems, "
+        f"{len(contribution_ids)} contributions, and "
+        f"{len(relationship_ids)} relationships."
+    )
     return 0
 
 

@@ -42,12 +42,13 @@ def write_csv(path: Path, rows: list[dict]) -> None:
             writer.writerow({field: scalar_for_csv(row.get(field)) for field in fieldnames})
 
 
-def mirror_site_data(problems: list[dict], contributions: list[dict]) -> None:
+def mirror_site_data(problems: list[dict], contributions: list[dict], relationships: list[dict]) -> None:
     data_dir = ROOT / "docs" / "data"
     if not data_dir.exists():
         return
     write_json(data_dir / "problems.json", problems)
     write_json(data_dir / "contributions.json", contributions)
+    write_json(data_dir / "relationships.json", relationships)
 
 
 def main() -> int:
@@ -56,17 +57,24 @@ def main() -> int:
     index_dir.mkdir(exist_ok=True)
     problems = load_cards("problems")
     contributions = load_cards("contributions")
+    relationships = load_cards("relationships") if (ROOT / "relationships").exists() else []
     write_json(index_dir / "problems.json", problems)
     write_json(index_dir / "contributions.json", contributions)
+    write_json(index_dir / "relationships.json", relationships)
     write_json(index_dir / "artefacts.json", contributions)
     write_json(index_dir / "projects.json", contributions)
     write_json(index_dir / "ai_attempts.json", [])
     write_csv(index_dir / "problems.csv", problems)
     write_csv(index_dir / "contributions.csv", contributions)
+    write_csv(index_dir / "relationships.csv", relationships)
     write_csv(index_dir / "artefacts.csv", contributions)
     write_csv(index_dir / "projects.csv", contributions)
-    mirror_site_data(problems, contributions)
-    print(f"Wrote {len(problems)} problems and {len(contributions)} contributions to index/.")
+    mirror_site_data(problems, contributions, relationships)
+    print(
+        f"Wrote {len(problems)} problems, "
+        f"{len(contributions)} contributions, and "
+        f"{len(relationships)} relationships to index/."
+    )
     return 0
 
 

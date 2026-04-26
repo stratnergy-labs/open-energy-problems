@@ -20,7 +20,7 @@
     label { display: grid; gap: 6px; font-size: 12px; text-transform: uppercase; color: #5e6b62; }
     select, input { min-width: 190px; border: 1px solid #c8c0b0; background: #fffefa; border-radius: 6px; padding: 10px; color: #18221f; }
     input { min-width: 280px; }
-    .summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
     .summary div { border-top: 3px solid #2f6358; background: #fffefa; padding: 16px; }
     .summary strong { display: block; font-size: 30px; }
     .summary span { color: #5e6b62; }
@@ -35,6 +35,24 @@
     .chips span { border: 1px solid #c8c0b0; border-radius: 999px; padding: 5px 8px; }
     .card a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
     .muted { color: #5e6b62; }
+    .networkPanel { background: #fffefa; border: 1px solid #d9d2c3; border-radius: 8px; padding: 12px; overflow-x: auto; }
+    .networkPanel svg { display: block; width: 100%; height: auto; }
+    .networkEdge { fill: none; stroke: #b9c4ba; stroke-width: 1.4; }
+    .networkEdge.relationship { stroke: #9f6b49; stroke-dasharray: 6 5; }
+    .networkNode circle { stroke: #fffefa; stroke-width: 2; }
+    .networkNode.problem circle { fill: #2f6358; }
+    .networkNode.reference circle { fill: #b8874f; }
+    .networkNode text { fill: #18221f; font-size: 12px; dominant-baseline: middle; }
+    .networkNode .nodeId { fill: #5e6b62; font-size: 10px; text-transform: uppercase; }
+    .networkNode .nodeTitle { font-weight: 700; }
+    .networkLabelBox { fill: #fffefa; stroke: #d9d2c3; stroke-width: 1; }
+    .networkLegend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; color: #5e6b62; font-size: 13px; }
+    .legendSwatch { display: inline-flex; align-items: center; gap: 6px; }
+    .legendSwatch::before { content: ""; display: inline-block; width: 18px; height: 3px; background: #b9c4ba; }
+    .legendSwatch.relationship::before { background: #9f6b49; border-top: 1px dashed #9f6b49; height: 0; }
+    .networkActions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 10px; }
+    button { border: 1px solid #2f6358; border-radius: 6px; background: #2f6358; color: #fffefa; padding: 9px 12px; font: inherit; cursor: pointer; }
+    .networkMode { margin: 0; color: #5e6b62; font-size: 14px; }
     @media (max-width: 720px) { .summary { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -56,7 +74,24 @@
     <section class="summary">
       <div><strong id="problemCount">0</strong><span>problems</span></div>
       <div><strong id="contributionCount">0</strong><span>tracked references</span></div>
+      <div><strong id="relationshipCount">0</strong><span>relationships</span></div>
       <div><strong id="matchCount">0</strong><span>current matches</span></div>
+    </section>
+
+    <section class="sectionHead">
+      <h2>Solution network</h2>
+      <p>Problems sit on the left, tracked references on the right. Solid lines link references to problems; dashed lines show project-to-project relationships.</p>
+    </section>
+    <section class="networkPanel" aria-label="Solution network">
+      <div class="networkActions">
+        <button id="networkToggle" type="button">Show full network</button>
+        <p class="networkMode" id="networkMode">Showing relationship highlights.</p>
+      </div>
+      <svg id="solutionNetwork" viewBox="0 0 1100 520" role="img" aria-label="Network of open energy problems and tracked references"></svg>
+      <div class="networkLegend">
+        <span class="legendSwatch">Problem to reference</span>
+        <span class="legendSwatch relationship">Reference relationship</span>
+      </div>
     </section>
 
     <section class="sectionHead">
@@ -73,7 +108,7 @@
   </main>
 
   <script>
-    const state = { search: '', area: 'all', status: 'all', evidence: 'all', problems: [], contributions: [] };
+    const state = { search: '', area: 'all', status: 'all', evidence: 'all', showFullNetwork: false, problems: [], contributions: [], relationships: [] };
     const byId = (id) => document.getElementById(id);
     const unique = (rows, field) => Array.from(new Set(rows.map((row) => row[field]))).sort();
     const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
@@ -105,6 +140,30 @@
       needs_review: 'Needs review',
       rejected: 'Rejected'
     };
+    const relationshipLabels = {
+      uses_component: 'Uses',
+      uses_data_source: 'Uses data source',
+      wraps_project: 'Wraps',
+      extends_project: 'Extends',
+      documents_api: 'Documents API',
+      shared_data_source: 'Shared data source',
+      shared_standard: 'Shared standard',
+      same_problem_context: 'Same problem context',
+      alternative_implementation: 'Alternative implementation',
+      integration_candidate: 'Integration candidate'
+    };
+    const reverseRelationshipLabels = {
+      uses_component: 'Used by',
+      uses_data_source: 'Input to',
+      wraps_project: 'Wrapped by',
+      extends_project: 'Extended by',
+      documents_api: 'Documented by',
+      shared_data_source: 'Shared data source',
+      shared_standard: 'Shared standard',
+      same_problem_context: 'Same problem context',
+      alternative_implementation: 'Alternative implementation',
+      integration_candidate: 'Integration candidate'
+    };
 
     function fillSelect(id, values) {
       const select = byId(id);
@@ -129,6 +188,119 @@
       return url ? `<a href="${escapeHtml(url)}">Source</a>` : '<span class="muted">Needs source review</span>';
     }
 
+    function relationshipsFor(reference) {
+      return state.relationships.filter((item) => item.source_id === reference.id || item.target_id === reference.id);
+    }
+
+    function relationshipSummary(reference) {
+      const relationships = relationshipsFor(reference);
+      if (!relationships.length) {
+        return '<span class="muted">No project-to-project relationships recorded yet.</span>';
+      }
+      return `<ul>${relationships.map((relationship) => {
+        const isSource = relationship.source_id === reference.id;
+        const otherId = isSource ? relationship.target_id : relationship.source_id;
+        const other = state.contributions.find((item) => item.id === otherId);
+        const labelMap = isSource ? relationshipLabels : reverseRelationshipLabels;
+        const label = labelMap[relationship.relationship_type] || labelFor(relationship.relationship_type);
+        return `<li>${escapeHtml(label)} ${escapeHtml(other ? other.title : otherId)}</li>`;
+      }).join('')}</ul>`;
+    }
+
+    function truncate(value, length = 36) {
+      const text = String(value);
+      return text.length > length ? `${text.slice(0, length - 1)}...` : text;
+    }
+
+    function renderNetwork(problemMatches, referenceMatches) {
+      const svg = byId('solutionNetwork');
+      const isFocused = Boolean(state.search) || state.area !== 'all' || state.status !== 'all' || state.evidence !== 'all';
+      const relationshipReferenceIds = new Set();
+      state.relationships.forEach((relationship) => {
+        relationshipReferenceIds.add(relationship.source_id);
+        relationshipReferenceIds.add(relationship.target_id);
+      });
+      const graphReferences = (!state.showFullNetwork && !isFocused)
+        ? referenceMatches.filter((reference) => relationshipReferenceIds.has(reference.id))
+        : referenceMatches;
+      byId('networkToggle').textContent = state.showFullNetwork ? 'Collapse network' : 'Show full network';
+      byId('networkMode').textContent = isFocused
+        ? 'Showing the network matching the current search and filters.'
+        : state.showFullNetwork
+          ? 'Showing the full problem-reference network.'
+          : 'Showing recorded project-relationship highlights. Search, filter, or expand for more.';
+
+      const visibleProblemIds = new Set(problemMatches.map((item) => item.id));
+      const problemOrder = new Map(state.problems.map((problem, index) => [problem.id, index]));
+      const references = graphReferences
+        .filter((item) => visibleProblemIds.has(item.problem_id))
+        .sort((left, right) => {
+          const problemDelta = (problemOrder.get(left.problem_id) ?? 0) - (problemOrder.get(right.problem_id) ?? 0);
+          return problemDelta || left.title.localeCompare(right.title);
+        });
+      const problems = problemMatches.filter((problem) => references.some((reference) => reference.problem_id === problem.id));
+      if (!references.length || !problems.length) {
+        svg.setAttribute('viewBox', '0 0 1100 180');
+        svg.innerHTML = '<text x="40" y="90" fill="#5e6b62">No network entries match the current filters.</text>';
+        return;
+      }
+
+      const width = 980;
+      const top = 72;
+      const gap = 72;
+      const height = Math.max(360, top * 2 + (references.length - 1) * gap);
+      const problemBoxX = 30;
+      const problemBoxWidth = 280;
+      const problemX = 335;
+      const referenceX = 555;
+      const referenceBoxX = 580;
+      const referenceBoxWidth = 360;
+      const referencePositions = new Map();
+      references.forEach((reference, index) => {
+        referencePositions.set(reference.id, top + index * gap);
+      });
+      const problemPositions = new Map();
+      problems.forEach((problem) => {
+        const ys = references
+          .filter((reference) => reference.problem_id === problem.id)
+          .map((reference) => referencePositions.get(reference.id));
+        problemPositions.set(problem.id, ys.reduce((sum, value) => sum + value, 0) / ys.length);
+      });
+
+      const problemEdges = references.map((reference) => {
+        const y1 = problemPositions.get(reference.problem_id);
+        const y2 = referencePositions.get(reference.id);
+        return `<path class="networkEdge" d="M ${problemX + 14} ${y1} C 430 ${y1}, 460 ${y2}, ${referenceX - 14} ${y2}" />`;
+      });
+      const relationshipEdges = state.relationships
+        .filter((relationship) => referencePositions.has(relationship.source_id) && referencePositions.has(relationship.target_id))
+        .map((relationship) => {
+          const y1 = referencePositions.get(relationship.source_id);
+          const y2 = referencePositions.get(relationship.target_id);
+          return `<path class="networkEdge relationship" d="M ${referenceX + 16} ${y1} C 520 ${y1}, 520 ${y2}, ${referenceX + 16} ${y2}" />`;
+        });
+      const problemNodes = problems.map((problem) => {
+        const y = problemPositions.get(problem.id);
+        return `<g class="networkNode problem">
+          <rect class="networkLabelBox" x="${problemBoxX}" y="${y - 25}" width="${problemBoxWidth}" height="50" rx="7"></rect>
+          <circle cx="${problemX}" cy="${y}" r="12"><title>${escapeHtml(problem.title)}</title></circle>
+          <text class="nodeId" x="${problemBoxX + 14}" y="${y - 9}">${escapeHtml(problem.id)}</text>
+          <text class="nodeTitle" x="${problemBoxX + 14}" y="${y + 10}">${escapeHtml(truncate(problem.title, 28))}</text>
+        </g>`;
+      });
+      const referenceNodes = references.map((reference) => {
+        const y = referencePositions.get(reference.id);
+        return `<g class="networkNode reference">
+          <rect class="networkLabelBox" x="${referenceBoxX}" y="${y - 25}" width="${referenceBoxWidth}" height="50" rx="7"></rect>
+          <circle cx="${referenceX}" cy="${y}" r="12"><title>${escapeHtml(reference.title)}</title></circle>
+          <text class="nodeId" x="${referenceBoxX + 14}" y="${y - 9}">${escapeHtml(typeLabels[reference.type] || labelFor(reference.type))}</text>
+          <text class="nodeTitle" x="${referenceBoxX + 14}" y="${y + 10}">${escapeHtml(truncate(reference.title, 38))}</text>
+        </g>`;
+      });
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      svg.innerHTML = [...problemEdges, ...relationshipEdges, ...problemNodes, ...referenceNodes].join('');
+    }
+
     function render() {
       const problemMatches = state.problems.filter((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
@@ -138,7 +310,7 @@
           && (state.status === 'all' || problem.status === state.status)
           && (state.evidence === 'all' || problem.evidence_strength === state.evidence);
       });
-      const referenceMatches = state.contributions.filter((reference) => {
+      const directReferenceMatches = state.contributions.filter((reference) => {
         const problem = state.problems.find((item) => item.id === reference.problem_id);
         const queryOk = !state.search || referenceHaystack(reference, problem).includes(state.search.toLowerCase());
         return queryOk
@@ -146,9 +318,24 @@
           && (!problem || state.status === 'all' || problem.status === state.status)
           && (state.evidence === 'all' || reference.evidence_strength === state.evidence);
       });
+      const referenceMatchIds = new Set(directReferenceMatches.map((reference) => reference.id));
+      directReferenceMatches.forEach((reference) => {
+        relationshipsFor(reference).forEach((relationship) => {
+          referenceMatchIds.add(relationship.source_id === reference.id ? relationship.target_id : relationship.source_id);
+        });
+      });
+      const referenceMatches = state.contributions.filter((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        return referenceMatchIds.has(reference.id)
+          && (!problem || state.area === 'all' || problem.lane === state.area)
+          && (!problem || state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || reference.evidence_strength === state.evidence);
+      });
       byId('problemCount').textContent = state.problems.length;
       byId('contributionCount').textContent = state.contributions.length;
+      byId('relationshipCount').textContent = state.relationships.length;
       byId('matchCount').textContent = problemMatches.length + referenceMatches.length;
+      renderNetwork(problemMatches, referenceMatches);
       byId('problemGrid').innerHTML = problemMatches.map((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
         return `<article class="card">
@@ -169,22 +356,30 @@
           <div class="chips"><span>${escapeHtml(typeLabels[reference.type] || labelFor(reference.type))}</span><span>Evidence ${escapeHtml(reference.evidence_strength)}</span></div>
           <h3>Why it is here</h3>
           <p class="muted">Tracked against ${problem ? escapeHtml(labelFor(problem.lane)) : 'an unknown area'} as a candidate reference. ${sourceLink(reference)}</p>
+          <h3>Project relationships</h3>
+          ${relationshipSummary(reference)}
         </article>`;
       }).join('') || '<article class="card"><h2>No matching tracked references</h2><p>Try searching for a project name such as MaStR or PyPSA.</p></article>';
     }
 
     async function init() {
-      const [problems, contributions] = await Promise.all([
+      const [problems, contributions, relationships] = await Promise.all([
         fetch('../index/problems.json').then((response) => response.json()),
-        fetch('../index/contributions.json').then((response) => response.json())
+        fetch('../index/contributions.json').then((response) => response.json()),
+        fetch('../index/relationships.json').then((response) => response.json())
       ]);
       state.problems = problems;
       state.contributions = contributions;
+      state.relationships = relationships;
       fillSelect('area', unique(problems, 'lane'));
       fillSelect('status', unique(problems, 'status'));
       fillSelect('evidence', unique(problems, 'evidence_strength'));
       byId('search').addEventListener('input', (event) => {
         state.search = event.target.value;
+        render();
+      });
+      byId('networkToggle').addEventListener('click', () => {
+        state.showFullNetwork = !state.showFullNetwork;
         render();
       });
       render();
