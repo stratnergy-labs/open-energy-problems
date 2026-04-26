@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open Energy Problems Status</title>
+  <title>Open Energy Problems</title>
   <style>
     :root {
       color-scheme: light;
@@ -24,6 +24,9 @@
     .stat { background: #fffdfa; border-top: 3px solid #2f6358; padding: 14px; }
     .stat strong { display: block; font-size: 30px; }
     .stat span { color: #64736d; }
+    .context { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; margin: 22px 0 8px; }
+    .context section { background: #fffdfa; border: 1px solid #d8d0c0; border-radius: 8px; padding: 18px; }
+    .context p { margin: 0 0 10px; color: #3f4b46; line-height: 1.5; }
     .controls { display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 10px; margin: 0 0 18px; }
     label { display: grid; gap: 5px; color: #64736d; font-size: 12px; text-transform: uppercase; }
     select, input { width: 100%; border: 1px solid #c8c0b0; border-radius: 6px; background: #fffdfa; padding: 10px; color: #17211e; }
@@ -31,16 +34,22 @@
     th, td { padding: 11px 10px; border-bottom: 1px solid #e4ded1; text-align: left; vertical-align: top; }
     th { font-size: 12px; color: #64736d; text-transform: uppercase; background: #f1ede3; position: sticky; top: 0; }
     td { font-size: 14px; }
+    td a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
     .id { font-weight: 700; color: #285f55; white-space: nowrap; }
     .problem-title { font-weight: 700; }
     .pill { display: inline-flex; align-items: center; min-height: 24px; border: 1px solid #c8c0b0; border-radius: 999px; padding: 3px 8px; font-size: 12px; color: #3f4b46; background: #f8f6f1; }
+    .section-head { display: grid; gap: 6px; margin: 26px 0 12px; }
+    .section-head h2 { margin: 0; font-size: 24px; }
+    .section-head p { margin: 0; max-width: 760px; color: #3f4b46; line-height: 1.5; }
+    .reference-title { font-weight: 700; }
+    .muted { color: #64736d; }
     .legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
     .legend section { background: #fffdfa; border: 1px solid #d8d0c0; padding: 14px; border-radius: 8px; }
     h2 { margin: 0 0 10px; font-size: 18px; }
     ul { margin: 0; padding-left: 18px; }
     li { margin: 5px 0; }
     @media (max-width: 820px) {
-      .stats, .controls, .legend { grid-template-columns: 1fr; }
+      .stats, .context, .controls, .legend { grid-template-columns: 1fr; }
       th:nth-child(4), td:nth-child(4), th:nth-child(6), td:nth-child(6) { display: none; }
     }
   </style>
@@ -48,29 +57,48 @@
 <body>
   <main>
     <header>
-      <p class="eyebrow">Public reference layer</p>
-      <h1>Open Energy Problems Status</h1>
-      <p class="lede">A public, machine-readable problem map for open-source progress in energy markets, storage, forecasting, grid flexibility, open data, and AI-assisted analysis.</p>
+      <p class="eyebrow">Open energy register</p>
+      <h1>Open Energy Problems</h1>
+      <p class="lede">A Germany-first public register of energy-market and grid problems, tracking how far each has an open benchmark, schema, dataset, simulator, replay package, source ledger, validated method, or public disclosure.</p>
       <nav>
         <a href="https://github.com/stratnergy-labs/open-energy-problems">GitHub repository</a>
         <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/problems">Problem cards</a>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/contributions">Contribution cards</a>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/docs/seed-fit-review.md">Seed fit review</a>
+        <a href="#tracked-projects">Find a tracked project</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/contributions">Tracked references</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/docs/seed-fit-review.md">Scope review</a>
       </nav>
     </header>
 
+    <section class="context" aria-label="Project context">
+      <section>
+        <h2>Why It Exists</h2>
+        <p>The German grid is becoming a stress test for software-defined energy: storage economics, congestion, balancing markets, demand response, asset data, and flexibility claims all need better public evidence.</p>
+        <p>This register starts with those problems and asks what open references already exist, what they prove, and what is still missing.</p>
+      </section>
+      <section>
+        <h2>How To Read It</h2>
+        <p>Green means a useful reference exists for a stated scope. Yellow means partial progress or public disclosure. Red means no accepted open reference is listed yet.</p>
+        <p>Looking for a specific project? Search by project name. Each tracked reference below shows the problem it is linked to and whether it still needs review.</p>
+      </section>
+    </section>
+
     <section class="stats" aria-label="Repository statistics">
       <div class="stat"><strong id="problemCount">0</strong><span>problems</span></div>
-      <div class="stat"><strong id="contributionCount">0</strong><span>contributions</span></div>
-      <div class="stat"><strong id="laneCount">0</strong><span>lanes</span></div>
-      <div class="stat"><strong id="shownCount">0</strong><span>shown</span></div>
+      <div class="stat"><strong id="referenceCount">0</strong><span>tracked references</span></div>
+      <div class="stat"><strong id="areaCount">0</strong><span>areas</span></div>
+      <div class="stat"><strong id="matchCount">0</strong><span>current matches</span></div>
     </section>
 
     <section class="controls" aria-label="Problem filters">
-      <label>Search<input id="search" type="search" placeholder="battery, forecast, grid"></label>
-      <label>Lane<select id="lane"></select></label>
+      <label>Search<input id="search" type="search" placeholder="MaStR MCP Server, open-MaStR, battery"></label>
+      <label>Area<select id="area"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
+    </section>
+
+    <section class="section-head" aria-label="Problem list heading">
+      <h2>Problems</h2>
+      <p>The core register starts from important public problems, then records which open references exist for each one.</p>
     </section>
 
     <table>
@@ -78,30 +106,51 @@
         <tr>
           <th>ID</th>
           <th>Problem</th>
-          <th>Lane</th>
+          <th>Area</th>
           <th>Status</th>
-          <th>Open</th>
+          <th>Open Solution</th>
           <th>Evidence</th>
-          <th>Artefacts</th>
+          <th>Tracked References</th>
         </tr>
       </thead>
       <tbody id="problemRows"></tbody>
+    </table>
+
+    <section class="section-head" id="tracked-projects" aria-label="Tracked project list heading">
+      <p class="eyebrow">Tracked projects</p>
+      <h2>Find a project in the register</h2>
+      <p>This list is for people arriving from a project announcement or repository. Inclusion means the project is tracked as relevant evidence or progress; it is not an endorsement or a claim that the problem is solved.</p>
+    </section>
+
+    <table aria-label="Tracked references">
+      <thead>
+        <tr>
+          <th>Reference</th>
+          <th>Related Problem</th>
+          <th>Area</th>
+          <th>Type</th>
+          <th>Review</th>
+          <th>Evidence</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody id="referenceRows"></tbody>
     </table>
 
     <section class="legend" aria-label="Classification legend">
       <section>
         <h2>Status</h2>
         <ul>
-          <li>OPEN: problem stated, no accepted reference artefact.</li>
-          <li>PARTIAL: meaningful progress, remaining gaps.</li>
-          <li>REFERENCE_AVAILABLE: useful public reference exists.</li>
-          <li>SOLVED_FOR_SCOPE: reference artefact exists for a narrow stated scope.</li>
+          <li>Open: problem stated, no accepted open reference.</li>
+          <li>Partial: meaningful progress, but important gaps remain.</li>
+          <li>Reference available: useful public reference exists.</li>
+          <li>Solved for scope: open reference exists for a narrow stated scope.</li>
         </ul>
       </section>
       <section>
-        <h2>Openness</h2>
+        <h2>Open-Solution Level</h2>
         <ul>
-          <li>0: closed.</li>
+          <li>0: no accepted open reference.</li>
           <li>3: public methodology.</li>
           <li>4: open code.</li>
           <li>5: reproducible benchmark.</li>
@@ -121,14 +170,42 @@
   </main>
 
   <script>
-    const state = { problems: [], contributions: [], search: '', lane: 'all', status: 'all', evidence: 'all' };
+    const state = { problems: [], contributions: [], search: '', area: 'all', status: 'all', evidence: 'all' };
     const byId = (id) => document.getElementById(id);
     const unique = (rows, field) => Array.from(new Set(rows.map((row) => row[field]))).filter(Boolean).sort();
     const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+    const labelFor = (value) => String(value)
+      .replace(/_/g, ' ')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+    const statusLabels = {
+      OPEN: 'Open',
+      PARTIAL: 'Partial',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_AVAILABLE: 'Reference available',
+      SOLVED_FOR_SCOPE: 'Solved for scope'
+    };
+    const typeLabels = {
+      AI_ASSISTED_ANALYSIS: 'AI-assisted analysis',
+      BENCHMARK: 'Benchmark',
+      DATASET: 'Dataset',
+      MCP_CONNECTOR: 'MCP connector',
+      METHODOLOGY: 'Methodology',
+      PARTIAL_PROGRESS: 'Partial progress',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_SOLUTION: 'Reference solution',
+      SCHEMA: 'Schema',
+      SIMULATOR: 'Simulator'
+    };
+    const reviewLabels = {
+      accepted: 'Accepted',
+      needs_review: 'Needs review',
+      rejected: 'Rejected'
+    };
 
-    function fillSelect(id, values) {
+    function fillSelect(id, values, label = labelFor) {
       const select = byId(id);
-      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join('');
+      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(label(value))}</option>`).join('');
       select.addEventListener('change', () => {
         state[id] = select.value;
         render();
@@ -139,32 +216,78 @@
       return [problem.id, problem.title, problem.lane, problem.status, problem.geography, problem.evidence_strength, problem.ai_relevance, related.map((item) => item.title).join(' ')].join(' ').toLowerCase();
     }
 
+    function referenceHaystack(reference, problem) {
+      return [
+        reference.id,
+        reference.title,
+        reference.type,
+        reference.review_status,
+        reference.evidence_strength,
+        reference.ai_relevance,
+        reference.repository_url,
+        reference.project_url,
+        problem ? problem.id : '',
+        problem ? problem.title : '',
+        problem ? problem.lane : '',
+        problem ? problem.status : ''
+      ].join(' ').toLowerCase();
+    }
+
+    function sourceLink(reference) {
+      const url = reference.repository_url || reference.project_url;
+      if (!url) {
+        return '<span class="muted">Needs source review</span>';
+      }
+      return `<a href="${escapeHtml(url)}">Source</a>`;
+    }
+
     function render() {
-      const shown = state.problems.filter((problem) => {
+      const problemMatches = state.problems.filter((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
         const queryOk = !state.search || problemHaystack(problem, related).includes(state.search.toLowerCase());
         return queryOk
-          && (state.lane === 'all' || problem.lane === state.lane)
+          && (state.area === 'all' || problem.lane === state.area)
           && (state.status === 'all' || problem.status === state.status)
           && (state.evidence === 'all' || problem.evidence_strength === state.evidence);
       });
+      const referenceMatches = state.contributions.filter((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        const queryOk = !state.search || referenceHaystack(reference, problem).includes(state.search.toLowerCase());
+        return queryOk
+          && (!problem || state.area === 'all' || problem.lane === state.area)
+          && (!problem || state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || reference.evidence_strength === state.evidence);
+      });
       byId('problemCount').textContent = state.problems.length;
-      byId('contributionCount').textContent = state.contributions.length;
-      byId('laneCount').textContent = unique(state.problems, 'lane').length;
-      byId('shownCount').textContent = shown.length;
-      byId('problemRows').innerHTML = shown.map((problem) => {
+      byId('referenceCount').textContent = state.contributions.length;
+      byId('areaCount').textContent = unique(state.problems, 'lane').length;
+      byId('matchCount').textContent = problemMatches.length + referenceMatches.length;
+      byId('problemRows').innerHTML = problemMatches.map((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
-        const artefacts = related.length ? related.map((item) => escapeHtml(item.title)).join('<br>') : '<span class="pill">None yet</span>';
+        const references = related.length ? related.map((item) => `<a href="#reference-${escapeHtml(item.id)}">${escapeHtml(item.title)}</a>`).join('<br>') : '<span class="pill">None yet</span>';
         return `<tr>
           <td class="id">${escapeHtml(problem.id)}</td>
-          <td><div class="problem-title">${escapeHtml(problem.title)}</div><span class="pill">AI ${escapeHtml(problem.ai_relevance)}</span></td>
-          <td>${escapeHtml(problem.lane)}</td>
-          <td>${escapeHtml(problem.status)}</td>
-          <td>O${escapeHtml(problem.openness_level)}</td>
+          <td><div class="problem-title">${escapeHtml(problem.title)}</div><span class="pill">AI relevance: ${escapeHtml(labelFor(problem.ai_relevance))}</span></td>
+          <td>${escapeHtml(labelFor(problem.lane))}</td>
+          <td>${escapeHtml(statusLabels[problem.status] || labelFor(problem.status))}</td>
+          <td>Level ${escapeHtml(problem.openness_level)}</td>
           <td>${escapeHtml(problem.evidence_strength)}</td>
-          <td>${artefacts}</td>
+          <td>${references}</td>
         </tr>`;
-      }).join('');
+      }).join('') || '<tr><td colspan="7">No matching problems.</td></tr>';
+      byId('referenceRows').innerHTML = referenceMatches.map((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        const problemTitle = problem ? `${problem.id}: ${problem.title}` : reference.problem_id;
+        return `<tr id="reference-${escapeHtml(reference.id)}">
+          <td><div class="reference-title">${escapeHtml(reference.title)}</div><span class="muted">${escapeHtml(reference.id)}</span></td>
+          <td>${problem ? `<a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/${escapeHtml(problem.path)}">${escapeHtml(problemTitle)}</a>` : escapeHtml(problemTitle)}</td>
+          <td>${problem ? escapeHtml(labelFor(problem.lane)) : '<span class="muted">Unknown</span>'}</td>
+          <td>${escapeHtml(typeLabels[reference.type] || labelFor(reference.type))}</td>
+          <td>${escapeHtml(reviewLabels[reference.review_status] || labelFor(reference.review_status))}</td>
+          <td>${escapeHtml(reference.evidence_strength)}</td>
+          <td>${sourceLink(reference)}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="7">No matching tracked references.</td></tr>';
     }
 
     async function init() {
@@ -174,8 +297,8 @@
       ]);
       state.problems = problems;
       state.contributions = contributions;
-      fillSelect('lane', unique(problems, 'lane'));
-      fillSelect('status', unique(problems, 'status'));
+      fillSelect('area', unique(problems, 'lane'));
+      fillSelect('status', unique(problems, 'status'), (value) => statusLabels[value] || labelFor(value));
       fillSelect('evidence', unique(problems, 'evidence_strength'));
       byId('search').addEventListener('input', (event) => {
         state.search = event.target.value;

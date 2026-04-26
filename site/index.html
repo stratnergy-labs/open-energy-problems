@@ -18,11 +18,14 @@
     header p:last-child { max-width: 620px; font-size: 20px; color: #3f4b46; }
     .controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 22px 0; }
     label { display: grid; gap: 6px; font-size: 12px; text-transform: uppercase; color: #5e6b62; }
-    select { min-width: 190px; border: 1px solid #c8c0b0; background: #fffefa; border-radius: 6px; padding: 10px; color: #18221f; }
+    select, input { min-width: 190px; border: 1px solid #c8c0b0; background: #fffefa; border-radius: 6px; padding: 10px; color: #18221f; }
+    input { min-width: 280px; }
     .summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
     .summary div { border-top: 3px solid #2f6358; background: #fffefa; padding: 16px; }
     .summary strong { display: block; font-size: 30px; }
     .summary span { color: #5e6b62; }
+    .sectionHead { margin: 28px 0 12px; max-width: 760px; }
+    .sectionHead p { color: #3f4b46; line-height: 1.5; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
     .card { background: #fffefa; border: 1px solid #d9d2c3; border-radius: 8px; padding: 18px; min-height: 260px; }
     .cardTop, .chips { display: flex; justify-content: space-between; gap: 8px; color: #5e6b62; font-size: 13px; }
@@ -30,66 +33,144 @@
     h3 { font-size: 13px; text-transform: uppercase; margin-top: 18px; color: #5e6b62; }
     ul { padding-left: 18px; }
     .chips span { border: 1px solid #c8c0b0; border-radius: 999px; padding: 5px 8px; }
+    .card a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .muted { color: #5e6b62; }
     @media (max-width: 720px) { .summary { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <p class="eyebrow">Public reference layer</p>
+      <p class="eyebrow">Open energy register</p>
       <h1>Open Energy Problems</h1>
-      <p>AI x OSS reference problems for software-defined energy markets.</p>
+      <p>A Germany-first register of energy-market and grid problems, tracking open benchmarks, datasets, models, methods, and gaps.</p>
     </header>
 
     <section class="controls" aria-label="Problem filters">
-      <label>Lane<select id="lane"></select></label>
+      <label>Search<input id="search" type="search" placeholder="MaStR MCP Server, open-MaStR, battery"></label>
+      <label>Area<select id="area"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
     </section>
 
     <section class="summary">
       <div><strong id="problemCount">0</strong><span>problems</span></div>
-      <div><strong id="contributionCount">0</strong><span>contributions</span></div>
-      <div><strong id="shownCount">0</strong><span>shown</span></div>
+      <div><strong id="contributionCount">0</strong><span>tracked references</span></div>
+      <div><strong id="matchCount">0</strong><span>current matches</span></div>
     </section>
 
-    <section class="grid" id="grid"></section>
+    <section class="sectionHead">
+      <h2>Problems</h2>
+      <p>The register starts with public problems, then tracks which open references exist for each one.</p>
+    </section>
+    <section class="grid" id="problemGrid"></section>
+
+    <section class="sectionHead">
+      <h2>Find a tracked project</h2>
+      <p>Search by project name to see where it fits. Inclusion means a project is tracked as relevant evidence or progress, not endorsed as a complete solution.</p>
+    </section>
+    <section class="grid" id="referenceGrid"></section>
   </main>
 
   <script>
-    const state = { lane: 'all', status: 'all', evidence: 'all', problems: [], contributions: [] };
+    const state = { search: '', area: 'all', status: 'all', evidence: 'all', problems: [], contributions: [] };
     const byId = (id) => document.getElementById(id);
     const unique = (rows, field) => Array.from(new Set(rows.map((row) => row[field]))).sort();
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+    const labelFor = (value) => String(value)
+      .replace(/_/g, ' ')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+    const statusLabels = {
+      OPEN: 'Open',
+      PARTIAL: 'Partial',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_AVAILABLE: 'Reference available',
+      SOLVED_FOR_SCOPE: 'Solved for scope'
+    };
+    const typeLabels = {
+      AI_ASSISTED_ANALYSIS: 'AI-assisted analysis',
+      BENCHMARK: 'Benchmark',
+      DATASET: 'Dataset',
+      MCP_CONNECTOR: 'MCP connector',
+      METHODOLOGY: 'Methodology',
+      PARTIAL_PROGRESS: 'Partial progress',
+      PUBLIC_DISCLOSURE: 'Public disclosure',
+      REFERENCE_SOLUTION: 'Reference solution',
+      SCHEMA: 'Schema',
+      SIMULATOR: 'Simulator'
+    };
+    const reviewLabels = {
+      accepted: 'Accepted',
+      needs_review: 'Needs review',
+      rejected: 'Rejected'
+    };
 
     function fillSelect(id, values) {
       const select = byId(id);
-      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${value}">${value}</option>`).join('');
+      const label = id === 'status' ? (value) => statusLabels[value] || labelFor(value) : labelFor;
+      select.innerHTML = '<option value="all">All</option>' + values.map((value) => `<option value="${value}">${label(value)}</option>`).join('');
       select.addEventListener('change', () => {
         state[id] = select.value;
         render();
       });
     }
 
+    function problemHaystack(problem, related) {
+      return [problem.id, problem.title, problem.lane, problem.status, problem.geography, problem.evidence_strength, problem.ai_relevance, related.map((item) => item.title).join(' ')].join(' ').toLowerCase();
+    }
+
+    function referenceHaystack(reference, problem) {
+      return [reference.id, reference.title, reference.type, reference.review_status, reference.repository_url, reference.project_url, problem ? problem.id : '', problem ? problem.title : '', problem ? problem.lane : ''].join(' ').toLowerCase();
+    }
+
+    function sourceLink(reference) {
+      const url = reference.repository_url || reference.project_url;
+      return url ? `<a href="${escapeHtml(url)}">Source</a>` : '<span class="muted">Needs source review</span>';
+    }
+
     function render() {
-      const shown = state.problems.filter((problem) =>
-        (state.lane === 'all' || problem.lane === state.lane) &&
-        (state.status === 'all' || problem.status === state.status) &&
-        (state.evidence === 'all' || problem.evidence_strength === state.evidence)
-      );
+      const problemMatches = state.problems.filter((problem) => {
+        const related = state.contributions.filter((item) => item.problem_id === problem.id);
+        const queryOk = !state.search || problemHaystack(problem, related).includes(state.search.toLowerCase());
+        return queryOk
+          && (state.area === 'all' || problem.lane === state.area)
+          && (state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || problem.evidence_strength === state.evidence);
+      });
+      const referenceMatches = state.contributions.filter((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        const queryOk = !state.search || referenceHaystack(reference, problem).includes(state.search.toLowerCase());
+        return queryOk
+          && (!problem || state.area === 'all' || problem.lane === state.area)
+          && (!problem || state.status === 'all' || problem.status === state.status)
+          && (state.evidence === 'all' || reference.evidence_strength === state.evidence);
+      });
       byId('problemCount').textContent = state.problems.length;
       byId('contributionCount').textContent = state.contributions.length;
-      byId('shownCount').textContent = shown.length;
-      byId('grid').innerHTML = shown.map((problem) => {
+      byId('matchCount').textContent = problemMatches.length + referenceMatches.length;
+      byId('problemGrid').innerHTML = problemMatches.map((problem) => {
         const related = state.contributions.filter((item) => item.problem_id === problem.id);
         return `<article class="card">
-          <div class="cardTop"><span>${problem.id}</span><span>O${problem.openness_level} / ${problem.evidence_strength}</span></div>
-          <h2>${problem.title}</h2>
-          <p>${problem.lane} · ${problem.status} · ${problem.geography}</p>
-          <div class="chips"><span>AI ${problem.ai_relevance}</span><span>Risk ${problem.market_integrity_risk}</span></div>
-          <h3>Related artefacts</h3>
-          <ul>${related.map((item) => `<li>${item.title}</li>`).join('')}</ul>
+          <div class="cardTop"><span>${escapeHtml(problem.id)}</span><span>Open level ${escapeHtml(problem.openness_level)} / Evidence ${escapeHtml(problem.evidence_strength)}</span></div>
+          <h2>${escapeHtml(problem.title)}</h2>
+          <p>${escapeHtml(labelFor(problem.lane))} · ${escapeHtml(statusLabels[problem.status] || labelFor(problem.status))} · ${escapeHtml(problem.geography)}</p>
+          <div class="chips"><span>AI relevance: ${escapeHtml(labelFor(problem.ai_relevance))}</span><span>Market-integrity risk: ${escapeHtml(labelFor(problem.market_integrity_risk))}</span></div>
+          <h3>Tracked references</h3>
+          <ul>${related.length ? related.map((item) => `<li>${escapeHtml(item.title)}</li>`).join('') : '<li>None yet</li>'}</ul>
         </article>`;
-      }).join('');
+      }).join('') || '<article class="card"><h2>No matching problems</h2><p>Try a broader search or reset the filters.</p></article>';
+      byId('referenceGrid').innerHTML = referenceMatches.map((reference) => {
+        const problem = state.problems.find((item) => item.id === reference.problem_id);
+        return `<article class="card">
+          <div class="cardTop"><span>${escapeHtml(reference.id)}</span><span>${escapeHtml(reviewLabels[reference.review_status] || labelFor(reference.review_status))}</span></div>
+          <h2>${escapeHtml(reference.title)}</h2>
+          <p>${problem ? `${escapeHtml(problem.id)} · ${escapeHtml(problem.title)}` : escapeHtml(reference.problem_id)}</p>
+          <div class="chips"><span>${escapeHtml(typeLabels[reference.type] || labelFor(reference.type))}</span><span>Evidence ${escapeHtml(reference.evidence_strength)}</span></div>
+          <h3>Why it is here</h3>
+          <p class="muted">Tracked against ${problem ? escapeHtml(labelFor(problem.lane)) : 'an unknown area'} as a candidate reference. ${sourceLink(reference)}</p>
+        </article>`;
+      }).join('') || '<article class="card"><h2>No matching tracked references</h2><p>Try searching for a project name such as MaStR or PyPSA.</p></article>';
     }
 
     async function init() {
@@ -99,14 +180,18 @@
       ]);
       state.problems = problems;
       state.contributions = contributions;
-      fillSelect('lane', unique(problems, 'lane'));
+      fillSelect('area', unique(problems, 'lane'));
       fillSelect('status', unique(problems, 'status'));
       fillSelect('evidence', unique(problems, 'evidence_strength'));
+      byId('search').addEventListener('input', (event) => {
+        state.search = event.target.value;
+        render();
+      });
       render();
     }
 
     init().catch((error) => {
-      byId('grid').innerHTML = `<article class="card"><h2>Unable to load local JSON</h2><p>${error.message}</p></article>`;
+      byId('problemGrid').innerHTML = `<article class="card"><h2>Unable to load local JSON</h2><p>${escapeHtml(error.message)}</p></article>`;
     });
   </script>
 </body>
