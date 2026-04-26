@@ -3,7 +3,7 @@ id: EP-702
 title: Energy Source-Ledger Schema
 lane: open-data
 status: OPEN
-openness_level: 1
+openness_level: 0
 evidence_strength: D
 geography: Global
 asset_class:

@@ -2,9 +2,9 @@
 id: EP-201
 title: Transparent Battery Strategy Baseline
 lane: trading-logic
-status: PARTIAL
-openness_level: 3
-evidence_strength: C
+status: OPEN
+openness_level: 0
+evidence_strength: D
 geography: Europe
 asset_class:
   - battery_storage
@@ -34,7 +34,7 @@ A shared public card lets maintainers compare open artefacts, public disclosures
 
 ## Scope
 
-Keep baselines simplified, documented, delayed, and unsuitable for operational trading replication.
+No accepted artefact is listed yet. Candidate baselines should be simplified, documented, delayed, and unsuitable for operational trading replication.
 
 ## Existing Artefacts
 

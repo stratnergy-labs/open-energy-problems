@@ -36,7 +36,7 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         return
     fieldnames = sorted({key for row in rows for key in row if key != "body"})
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({field: scalar_for_csv(row.get(field)) for field in fieldnames})

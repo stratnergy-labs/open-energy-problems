@@ -2,14 +2,14 @@
 id: flexmeasures
 problem_id: EP-601
 title: FlexMeasures
-type: METHODOLOGY
+type: PARTIAL_PROGRESS
 project_url: null
 repository_url: null
 license_code: null
 license_data: null
 openness_level: 4
-evidence_strength: B
-maturity: REFERENCE_AVAILABLE
+evidence_strength: C
+maturity: PARTIAL
 ai_relevance: high
 review_status: needs_review
 last_checked: 2026-04-26

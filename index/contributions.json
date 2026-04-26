@@ -38,12 +38,12 @@
   {
     "ai_relevance": "high",
     "body": "# FlexMeasures\n\n## Summary\n\nInitial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-601` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.\n\n## Caveats\n\n- Placeholder URLs are intentional until a maintainer verifies canonical sources.\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
-    "evidence_strength": "B",
+    "evidence_strength": "C",
     "id": "flexmeasures",
     "last_checked": "2026-04-26",
     "license_code": null,
     "license_data": null,
-    "maturity": "REFERENCE_AVAILABLE",
+    "maturity": "PARTIAL",
     "openness_level": 4,
     "path": "contributions/EP-601/flexmeasures.md",
     "problem_id": "EP-601",
@@ -51,7 +51,7 @@
     "repository_url": null,
     "review_status": "needs_review",
     "title": "FlexMeasures",
-    "type": "METHODOLOGY"
+    "type": "PARTIAL_PROGRESS"
   },
   {
     "ai_relevance": "medium",
@@ -85,7 +85,7 @@
     "problem_id": "EP-001",
     "project_url": null,
     "repository_url": null,
-    "review_status": "accepted",
+    "review_status": "needs_review",
     "title": "ISEA Battery Revenue Index",
     "type": "REFERENCE_SOLUTION"
   },
@@ -144,24 +144,6 @@
     "type": "METHODOLOGY"
   },
   {
-    "ai_relevance": "medium",
-    "body": "# Open Energy Platform\n\n## Summary\n\nInitial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-801` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.\n\n## Caveats\n\n- Placeholder URLs are intentional until a maintainer verifies canonical sources.\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
-    "evidence_strength": "B",
-    "id": "open-energy-platform",
-    "last_checked": "2026-04-26",
-    "license_code": null,
-    "license_data": null,
-    "maturity": "REFERENCE_AVAILABLE",
-    "openness_level": 4,
-    "path": "contributions/EP-801/open-energy-platform.md",
-    "problem_id": "EP-801",
-    "project_url": null,
-    "repository_url": null,
-    "review_status": "needs_review",
-    "title": "Open Energy Platform",
-    "type": "DATASET"
-  },
-  {
     "ai_relevance": "high",
     "body": "# open-MaStR\n\n## Summary\n\nInitial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-701` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.\n\n## Caveats\n\n- Placeholder URLs are intentional until a maintainer verifies canonical sources.\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
     "evidence_strength": "B",
@@ -180,32 +162,14 @@
     "type": "DATASET"
   },
   {
-    "ai_relevance": "high",
-    "body": "# Open Virtualiser\n\n## Summary\n\nInitial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-301` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.\n\n## Caveats\n\n- Placeholder URLs are intentional until a maintainer verifies canonical sources.\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
-    "evidence_strength": "D",
-    "id": "open-virtualiser",
-    "last_checked": "2026-04-26",
-    "license_code": null,
-    "license_data": null,
-    "maturity": "STRATNERGY_CONCEPT",
-    "openness_level": 1,
-    "path": "contributions/EP-301/open-virtualiser.md",
-    "problem_id": "EP-301",
-    "project_url": null,
-    "repository_url": null,
-    "review_status": "needs_review",
-    "title": "Open Virtualiser",
-    "type": "SCHEMA"
-  },
-  {
     "ai_relevance": "medium",
     "body": "# OpenEMS\n\n## Summary\n\nInitial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-601` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.\n\n## Caveats\n\n- Placeholder URLs are intentional until a maintainer verifies canonical sources.\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
-    "evidence_strength": "B",
+    "evidence_strength": "C",
     "id": "openems",
     "last_checked": "2026-04-26",
     "license_code": null,
     "license_data": null,
-    "maturity": "REFERENCE_AVAILABLE",
+    "maturity": "PARTIAL",
     "openness_level": 4,
     "path": "contributions/EP-601/openems.md",
     "problem_id": "EP-601",
@@ -213,17 +177,17 @@
     "repository_url": null,
     "review_status": "needs_review",
     "title": "OpenEMS",
-    "type": "METHODOLOGY"
+    "type": "PARTIAL_PROGRESS"
   },
   {
     "ai_relevance": "medium",
     "body": "# OpenLEADR\n\n## Summary\n\nInitial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-601` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.\n\n## Caveats\n\n- Placeholder URLs are intentional until a maintainer verifies canonical sources.\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
-    "evidence_strength": "B",
+    "evidence_strength": "C",
     "id": "openleadr",
     "last_checked": "2026-04-26",
     "license_code": null,
     "license_data": null,
-    "maturity": "REFERENCE_AVAILABLE",
+    "maturity": "PARTIAL",
     "openness_level": 4,
     "path": "contributions/EP-601/openleadr.md",
     "problem_id": "EP-601",
@@ -231,7 +195,7 @@
     "repository_url": null,
     "review_status": "needs_review",
     "title": "OpenLEADR",
-    "type": "MCP_CONNECTOR"
+    "type": "METHODOLOGY"
   },
   {
     "ai_relevance": "high",

@@ -1,16 +1,14 @@
 ai_relevance,evidence_strength,id,last_checked,license_code,license_data,maturity,openness_level,path,problem_id,project_url,repository_url,review_status,title,type
 medium,B,assume,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-401/assume.md,EP-401,,,needs_review,ASSUME,SIMULATOR
 low,C,enspired-portfolio-performance,2026-04-26,,,PUBLIC_DISCLOSURE,2,contributions/EP-002/enspired-portfolio-performance.md,EP-002,,,needs_review,enspired Portfolio Performance,PUBLIC_DISCLOSURE
-high,B,flexmeasures,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-601/flexmeasures.md,EP-601,,,needs_review,FlexMeasures,METHODOLOGY
+high,C,flexmeasures,2026-04-26,,,PARTIAL,4,contributions/EP-601/flexmeasures.md,EP-601,,,needs_review,FlexMeasures,PARTIAL_PROGRESS
 medium,B,gigastorage-battery-trading-benchmark,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-003/gigastorage-battery-trading-benchmark.md,EP-003,,,needs_review,GigaStorage Battery Trading Benchmark,BENCHMARK
-low,B,isea-battery-revenue-index,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-001/isea-battery-revenue-index.md,EP-001,,,accepted,ISEA Battery Revenue Index,REFERENCE_SOLUTION
+low,B,isea-battery-revenue-index,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-001/isea-battery-revenue-index.md,EP-001,,,needs_review,ISEA Battery Revenue Index,REFERENCE_SOLUTION
 medium,B,lf-energy-power-grid-model,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-501/lf-energy-power-grid-model.md,EP-501,,,needs_review,LF Energy Power Grid Model,METHODOLOGY
 high,B,mastr-mcp-server,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-701/mastr-mcp-server.md,EP-701,,,needs_review,MaStR MCP Server,MCP_CONNECTOR
 medium,B,open-energy-ontology,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-801/open-energy-ontology.md,EP-801,,,needs_review,Open Energy Ontology,METHODOLOGY
-medium,B,open-energy-platform,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-801/open-energy-platform.md,EP-801,,,needs_review,Open Energy Platform,DATASET
 high,B,open-mastr,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-701/open-mastr.md,EP-701,,,needs_review,open-MaStR,DATASET
-high,D,open-virtualiser,2026-04-26,,,STRATNERGY_CONCEPT,1,contributions/EP-301/open-virtualiser.md,EP-301,,,needs_review,Open Virtualiser,SCHEMA
-medium,B,openems,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-601/openems.md,EP-601,,,needs_review,OpenEMS,METHODOLOGY
-medium,B,openleadr,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-601/openleadr.md,EP-601,,,needs_review,OpenLEADR,MCP_CONNECTOR
+medium,C,openems,2026-04-26,,,PARTIAL,4,contributions/EP-601/openems.md,EP-601,,,needs_review,OpenEMS,PARTIAL_PROGRESS
+medium,C,openleadr,2026-04-26,,,PARTIAL,4,contributions/EP-601/openleadr.md,EP-601,,,needs_review,OpenLEADR,METHODOLOGY
 high,B,openstef,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-101/openstef.md,EP-101,,,needs_review,OpenSTEF,REFERENCE_SOLUTION
 medium,B,pypsa,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-501/pypsa.md,EP-501,,,needs_review,PyPSA,SIMULATOR

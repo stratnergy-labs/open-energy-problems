@@ -2,8 +2,8 @@
 id: EP-301
 title: Open Virtual Battery Schema
 lane: virtualisation
-status: STRATNERGY_CONCEPT
-openness_level: 1
+status: OPEN
+openness_level: 0
 evidence_strength: D
 geography: Global
 asset_class:
@@ -15,8 +15,7 @@ ai_relevance: high
 market_integrity_risk: medium
 last_updated: 2026-04-26
 maintainer: stratnergy
-related_contributions:
-  - open-virtualiser
+related_contributions: []
 public_post_url: null
 paid_analysis_url: null
 interactive_url: null
@@ -34,11 +33,11 @@ A shared public card lets maintainers compare open artefacts, public disclosures
 
 ## Scope
 
-Concept status: requires schema drafts, examples, validation tests, and independent review.
+No accepted reference artefact is listed yet. Candidate external schemas, if any, should be reviewed for scope, licence, field definitions, validation examples, and operational-safety implications before being added as contributions.
 
 ## Existing Artefacts
 
-Related contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.
+No contribution is currently accepted for this problem. Source URLs and licence details require human verification before any candidate artefact is listed.
 
 ## Open Questions
 

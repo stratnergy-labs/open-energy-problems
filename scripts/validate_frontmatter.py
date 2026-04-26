@@ -60,10 +60,12 @@ def main() -> int:
     errors: list[str] = []
     problem_ids: set[str] = set()
     contribution_ids: set[str] = set()
+    problem_related: dict[str, list[str]] = {}
 
     for path in iter_markdown(ROOT / "problems"):
         data, _ = parse_markdown(path)
         errors.extend(validate_problem(path, data))
+        problem_related[data.get("id")] = data.get("related_contributions", [])
         if data.get("id") in problem_ids:
             errors.append(f"{path}: duplicate problem id {data.get('id')}")
         problem_ids.add(data.get("id"))
@@ -79,6 +81,11 @@ def main() -> int:
         data, _ = parse_markdown(path)
         if data.get("problem_id") not in problem_ids:
             errors.append(f"{path}: unknown problem_id {data.get('problem_id')}")
+
+    for problem_id, related_ids in problem_related.items():
+        for contribution_id in related_ids:
+            if contribution_id not in contribution_ids:
+                errors.append(f"{problem_id}: unknown related_contribution {contribution_id}")
 
     if errors:
         print("Front matter validation failed:", file=sys.stderr)

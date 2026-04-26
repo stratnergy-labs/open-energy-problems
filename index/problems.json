@@ -148,8 +148,8 @@
     "asset_class": [
       "battery_storage"
     ],
-    "body": "# Transparent Battery Strategy Baseline\n\n## Problem\n\nSimple reproducible DA/ID battery arbitrage baselines that are useful for comparison but not live alpha.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nKeep baselines simplified, documented, delayed, and unsuitable for operational trading replication.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
-    "evidence_strength": "C",
+    "body": "# Transparent Battery Strategy Baseline\n\n## Problem\n\nSimple reproducible DA/ID battery arbitrage baselines that are useful for comparison but not live alpha.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nNo accepted artefact is listed yet. Candidate baselines should be simplified, documented, delayed, and unsuitable for operational trading replication.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "evidence_strength": "D",
     "geography": "Europe",
     "id": "EP-201",
     "interactive_url": null,
@@ -161,12 +161,12 @@
       "day_ahead",
       "intraday"
     ],
-    "openness_level": 3,
+    "openness_level": 0,
     "paid_analysis_url": null,
     "path": "problems/EP-201-transparent-battery-strategy-baseline.md",
     "public_post_url": null,
     "related_contributions": [],
-    "status": "PARTIAL",
+    "status": "OPEN",
     "title": "Transparent Battery Strategy Baseline"
   },
   {
@@ -175,7 +175,7 @@
       "battery_storage",
       "flexibility"
     ],
-    "body": "# Open Virtual Battery Schema\n\n## Problem\n\nDefine a machine-readable schema for virtual battery state.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nConcept status: requires schema drafts, examples, validation tests, and independent review.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Open Virtual Battery Schema\n\n## Problem\n\nDefine a machine-readable schema for virtual battery state.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nNo accepted reference artefact is listed yet. Candidate external schemas, if any, should be reviewed for scope, licence, field definitions, validation examples, and operational-safety implications before being added as contributions.\n\n## Existing Artefacts\n\nNo contribution is currently accepted for this problem. Source URLs and licence details require human verification before any candidate artefact is listed.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Global",
     "id": "EP-301",
@@ -187,14 +187,12 @@
     "market_scope": [
       "virtualisation"
     ],
-    "openness_level": 1,
+    "openness_level": 0,
     "paid_analysis_url": null,
     "path": "problems/EP-301-open-virtual-battery-schema.md",
     "public_post_url": null,
-    "related_contributions": [
-      "open-virtualiser"
-    ],
-    "status": "STRATNERGY_CONCEPT",
+    "related_contributions": [],
+    "status": "OPEN",
     "title": "Open Virtual Battery Schema"
   },
   {
@@ -230,7 +228,7 @@
       "battery_storage",
       "flexibility"
     ],
-    "body": "# Virtual Battery Evidence Package\n\n## Problem\n\nDefine the artefact package that accompanies virtual battery benchmark runs.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nEvidence packages should include source ledger, assumptions, replay data, metrics, caveats, and licence notes.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Virtual Battery Evidence Package\n\n## Problem\n\nDefine the artefact package that accompanies virtual battery benchmark runs.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nEvidence packages should include source ledger, assumptions, replay data, metrics, caveats, and licence notes. No accepted open reference package is listed yet.\n\n## Existing Artefacts\n\nNo contribution is currently accepted for this problem. Source URLs and licence details require human verification before any candidate artefact is listed.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Global",
     "id": "EP-304",
@@ -243,14 +241,12 @@
       "virtualisation",
       "benchmarks"
     ],
-    "openness_level": 1,
+    "openness_level": 0,
     "paid_analysis_url": null,
     "path": "problems/EP-304-virtual-battery-evidence-package.md",
     "public_post_url": null,
-    "related_contributions": [
-      "open-virtualiser"
-    ],
-    "status": "STRATNERGY_CONCEPT",
+    "related_contributions": [],
+    "status": "OPEN",
     "title": "Virtual Battery Evidence Package"
   },
   {
@@ -393,7 +389,7 @@
       "source_ledger",
       "audit"
     ],
-    "openness_level": 1,
+    "openness_level": 0,
     "paid_analysis_url": null,
     "path": "problems/EP-702-energy-source-ledger-schema.md",
     "public_post_url": null,

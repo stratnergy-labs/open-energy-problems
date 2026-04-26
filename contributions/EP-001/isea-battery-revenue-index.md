@@ -11,7 +11,7 @@ openness_level: 5
 evidence_strength: B
 maturity: REFERENCE_AVAILABLE
 ai_relevance: low
-review_status: accepted
+review_status: needs_review
 last_checked: 2026-04-26
 ---
 

@@ -60,4 +60,4 @@ python3 scripts/build_index.py
 9. Add review score model.
 10. Configure GitHub Actions validation.
 11. Add OpenClaw maintenance-agent instructions.
-12. Draft first Stratnergy launch post.
+12. Draft first public launch post.
