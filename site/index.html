@@ -12,24 +12,28 @@
     }
     * { box-sizing: border-box; }
     body { margin: 0; }
-    main { max-width: 1180px; margin: 0 auto; padding: 40px 20px 64px; }
-    header { padding: 44px 0 28px; border-bottom: 1px solid #d9d2c3; }
+    main { max-width: 1180px; margin: 0 auto; padding: 28px 20px 64px; }
+    header { padding: 24px 0 18px; border-bottom: 1px solid #d9d2c3; }
     nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
     nav a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
     .eyebrow { text-transform: uppercase; letter-spacing: .08em; color: #5e6b62; font-size: 12px; }
-    h1 { font-size: clamp(40px, 7vw, 86px); line-height: .95; margin: 12px 0; max-width: 820px; }
-    .lede { max-width: 720px; font-size: 20px; color: #3f4b46; }
+    h1 { font-size: clamp(34px, 6vw, 64px); line-height: 1; margin: 10px 0; max-width: 820px; }
+    .lede { max-width: 720px; font-size: 18px; color: #3f4b46; }
+    .heroActions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .heroActions a { border: 1px solid #2f6358; border-radius: 6px; padding: 9px 12px; color: #285f55; text-decoration: none; }
+    .heroActions a:first-child { background: #2f6358; color: #fffefa; }
     .context { display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px; margin: 20px 0 4px; }
     .context section { background: #fffefa; border: 1px solid #d9d2c3; border-radius: 8px; padding: 16px; }
     .context p { margin: 0 0 10px; color: #3f4b46; line-height: 1.5; }
-    .controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 22px 0; }
+    .controls { display: grid; grid-template-columns: minmax(260px, 1.4fr) repeat(3, minmax(140px, 1fr)); gap: 10px; padding: 18px 0 12px; }
     label { display: grid; gap: 6px; font-size: 12px; text-transform: uppercase; color: #5e6b62; }
-    select, input { min-width: 190px; border: 1px solid #c8c0b0; background: #fffefa; border-radius: 6px; padding: 10px; color: #18221f; }
-    input { min-width: 280px; }
-    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
+    select, input { width: 100%; min-width: 0; border: 1px solid #c8c0b0; background: #fffefa; border-radius: 6px; padding: 10px; color: #18221f; }
+    .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
     .summary div { border-top: 3px solid #2f6358; background: #fffefa; padding: 16px; }
     .summary strong { display: block; font-size: 30px; }
     .summary span { color: #5e6b62; }
+    .quickGuide { background: #fffefa; border-left: 4px solid #2f6358; padding: 12px 14px; margin: 0 0 18px; color: #3f4b46; line-height: 1.5; }
+    .quickGuide strong { color: #18221f; }
     .sectionHead { margin: 28px 0 12px; max-width: 760px; }
     .sectionHead p { color: #3f4b46; line-height: 1.5; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
@@ -62,43 +66,36 @@
     .networkMode { margin: 0; color: #5e6b62; font-size: 14px; }
     .reviewPanel { background: #fffefa; border: 1px solid #d9d2c3; border-radius: 8px; padding: 16px; margin: 20px 0 4px; }
     .reviewPanel p { color: #3f4b46; line-height: 1.5; }
-    .reviewGrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
+    .reviewGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(82px, 1fr)); gap: 8px; margin: 14px 0; }
     .reviewGrid span { border: 1px solid #c8c0b0; border-radius: 6px; padding: 9px; color: #3f4b46; background: #f7f4ee; font-size: 13px; }
     .reviewLink { display: inline-flex; color: #285f55; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
     .contributePanel { background: #fffefa; border-left: 4px solid #2f6358; padding: 16px 18px; margin: 18px 0 8px; }
     .contributePanel p { max-width: 780px; color: #3f4b46; line-height: 1.5; }
     .contributeActions { display: flex; flex-wrap: wrap; gap: 10px; }
     .contributeActions a { color: #285f55; font-weight: 700; text-decoration: none; border-bottom: 1px solid currentColor; }
-    @media (max-width: 720px) { .summary, .context, .reviewGrid { grid-template-columns: 1fr; } }
+    .actionRow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0 8px; }
+    @media (max-width: 720px) { .summary, .context, .controls, .reviewGrid, .actionRow { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <p class="eyebrow">Open energy register</p>
-      <h1>Open Energy Problems</h1>
-      <p class="lede">A Germany-first public register for the open work modern energy systems need: benchmarks, schemas, datasets, simulators, replay packages, source ledgers, validated methods, and careful public disclosures.</p>
+      <p class="eyebrow">Germany-first open energy register</p>
+      <h1>Which energy problems have real open references?</h1>
+      <p class="lede">Search public problems and tracked references for batteries, forecasting, MaStR access, grid models, demand response, open solvers, and related energy infrastructure.</p>
+      <div class="heroActions">
+        <a href="#problemGrid">Browse problems</a>
+        <a href="#referenceGrid">Find a project</a>
+        <a href="https://github.com/stratnergy-labs/open-energy-problems">Open GitHub</a>
+      </div>
       <nav>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems">GitHub repository</a>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/problems">Problem cards</a>
         <a href="#problemGrid">Problems</a>
         <a href="#referenceGrid">Tracked references</a>
-        <a href="#reviewTrack">Review track</a>
         <a href="#contribute">Contribute</a>
+        <a href="#reviewTrack">Review track</a>
+        <a href="#solutionNetworkSection">Solution network</a>
       </nav>
     </header>
-
-    <section class="context" aria-label="Project context">
-      <section>
-        <h2>Why it exists</h2>
-        <p>Germany's grid is becoming a stress test for software-defined energy: storage economics, congestion, balancing markets, demand response, asset data, and flexibility claims all need better public evidence.</p>
-        <p>Many capable teams are solving pieces of the puzzle. This register makes that progress visible, comparable, and easier to build on.</p>
-      </section>
-      <section>
-        <h2>How to read it</h2>
-        <p>Click a problem title to open its GitHub card. Search by project name to see where a reference fits and which caveats still need review.</p>
-      </section>
-    </section>
 
     <section class="controls" aria-label="Problem filters">
       <label>Search<input id="search" type="search" placeholder="ISEA Battery Revenue Index, OpenSTEF, HiGHS, MaStR"></label>
@@ -114,35 +111,51 @@
       <div><strong id="matchCount">0</strong><span>results</span></div>
     </section>
 
-    <section class="reviewPanel" id="reviewTrack" aria-label="Review track">
-      <p class="eyebrow">Review track</p>
-      <h2>Review wanted</h2>
-      <p>Listed references are starting points, not endorsements. Help check a source, licence, fit, evidence level, or safety caveat.</p>
-      <div class="reviewGrid" aria-label="Review types">
-        <span>Source</span>
-        <span>Licence</span>
-        <span>Fit</span>
-        <span>Evidence</span>
-        <span>Safety</span>
-      </div>
-      <p>A useful review can be small: one URL checked, one licence clarified, one overclaim corrected.</p>
-      <a class="reviewLink" href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=review-request.yml">Submit a review note</a>
-    </section>
-
-    <section class="contributePanel" id="contribute" aria-label="Contribute">
-      <p class="eyebrow">Contribute</p>
-      <h2>Help make the map sharper</h2>
-      <p>Suggest a missing reference, check a source, clarify a licence, or improve a problem statement. One careful correction is enough to move the register forward.</p>
-      <div class="contributeActions">
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=new-contribution.yml">Suggest a reference</a>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=review-request.yml">Review an entry</a>
-        <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/HOW_TO_CONTRIBUTE.md">How to contribute</a>
-      </div>
+    <section class="quickGuide" aria-label="How to read the register">
+      <strong>Quick read:</strong> green means a useful reference exists for a stated scope; yellow means partial progress or public disclosure; red means no accepted open reference is listed yet. Problem titles open the GitHub source cards.
     </section>
 
     <section class="sectionHead">
+      <h2>Problems</h2>
+      <p>Start here. Each item is a public problem and the open references currently tracked against it.</p>
+    </section>
+    <section class="grid" id="problemGrid"></section>
+
+    <section class="sectionHead">
+      <h2>Find a tracked project</h2>
+      <p>Search by project name to see where it fits. Inclusion means relevance to a problem, not endorsement.</p>
+    </section>
+    <section class="grid" id="referenceGrid"></section>
+
+    <section class="actionRow" aria-label="Contribute and review">
+      <section class="contributePanel" id="contribute" aria-label="Contribute">
+        <p class="eyebrow">Contribute</p>
+        <h2>Help make the map sharper</h2>
+        <p>Suggest a missing reference, check a source, clarify a licence, or improve a problem statement.</p>
+        <div class="contributeActions">
+          <a href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=new-contribution.yml">Suggest a reference</a>
+          <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/HOW_TO_CONTRIBUTE.md">How to contribute</a>
+        </div>
+      </section>
+
+      <section class="reviewPanel" id="reviewTrack" aria-label="Review track">
+        <p class="eyebrow">Review track</p>
+        <h2>Review wanted</h2>
+        <p>Listed references are starting points, not endorsements. A useful review can be one checked URL, one licence clarification, or one corrected caveat.</p>
+        <div class="reviewGrid" aria-label="Review types">
+          <span>Source</span>
+          <span>Licence</span>
+          <span>Fit</span>
+          <span>Evidence</span>
+          <span>Safety</span>
+        </div>
+        <a class="reviewLink" href="https://github.com/stratnergy-labs/open-energy-problems/issues/new?template=review-request.yml">Submit a review note</a>
+      </section>
+    </section>
+
+    <section class="sectionHead" id="solutionNetworkSection">
       <h2>Solution network</h2>
-      <p>Problems sit on the left, tracked references on the right. Solid lines link references to problems; dashed lines show project-to-project relationships. Expand it when you want the full map.</p>
+      <p>Solid lines link references to problems; dashed lines show project-to-project relationships. Expand it when you want the full map.</p>
     </section>
     <section class="networkPanel" aria-label="Solution network">
       <div class="networkActions">
@@ -155,18 +168,6 @@
         <span class="legendSwatch relationship">Reference relationship</span>
       </div>
     </section>
-
-    <section class="sectionHead">
-      <h2>Problems</h2>
-      <p>The register starts with public problems, then tracks which open references exist for each one. Problem titles open the detailed GitHub cards.</p>
-    </section>
-    <section class="grid" id="problemGrid"></section>
-
-    <section class="sectionHead">
-      <h2>Find a tracked project</h2>
-      <p>Search by project name to see where it fits. Inclusion gives a project a public place in the problem map; it is recognition of relevance, not endorsement or a claim that the problem is solved.</p>
-    </section>
-    <section class="grid" id="referenceGrid"></section>
   </main>
 
   <script>
