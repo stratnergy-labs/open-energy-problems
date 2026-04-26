@@ -2,15 +2,54 @@
 
 AI x OSS reference problems for software-defined energy markets. **[Browse the status explorer](https://stratnergy-labs.github.io/open-energy-problems/)** for the searchable table.
 
-Energy markets have many important problems that are partly solved, privately solved, commercially disclosed, academically modelled, or not yet clearly stated.
+Open Energy Problems is a public register for important energy-market and grid problems, with a Germany-first focus on flexibility, storage, forecasting, open data, and software-defined operation.
 
-This repository tracks those problems.
+The register is organised around problems, not vendors or projects. For each problem, it tracks how far there is an open solution: a reproducible benchmark, schema, dataset, simulator, replay package, source ledger, validated method, or public disclosure.
 
-It records open-source projects, public methodologies, benchmark artefacts, AI-assisted attempts, replications, critiques, and remaining gaps.
+Energy markets have many important problems that are partly solved, privately solved, commercially disclosed, academically modelled, or not yet clearly stated. This repository makes that state inspectable.
 
-The goal is not to make a link directory. The goal is to create a cumulative problem map for software-defined energy markets.
+The goal is not to make a link directory. The goal is to create a cumulative problem map for software-defined energy markets, starting with the German grid as a demanding test case for public evidence infrastructure.
 
 In mathematics, a solved problem is often a proof. In energy, a solved problem is often a reference artefact: an open benchmark, schema, dataset, simulator, replay package, or validated method.
+
+## Purpose
+
+Open Energy Problems exists to answer a practical question:
+
+> For the most important problems in modern energy systems, what open artefacts already exist, what do they actually prove, and what remains missing?
+
+The project is useful when it helps readers distinguish:
+
+- an open-source codebase from an open benchmark;
+- a public chart from reusable open data;
+- a commercial disclosure from reproducible evidence;
+- a promising method from a validated reference artefact;
+- an AI-assisted attempt from a reviewed contribution.
+
+Germany is the first anchor because its power system exposes many of the hard problems at once: large renewable penetration, storage economics, redispatch and grid stress, balancing markets, demand response, asset registries, and the need for transparent flexibility evidence. The register can later expand to other geographies where the same problem structure applies.
+
+## How The Register Works
+
+Each problem card asks:
+
+- What is the problem?
+- Why does it matter for the grid, market design, or open energy software?
+- Which open artefacts or public disclosures are relevant?
+- What is the openness level?
+- What is the evidence strength?
+- What gaps remain?
+
+Traffic-light status is intentionally conservative:
+
+- 🟢 means a useful reference artefact exists for a stated scope.
+- 🟡 means there is partial progress, public disclosure, or relevant open tooling, but important gaps remain.
+- 🔴 means the problem is still open in this register because no accepted reference artefact is listed.
+
+## Stratnergy Context
+
+This repository is the public evidence layer for a wider Stratnergy research programme on software-defined energy markets. The repository should remain useful on its own: problem statements, contribution cards, generated indexes, and source notes stay public and reviewable.
+
+Stratnergy.com and the Stratnergy newsletter may add interpretation: why a problem matters, what progress means for market participants, and which open artefacts deserve deeper review. That interpretation should not be required to verify the public register.
 
 ## Status Snapshot
 

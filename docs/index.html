@@ -24,6 +24,9 @@
     .stat { background: #fffdfa; border-top: 3px solid #2f6358; padding: 14px; }
     .stat strong { display: block; font-size: 30px; }
     .stat span { color: #64736d; }
+    .context { display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; margin: 22px 0 8px; }
+    .context section { background: #fffdfa; border: 1px solid #d8d0c0; border-radius: 8px; padding: 18px; }
+    .context p { margin: 0 0 10px; color: #3f4b46; line-height: 1.5; }
     .controls { display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 10px; margin: 0 0 18px; }
     label { display: grid; gap: 5px; color: #64736d; font-size: 12px; text-transform: uppercase; }
     select, input { width: 100%; border: 1px solid #c8c0b0; border-radius: 6px; background: #fffdfa; padding: 10px; color: #17211e; }
@@ -40,7 +43,7 @@
     ul { margin: 0; padding-left: 18px; }
     li { margin: 5px 0; }
     @media (max-width: 820px) {
-      .stats, .controls, .legend { grid-template-columns: 1fr; }
+      .stats, .context, .controls, .legend { grid-template-columns: 1fr; }
       th:nth-child(4), td:nth-child(4), th:nth-child(6), td:nth-child(6) { display: none; }
     }
   </style>
@@ -50,7 +53,7 @@
     <header>
       <p class="eyebrow">Public reference layer</p>
       <h1>Open Energy Problems Status</h1>
-      <p class="lede">A public, machine-readable problem map for open-source progress in energy markets, storage, forecasting, grid flexibility, open data, and AI-assisted analysis.</p>
+      <p class="lede">A Germany-first public register of energy-market and grid problems, tracking how far each has an open benchmark, schema, dataset, simulator, replay package, source ledger, validated method, or public disclosure.</p>
       <nav>
         <a href="https://github.com/stratnergy-labs/open-energy-problems">GitHub repository</a>
         <a href="https://github.com/stratnergy-labs/open-energy-problems/tree/main/problems">Problem cards</a>
@@ -58,6 +61,19 @@
         <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/docs/seed-fit-review.md">Seed fit review</a>
       </nav>
     </header>
+
+    <section class="context" aria-label="Project context">
+      <section>
+        <h2>Purpose</h2>
+        <p>This is a problem register, not a project directory. It starts from the questions that matter for software-defined energy systems, then tracks the open artefacts that make progress inspectable.</p>
+        <p>Germany is the first anchor because its grid and market design expose many hard problems at once: renewables, storage economics, flexibility evidence, balancing markets, open registries, and grid stress.</p>
+      </section>
+      <section>
+        <h2>How To Read It</h2>
+        <p>Green means a useful reference artefact exists for a stated scope. Yellow means partial progress or public disclosure. Red means no accepted reference artefact is listed yet.</p>
+        <p>The GitHub repository remains the public evidence layer. Stratnergy essays and newsletters may interpret what the map means, but the public register should stand on its own.</p>
+      </section>
+    </section>
 
     <section class="stats" aria-label="Repository statistics">
       <div class="stat"><strong id="problemCount">0</strong><span>problems</span></div>
