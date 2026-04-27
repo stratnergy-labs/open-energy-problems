@@ -1,16 +1,27 @@
 # Open Energy Problems
 
-AI x OSS reference problems for software-defined energy markets. **[Browse the status explorer](https://stratnergy-labs.github.io/open-energy-problems/)** for the searchable table.
+A Germany-first public register of open references for energy-market, grid,
+forecasting, flexibility, and energy-enabling infrastructure problems.
+**[Browse the status explorer](https://stratnergy-labs.github.io/open-energy-problems/)**
+for the searchable table.
 
-Open Energy Problems is a public register for important energy-market and grid problems, with a Germany-first focus on flexibility, storage, forecasting, open data, and software-defined operation.
+Use it to find open benchmarks, datasets, schemas, simulators, interfaces,
+source-ledger patterns, reproducible methods, and carefully reviewed public
+disclosures, then see which problem each one helps address and what still needs
+review.
 
-The register is organised around problems, not vendors or projects. For each problem, it tracks how far there is an open solution: a reproducible benchmark, schema, dataset, simulator, replay package, source ledger, validated method, or public disclosure.
+The register is organised around problems, not vendors or projects. For each
+problem, it tracks how far there is an open reference: what exists, what kind of
+openness it provides, what evidence it supports, and what remains missing.
 
-Energy markets have many important problems that are partly solved, privately solved, commercially disclosed, academically modelled, or not yet clearly stated. This repository makes that state inspectable, so good open work can be found, credited, challenged, and improved.
+This is early, incomplete, and intentionally conservative. It is open for
+contribution: missing references, corrected links, licence notes, source checks,
+and review comments are all useful.
 
-The goal is not to make a link directory. The goal is to create a cumulative register for software-defined energy markets, starting with the German grid as a demanding test case for public evidence infrastructure.
-
-In mathematics, a solved problem is often a proof. In energy, a solved problem is often a reference object: an open benchmark, schema, dataset, simulator, replay package, or validated method.
+Energy is different from mathematics. In mathematics, a solved problem is often
+a proof. In energy, a useful answer is often a reference object: an open
+benchmark, dataset, schema, simulator, source ledger, reproducible method, or
+carefully reviewed public disclosure.
 
 ## Examples To Start With
 
@@ -33,6 +44,27 @@ help address.
 These are deliberately different kinds of reference. Open code, open data,
 public methodology, reproducible benchmarks, AI connectors, and commercial
 disclosures should not be collapsed into one category.
+
+## Seed References By Area
+
+The first seed set contains 22 tracked references. Some cards still need source
+or licence review; that is part of the invitation rather than a hidden flaw.
+
+| Area | Seed references |
+| --- | --- |
+| Battery revenue and trading benchmarks | [ISEA Battery Revenue Index](contributions/EP-001/isea-battery-revenue-index.md), [GigaStorage Battery Trading Benchmark](contributions/EP-003/gigastorage-battery-trading-benchmark.md), [enspired Portfolio Performance](contributions/EP-002/enspired-portfolio-performance.md) |
+| Forecasting | [OpenSTEF](contributions/EP-101/openstef.md) |
+| Market simulation | [ASSUME](contributions/EP-401/assume.md) |
+| Grid modelling | [PyPSA](contributions/EP-501/pypsa.md), [LF Energy Power Grid Model](contributions/EP-501/lf-energy-power-grid-model.md) |
+| Demand response and flexibility | [OpenLEADR](contributions/EP-601/openleadr.md), [FlexMeasures](contributions/EP-601/flexmeasures.md), [OpenEMS](contributions/EP-601/openems.md) |
+| MaStR and asset registries | [Official Marktstammdatenregister](contributions/EP-701/official-mastr-register.md), [open-MaStR](contributions/EP-701/open-mastr.md), [MaStR MCP Server](contributions/EP-701/mastr-mcp-server.md), [bundesAPI Marktstammdaten API](contributions/EP-701/bundesapi-marktstammdaten-api.md), [Marktstammdatenregister.dev](contributions/EP-701/marktstammdatenregister-dev.md) |
+| Shared terminology | [Open Energy Ontology](contributions/EP-801/open-energy-ontology.md) |
+| Open optimisation stack | [HiGHS](contributions/EP-901/highs.md), [Pyomo](contributions/EP-901/pyomo.md), [JuMP](contributions/EP-901/jump.md), [Google OR-Tools](contributions/EP-901/or-tools.md), [COIN-OR CBC](contributions/EP-901/cbc.md), [SCIP](contributions/EP-901/scip.md) |
+| Source ledgers | [EP-702](problems/EP-702-energy-source-ledger-schema.md) and the [source-ledger template](templates/source-ledger-template.md) |
+
+If you know a better source, a missing reference, or a caveat that should be
+visible, open an issue or pull request. The register should become more useful
+because people inspect it, not because the seed list pretends to be complete.
 
 ## Purpose
 

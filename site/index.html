@@ -40,6 +40,11 @@
     .exampleCard strong { display: block; margin-bottom: 6px; }
     .exampleCard a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
     .exampleCard p { margin: 0; color: #3f4b46; line-height: 1.45; font-size: 14px; }
+    .seedTable { width: 100%; border-collapse: collapse; background: #fffefa; border: 1px solid #d9d2c3; margin-bottom: 8px; }
+    .seedTable td { padding: 11px 10px; border-bottom: 1px solid #e4ded1; vertical-align: top; font-size: 14px; }
+    .seedTable td:first-child { width: 230px; font-weight: 700; color: #18221f; }
+    .seedTable a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .seedNote { margin: 8px 0 18px; color: #5e6b62; font-size: 13px; line-height: 1.45; }
     .sectionHead { margin: 28px 0 12px; max-width: 760px; }
     .sectionHead p { color: #3f4b46; line-height: 1.5; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
@@ -168,6 +173,53 @@
         <p>Transparency signal, not open data. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-002/enspired-portfolio-performance.md">Card</a></p>
       </article>
     </section>
+
+    <section class="sectionHead" aria-label="Seed references heading">
+      <h2>Seed references by area</h2>
+      <p>The first seed set tracks 22 references. Some cards still need source or licence review; inclusion means relevance to a problem, not endorsement.</p>
+    </section>
+
+    <table class="seedTable" aria-label="Seed references by area">
+      <tbody>
+        <tr>
+          <td>Battery revenue and trading</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-001/isea-battery-revenue-index.md">ISEA Battery Revenue Index</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-003/gigastorage-battery-trading-benchmark.md">GigaStorage Battery Trading Benchmark</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-002/enspired-portfolio-performance.md">enspired Portfolio Performance</a></td>
+        </tr>
+        <tr>
+          <td>Forecasting</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-101/openstef.md">OpenSTEF</a></td>
+        </tr>
+        <tr>
+          <td>Market simulation</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-401/assume.md">ASSUME</a></td>
+        </tr>
+        <tr>
+          <td>Grid modelling</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-501/pypsa.md">PyPSA</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-501/lf-energy-power-grid-model.md">LF Energy Power Grid Model</a></td>
+        </tr>
+        <tr>
+          <td>Demand response and flexibility</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-601/openleadr.md">OpenLEADR</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-601/flexmeasures.md">FlexMeasures</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-601/openems.md">OpenEMS</a></td>
+        </tr>
+        <tr>
+          <td>MaStR and asset registries</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-701/official-mastr-register.md">Official Marktstammdatenregister</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-701/open-mastr.md">open-MaStR</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-701/mastr-mcp-server.md">MaStR MCP Server</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-701/bundesapi-marktstammdaten-api.md">bundesAPI Marktstammdaten API</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-701/marktstammdatenregister-dev.md">Marktstammdatenregister.dev</a></td>
+        </tr>
+        <tr>
+          <td>Shared terminology</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-801/open-energy-ontology.md">Open Energy Ontology</a></td>
+        </tr>
+        <tr>
+          <td>Open optimisation stack</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-901/highs.md">HiGHS</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-901/pyomo.md">Pyomo</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-901/jump.md">JuMP</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-901/or-tools.md">Google OR-Tools</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-901/cbc.md">COIN-OR CBC</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-901/scip.md">SCIP</a></td>
+        </tr>
+        <tr>
+          <td>Source ledgers</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-702-energy-source-ledger-schema.md">EP-702</a> and the <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/templates/source-ledger-template.md">source-ledger template</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="seedNote">Know a better source or a missing open reference? That is exactly the kind of contribution this register is meant to collect.</p>
 
     <section class="sectionHead">
       <h2>Problems</h2>
