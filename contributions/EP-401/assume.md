@@ -4,7 +4,7 @@ problem_id: EP-401
 title: ASSUME
 type: SIMULATOR
 project_url: null
-repository_url: null
+repository_url: https://github.com/assume-framework/assume
 license_code: null
 license_data: null
 openness_level: 4
@@ -19,14 +19,13 @@ last_checked: 2026-04-26
 
 ## Summary
 
-Initial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.
+Open agent-based electricity-market simulation toolbox. The card tracks it as a simulator reference for market behaviour and policy-analysis problems.
 
 ## Fit To Problem
 
-This contribution is linked to `EP-401` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.
+This contribution is linked to `EP-401` as a candidate simulator for agent-based market simulation benchmarks.
 
 ## Caveats
 
-- Placeholder URLs are intentional until a maintainer verifies canonical sources.
 - Code licence and data licence must be reviewed separately.
 - This card must not be used as endorsement or evidence of operational performance without supporting sources.

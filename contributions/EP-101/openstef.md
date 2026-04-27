@@ -3,9 +3,9 @@ id: openstef
 problem_id: EP-101
 title: OpenSTEF
 type: REFERENCE_SOLUTION
-project_url: null
-repository_url: null
-license_code: null
+project_url: https://openstef.github.io/openstef/
+repository_url: https://github.com/OpenSTEF/openstef
+license_code: MPL-2.0
 license_data: null
 openness_level: 4
 evidence_strength: B
@@ -19,14 +19,13 @@ last_checked: 2026-04-26
 
 ## Summary
 
-Initial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.
+Open short-term energy forecasting package and workflow. The card tracks it as a reproducible-method reference for forecasting benchmarks.
 
 ## Fit To Problem
 
-This contribution is linked to `EP-101` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.
+This contribution is linked to `EP-101` as a reference project for short-term load and energy forecasting workflows.
 
 ## Caveats
 
-- Placeholder URLs are intentional until a maintainer verifies canonical sources.
 - Code licence and data licence must be reviewed separately.
 - This card must not be used as endorsement or evidence of operational performance without supporting sources.

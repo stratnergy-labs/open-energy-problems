@@ -3,7 +3,7 @@ id: isea-battery-revenue-index
 problem_id: EP-001
 title: ISEA Battery Revenue Index
 type: REFERENCE_SOLUTION
-project_url: null
+project_url: https://battery-charts.de/revenue-index/
 repository_url: null
 license_code: null
 license_data: null
@@ -19,14 +19,13 @@ last_checked: 2026-04-26
 
 ## Summary
 
-Initial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.
+Open benchmark for estimating German battery revenue potential across market products. The card tracks it as a reference benchmark for transparent BESS revenue estimation.
 
 ## Fit To Problem
 
-This contribution is linked to `EP-001` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.
+This contribution is linked to `EP-001` as a candidate open benchmark for German BESS revenue potential.
 
 ## Caveats
 
-- Placeholder URLs are intentional until a maintainer verifies canonical sources.
 - Code licence and data licence must be reviewed separately.
 - This card must not be used as endorsement or evidence of operational performance without supporting sources.

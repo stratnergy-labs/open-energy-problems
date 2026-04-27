@@ -3,8 +3,8 @@ id: pypsa
 problem_id: EP-501
 title: PyPSA
 type: SIMULATOR
-project_url: null
-repository_url: null
+project_url: https://pypsa.org/
+repository_url: https://github.com/PyPSA/PyPSA
 license_code: null
 license_data: null
 openness_level: 4
@@ -19,14 +19,13 @@ last_checked: 2026-04-26
 
 ## Summary
 
-Initial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.
+Open framework for power-system analysis, optimisation, and simulation. The card tracks it as grid and system-modelling infrastructure relevant to open grid-stress problems.
 
 ## Fit To Problem
 
-This contribution is linked to `EP-501` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.
+This contribution is linked to `EP-501` as a candidate simulator and modelling framework for reproducible grid-stress analysis.
 
 ## Caveats
 
-- Placeholder URLs are intentional until a maintainer verifies canonical sources.
 - Code licence and data licence must be reviewed separately.
 - This card must not be used as endorsement or evidence of operational performance without supporting sources.

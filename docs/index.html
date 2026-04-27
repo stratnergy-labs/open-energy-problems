@@ -33,6 +33,12 @@
     .controls { display: grid; grid-template-columns: minmax(260px, 1.4fr) repeat(3, minmax(140px, 1fr)); gap: 10px; margin: 18px 0 12px; }
     .quick-guide { background: #fffdfa; border-left: 4px solid #2f6358; padding: 12px 14px; margin: 0 0 18px; color: #3f4b46; line-height: 1.5; }
     .quick-guide strong { color: #17211e; }
+    .example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; margin: 0 0 18px; }
+    .example-card { background: #fffdfa; border: 1px solid #d8d0c0; border-radius: 8px; padding: 14px; }
+    .example-card span { display: block; color: #64736d; font-size: 12px; text-transform: uppercase; margin-bottom: 6px; }
+    .example-card strong { display: block; margin-bottom: 6px; }
+    .example-card a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .example-card p { margin: 0; color: #3f4b46; line-height: 1.45; font-size: 14px; }
     label { display: grid; gap: 5px; color: #64736d; font-size: 12px; text-transform: uppercase; }
     select, input { width: 100%; border: 1px solid #c8c0b0; border-radius: 6px; background: #fffdfa; padding: 10px; color: #17211e; }
     table { width: 100%; border-collapse: collapse; background: #fffdfa; border: 1px solid #d8d0c0; }
@@ -113,7 +119,7 @@
     </header>
 
     <section class="controls" aria-label="Problem filters">
-      <label>Search<input id="search" type="search" placeholder="ISEA Battery Revenue Index, OpenSTEF, HiGHS, MaStR"></label>
+      <label>Search<input id="search" type="search" placeholder="ISEA, enspired, OpenSTEF, MaStR, PyPSA"></label>
       <label>Area<select id="area"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
@@ -129,6 +135,54 @@
 
     <section class="quick-guide" aria-label="How to read the register">
       <strong>Quick read:</strong> green means a useful reference exists for a stated scope; yellow means partial progress or public disclosure; red means no accepted open reference is listed yet. Problem titles open the GitHub source cards.
+    </section>
+
+    <section class="section-head" aria-label="Example references heading">
+      <h2>Examples to start with</h2>
+      <p>Use the register as a reading map. These examples show why openness needs several categories, not a single score.</p>
+    </section>
+
+    <section class="example-grid" aria-label="Example references">
+      <article class="example-card">
+        <span>Open benchmark</span>
+        <strong><a href="https://battery-charts.de/revenue-index/">ISEA Battery Revenue Index</a></strong>
+        <p>Transparent German BESS revenue reference. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-001/isea-battery-revenue-index.md">Card</a></p>
+      </article>
+      <article class="example-card">
+        <span>Registry access</span>
+        <strong><a href="https://github.com/OpenEnergyPlatform/open-MaStR">open-MaStR</a></strong>
+        <p>Developer access to MaStR data. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-701/open-mastr.md">Card</a></p>
+      </article>
+      <article class="example-card">
+        <span>AI-facing interface</span>
+        <strong><a href="https://github.com/UliRCS/mastr-mcp-server">MaStR MCP Server</a></strong>
+        <p>AI assistant access to energy asset registry data. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-701/mastr-mcp-server.md">Card</a></p>
+      </article>
+      <article class="example-card">
+        <span>Schema or ontology</span>
+        <strong><a href="https://github.com/OpenEnergyPlatform/ontology">Open Energy Ontology</a></strong>
+        <p>Shared terminology for energy-system analysis. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-801/open-energy-ontology.md">Card</a></p>
+      </article>
+      <article class="example-card">
+        <span>Simulator</span>
+        <strong><a href="https://github.com/assume-framework/assume">ASSUME</a> / <a href="https://github.com/PyPSA/PyPSA">PyPSA</a></strong>
+        <p>Market and grid simulation references. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-401-agent-based-market-simulation.md">Example problem</a></p>
+      </article>
+      <article class="example-card">
+        <span>Reproducible method</span>
+        <strong><a href="https://github.com/OpenSTEF/openstef">OpenSTEF</a></strong>
+        <p>Open short-term forecasting workflow. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-101/openstef.md">Card</a></p>
+      </article>
+      <article class="example-card">
+        <span>Source ledger</span>
+        <strong><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/templates/source-ledger-template.md">Source-ledger template</a></strong>
+        <p>Source, query, licence, timestamp, hash, and caveats. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-702-energy-source-ledger-schema.md">Problem</a></p>
+      </article>
+      <article class="example-card">
+        <span>Public disclosure</span>
+        <strong><a href="https://www.enspired-trading.com/portfolio-performance">enspired Portfolio Performance</a></strong>
+        <p>Transparency signal, not open data. <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-002/enspired-portfolio-performance.md">Card</a></p>
+      </article>
     </section>
 
     <section class="section-head" id="problem-table" aria-label="Problem list heading">

@@ -3,7 +3,7 @@ id: enspired-portfolio-performance
 problem_id: EP-002
 title: enspired Portfolio Performance
 type: PUBLIC_DISCLOSURE
-project_url: null
+project_url: https://www.enspired-trading.com/portfolio-performance
 repository_url: null
 license_code: null
 license_data: null
@@ -19,14 +19,13 @@ last_checked: 2026-04-26
 
 ## Summary
 
-Initial seed contribution card. Source URLs, exact licence terms, and reproducibility claims need human verification before public release.
+Public BESS portfolio-performance disclosure. The card tracks it as a useful transparency reference, not as open data or a reproducible benchmark.
 
 ## Fit To Problem
 
-This contribution is linked to `EP-002` as a candidate artefact, disclosure, benchmark, schema, dataset, method, or simulator.
+This contribution is linked to `EP-002` as an example of public actual-performance transparency for BESS optimisation.
 
 ## Caveats
 
-- Placeholder URLs are intentional until a maintainer verifies canonical sources.
 - Code licence and data licence must be reviewed separately.
 - This card must not be used as endorsement or evidence of operational performance without supporting sources.

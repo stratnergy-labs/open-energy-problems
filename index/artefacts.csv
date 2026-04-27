@@ -1,23 +1,23 @@
 ai_relevance,evidence_strength,id,last_checked,license_code,license_data,maturity,openness_level,path,problem_id,project_url,repository_url,review_status,title,type
-medium,B,assume,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-401/assume.md,EP-401,,,needs_review,ASSUME,SIMULATOR
+medium,B,assume,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-401/assume.md,EP-401,,https://github.com/assume-framework/assume,needs_review,ASSUME,SIMULATOR
 high,C,bundesapi-marktstammdaten-api,2026-04-26,,,PARTIAL,4,contributions/EP-701/bundesapi-marktstammdaten-api.md,EP-701,https://marktstammdaten.api.bund.dev/,https://github.com/bundesAPI/marktstammdaten-api,needs_review,bundesAPI Marktstammdaten API,SCHEMA
 medium,B,cbc,2026-04-26,EPL-2.0,,REFERENCE_AVAILABLE,4,contributions/EP-901/cbc.md,EP-901,https://coin-or.github.io/Cbc/intro.html,https://github.com/coin-or/Cbc,needs_review,COIN-OR CBC,SOFTWARE_INFRASTRUCTURE
-low,C,enspired-portfolio-performance,2026-04-26,,,PUBLIC_DISCLOSURE,2,contributions/EP-002/enspired-portfolio-performance.md,EP-002,,,needs_review,enspired Portfolio Performance,PUBLIC_DISCLOSURE
+low,C,enspired-portfolio-performance,2026-04-26,,,PUBLIC_DISCLOSURE,2,contributions/EP-002/enspired-portfolio-performance.md,EP-002,https://www.enspired-trading.com/portfolio-performance,,needs_review,enspired Portfolio Performance,PUBLIC_DISCLOSURE
 high,C,flexmeasures,2026-04-26,,,PARTIAL,4,contributions/EP-601/flexmeasures.md,EP-601,,,needs_review,FlexMeasures,PARTIAL_PROGRESS
 medium,B,gigastorage-battery-trading-benchmark,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-003/gigastorage-battery-trading-benchmark.md,EP-003,,,needs_review,GigaStorage Battery Trading Benchmark,BENCHMARK
 medium,B,highs,2026-04-26,MIT,,REFERENCE_AVAILABLE,4,contributions/EP-901/highs.md,EP-901,https://highs.dev/,https://github.com/ERGO-Code/HiGHS,needs_review,HiGHS,SOFTWARE_INFRASTRUCTURE
-low,B,isea-battery-revenue-index,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-001/isea-battery-revenue-index.md,EP-001,,,needs_review,ISEA Battery Revenue Index,REFERENCE_SOLUTION
+low,B,isea-battery-revenue-index,2026-04-26,,,REFERENCE_AVAILABLE,5,contributions/EP-001/isea-battery-revenue-index.md,EP-001,https://battery-charts.de/revenue-index/,,needs_review,ISEA Battery Revenue Index,REFERENCE_SOLUTION
 medium,B,jump,2026-04-26,MPL-2.0,,REFERENCE_AVAILABLE,4,contributions/EP-901/jump.md,EP-901,https://jump.dev/,https://github.com/jump-dev/JuMP.jl,needs_review,JuMP,SOFTWARE_INFRASTRUCTURE
 medium,B,lf-energy-power-grid-model,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-501/lf-energy-power-grid-model.md,EP-501,,,needs_review,LF Energy Power Grid Model,METHODOLOGY
 medium,C,marktstammdatenregister-dev,2026-04-26,,,PARTIAL,3,contributions/EP-701/marktstammdatenregister-dev.md,EP-701,https://marktstammdatenregister.dev/,https://github.com/marktstammdatenregister-dev,needs_review,Marktstammdatenregister.dev,DATASET
 high,B,mastr-mcp-server,2026-04-26,MIT,,REFERENCE_AVAILABLE,4,contributions/EP-701/mastr-mcp-server.md,EP-701,,https://github.com/UliRCS/mastr-mcp-server,needs_review,MaStR MCP Server,MCP_CONNECTOR
 high,C,official-mastr-register,2026-04-26,,,REFERENCE_AVAILABLE,3,contributions/EP-701/official-mastr-register.md,EP-701,https://www.marktstammdatenregister.de/MaStR,,needs_review,Official Marktstammdatenregister,DATASET
-medium,B,open-energy-ontology,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-801/open-energy-ontology.md,EP-801,,,needs_review,Open Energy Ontology,METHODOLOGY
+medium,B,open-energy-ontology,2026-04-26,MIT OR CC0-1.0,MIT OR CC0-1.0,REFERENCE_AVAILABLE,4,contributions/EP-801/open-energy-ontology.md,EP-801,https://openenergy-platform.org/ontology/,https://github.com/OpenEnergyPlatform/ontology,needs_review,Open Energy Ontology,SCHEMA
 high,B,open-mastr,2026-04-26,AGPL-3.0-or-later,DL-DE-BY-2.0,REFERENCE_AVAILABLE,4,contributions/EP-701/open-mastr.md,EP-701,https://open-mastr.readthedocs.io/en/latest/,https://github.com/OpenEnergyPlatform/open-MaStR,needs_review,open-MaStR,DATASET
 medium,C,openems,2026-04-26,,,PARTIAL,4,contributions/EP-601/openems.md,EP-601,,,needs_review,OpenEMS,PARTIAL_PROGRESS
 medium,C,openleadr,2026-04-26,,,PARTIAL,4,contributions/EP-601/openleadr.md,EP-601,,,needs_review,OpenLEADR,METHODOLOGY
-high,B,openstef,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-101/openstef.md,EP-101,,,needs_review,OpenSTEF,REFERENCE_SOLUTION
+high,B,openstef,2026-04-26,MPL-2.0,,REFERENCE_AVAILABLE,4,contributions/EP-101/openstef.md,EP-101,https://openstef.github.io/openstef/,https://github.com/OpenSTEF/openstef,needs_review,OpenSTEF,REFERENCE_SOLUTION
 medium,B,or-tools,2026-04-26,Apache-2.0,,REFERENCE_AVAILABLE,4,contributions/EP-901/or-tools.md,EP-901,https://developers.google.com/optimization/,https://github.com/google/or-tools,needs_review,Google OR-Tools,SOFTWARE_INFRASTRUCTURE
 medium,B,pyomo,2026-04-26,BSD-3-Clause,,REFERENCE_AVAILABLE,4,contributions/EP-901/pyomo.md,EP-901,https://www.pyomo.org/,https://github.com/Pyomo/pyomo,needs_review,Pyomo,SOFTWARE_INFRASTRUCTURE
-medium,B,pypsa,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-501/pypsa.md,EP-501,,,needs_review,PyPSA,SIMULATOR
+medium,B,pypsa,2026-04-26,,,REFERENCE_AVAILABLE,4,contributions/EP-501/pypsa.md,EP-501,https://pypsa.org/,https://github.com/PyPSA/PyPSA,needs_review,PyPSA,SIMULATOR
 medium,B,scip,2026-04-26,Apache-2.0,,REFERENCE_AVAILABLE,4,contributions/EP-901/scip.md,EP-901,https://scipopt.org/,https://github.com/scipopt/scip,needs_review,SCIP,SOFTWARE_INFRASTRUCTURE

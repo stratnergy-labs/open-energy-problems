@@ -12,6 +12,28 @@ The goal is not to make a link directory. The goal is to create a cumulative reg
 
 In mathematics, a solved problem is often a proof. In energy, a solved problem is often a reference object: an open benchmark, schema, dataset, simulator, replay package, or validated method.
 
+## Examples To Start With
+
+If some of these projects are new to you, that is part of the point. The
+register is meant to be a reference map: a place to discover useful open energy
+artefacts, see what kind of openness they provide, and find the problem they
+help address.
+
+| Artefact type | Example | Why it is tracked |
+| --- | --- | --- |
+| Open benchmark | [ISEA Battery Revenue Index](https://battery-charts.de/revenue-index/) ([card](contributions/EP-001/isea-battery-revenue-index.md)) | A transparent reference for German BESS revenue potential. |
+| Dataset or registry access | [open-MaStR](https://github.com/OpenEnergyPlatform/open-MaStR) ([card](contributions/EP-701/open-mastr.md)) | Developer access to German energy asset registry data. |
+| AI-facing interface | [MaStR MCP Server](https://github.com/UliRCS/mastr-mcp-server) ([card](contributions/EP-701/mastr-mcp-server.md)) | A connector that makes MaStR data queryable by AI assistants. |
+| Schema or ontology | [Open Energy Ontology](https://github.com/OpenEnergyPlatform/ontology) ([card](contributions/EP-801/open-energy-ontology.md)) | Shared terminology for energy-system modelling and analysis. |
+| Simulator | [ASSUME](https://github.com/assume-framework/assume) ([card](contributions/EP-401/assume.md)) and [PyPSA](https://github.com/PyPSA/PyPSA) ([card](contributions/EP-501/pypsa.md)) | Open simulation and modelling tools for market and grid questions. |
+| Source ledger | [Source-ledger template](templates/source-ledger-template.md) and [EP-702](problems/EP-702-energy-source-ledger-schema.md) | A record of source, query, timestamp, licence, result count, hash, and caveats. |
+| Reproducible method | [OpenSTEF](https://github.com/OpenSTEF/openstef) ([card](contributions/EP-101/openstef.md)) | Open short-term forecasting workflow and method infrastructure. |
+| Public disclosure | [enspired Portfolio Performance](https://www.enspired-trading.com/portfolio-performance) ([card](contributions/EP-002/enspired-portfolio-performance.md)) | Useful transparency, but not the same as open data or a reproducible benchmark. |
+
+These are deliberately different kinds of reference. Open code, open data,
+public methodology, reproducible benchmarks, AI connectors, and commercial
+disclosures should not be collapsed into one category.
+
 ## Purpose
 
 Open Energy Problems exists to answer a practical question:
