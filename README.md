@@ -25,7 +25,7 @@ carefully reviewed public disclosure.
 
 ## Examples And Seed References
 
-Start with these 22 tracked references. Some cards still need source or licence
+Start with these 23 tracked references. Some cards still need source or licence
 review.
 
 | Area | Seed references | What this illustrates |
@@ -38,6 +38,7 @@ review.
 | MaStR and asset registries | [Official Marktstammdatenregister](contributions/EP-701/official-mastr-register.md), [open-MaStR](contributions/EP-701/open-mastr.md), [MaStR MCP Server](contributions/EP-701/mastr-mcp-server.md), [bundesAPI Marktstammdaten API](contributions/EP-701/bundesapi-marktstammdaten-api.md), [Marktstammdatenregister.dev](contributions/EP-701/marktstammdatenregister-dev.md) | Registry, dataset access, API description, and AI-facing interface. |
 | Shared terminology | [Open Energy Ontology](contributions/EP-801/open-energy-ontology.md) | Shared vocabulary and schema work. |
 | Open optimisation stack | [HiGHS](contributions/EP-901/highs.md), [Pyomo](contributions/EP-901/pyomo.md), [JuMP](contributions/EP-901/jump.md), [Google OR-Tools](contributions/EP-901/or-tools.md), [COIN-OR CBC](contributions/EP-901/cbc.md), [SCIP](contributions/EP-901/scip.md) | Energy-enabling infrastructure for reproducible optimisation. |
+| Tool health and adoption | [Open Energy Modelling Tool Tracker](contributions/EP-902/openmod-tracker.md) | Tool inventory, repository metrics, documentation links, and community-activity signals. |
 | Source ledgers | [EP-702](problems/EP-702-energy-source-ledger-schema.md) and the [source-ledger template](templates/source-ledger-template.md) | Source, query, timestamp, licence, result count, hash, and caveats. |
 
 Open code, open data, public methodology, AI interfaces, reproducible
@@ -122,18 +123,18 @@ deeper review. Basic verification stays in the public repo.
 
 ## Status Snapshot
 
-Seed snapshot as of 2026-04-26. The traffic lights describe repository classification, not project quality or commercial usefulness.
+Seed snapshot as of 2026-04-29. The traffic lights describe repository classification, not project quality or commercial usefulness.
 
 | Light | Meaning | Count | Current problem IDs |
 | --- | --- | ---: | --- |
 | 🟢 | Reference available or solved for a narrow stated scope | 5 | EP-001, EP-003, EP-101, EP-401, EP-801 |
-| 🟡 | Partial progress or public disclosure, with important reproducibility gaps | 5 | EP-002, EP-501, EP-601, EP-701, EP-901 |
+| 🟡 | Partial progress or public disclosure, with important reproducibility gaps | 6 | EP-002, EP-501, EP-601, EP-701, EP-901, EP-902 |
 | 🔴 | Open problem with no accepted open reference yet | 6 | EP-103, EP-201, EP-301, EP-302, EP-304, EP-702 |
 
 Current seed map:
 
-- 16 problem cards.
-- 22 tracked references.
+- 17 problem cards.
+- 23 tracked references.
 - 7 project relationship cards.
 - 10 problem areas.
 - 0 accepted source/licence reviews; seed contribution cards remain `needs_review` until source URLs and licence terms are verified.

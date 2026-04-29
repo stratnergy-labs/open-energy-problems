@@ -306,6 +306,24 @@
     "type": "METHODOLOGY"
   },
   {
+    "ai_relevance": "medium",
+    "body": "# Open Energy Modelling Tool Tracker\n\n## Summary\n\nOpen Energy Transition's openmod-tracker collects open energy system modelling\ntools from several upstream inventories and publishes repository, package,\ndocumentation, and community-activity metrics through a dashboard.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-902` because it is a tool-level reference\nfor open energy modelling software health and adoption metrics.\n\nIt is complementary to this register. openmod-tracker is tool-first: it helps\nanswer which open modelling tools exist and how active or discoverable they\nare. Open Energy Problems is problem-first: it asks which open references help\nanswer a particular grid, market, data, forecasting, or flexibility problem.\n\n## Caveats\n\n- Tool activity metrics do not prove that a tool solves a specific energy\n  problem.\n- The tracker focuses on energy system modelling tools, not all open energy\n  datasets, registries, market disclosures, benchmarks, or AI-facing\n  interfaces.\n- Coverage of concrete geography-specific model instances, including German\n  grid models, should be checked against the tracker inventory and upstream\n  source lists.",
+    "evidence_strength": "B",
+    "id": "openmod-tracker",
+    "last_checked": "2026-04-29",
+    "license_code": "MIT",
+    "license_data": "CC-BY-4.0",
+    "maturity": "REFERENCE_AVAILABLE",
+    "openness_level": 5,
+    "path": "contributions/EP-902/openmod-tracker.md",
+    "problem_id": "EP-902",
+    "project_url": "https://openmod-tracker.org/",
+    "repository_url": "https://github.com/open-energy-transition/openmod-tracker",
+    "review_status": "needs_review",
+    "title": "Open Energy Modelling Tool Tracker",
+    "type": "INVENTORY"
+  },
+  {
     "ai_relevance": "high",
     "body": "# OpenSTEF\n\n## Summary\n\nOpen short-term energy forecasting package and workflow. The card tracks it as a reproducible-method reference for forecasting benchmarks.\n\n## Fit To Problem\n\nThis contribution is linked to `EP-101` as a reference project for short-term load and energy forecasting workflows.\n\n## Caveats\n\n- Code licence and data licence must be reviewed separately.\n- This card must not be used as endorsement or evidence of operational performance without supporting sources.",
     "evidence_strength": "B",

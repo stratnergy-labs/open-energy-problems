@@ -463,5 +463,36 @@
     ],
     "status": "PARTIAL",
     "title": "Open Optimization Stack for Energy Models"
+  },
+  {
+    "ai_relevance": "medium",
+    "analysis_url": null,
+    "asset_class": [
+      "software",
+      "energy_models",
+      "open_source_infrastructure"
+    ],
+    "body": "# Open Energy Tool Health and Adoption Metrics\n\n## Problem\n\nTrack which open energy modelling tools exist, whether they are active, how\nwell documented they are, and where they fit in the wider open energy software\necosystem.\n\n## Why It Matters\n\nOpen energy work depends on more than the existence of source code. Tool choice\nalso depends on maintenance, documentation, package availability, community\nactivity, dependency health, and whether a tool is suitable for a particular\nproblem.\n\nTool-level metrics do not answer every problem-level question. They are useful\nevidence for judging whether an open reference is alive, discoverable, and\nmaintainable.\n\n## Scope\n\nThis problem tracks tool inventories, adoption metrics, repository metadata,\ndocumentation links, and related open-source health signals for energy\nmodelling and planning software.\n\nIt does not treat repository activity as proof that a tool solves a specific\ngrid, market, forecasting, or flexibility problem.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence\ndetails require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which tool-health metrics are useful for energy practitioners?\n- How should tool-level metrics be linked to problem-level evidence?\n- Which inventories cover German-grid, European-grid, and distribution-network\n  tools well?\n- How should the register distinguish a modelling framework from a concrete\n  model of a particular grid or geography?\n\n## Market-Integrity And Licence Notes\n\nTool metrics should be based on public repository, package, documentation, and\ninventory data. Do not add private user data, confidential deployment details,\nor unsupported claims about tool quality.",
+    "evidence_strength": "B",
+    "geography": "Global",
+    "id": "EP-902",
+    "interactive_url": null,
+    "lane": "computational-infrastructure",
+    "last_updated": "2026-04-29",
+    "maintainer": "stratnergy",
+    "market_integrity_risk": "low",
+    "market_scope": [
+      "modelling",
+      "planning",
+      "reproducibility"
+    ],
+    "openness_level": 5,
+    "path": "problems/EP-902-open-energy-tool-health-and-adoption-metrics.md",
+    "public_post_url": null,
+    "related_contributions": [
+      "openmod-tracker"
+    ],
+    "status": "PARTIAL",
+    "title": "Open Energy Tool Health and Adoption Metrics"
   }
 ]
