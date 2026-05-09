@@ -13,7 +13,7 @@ market_scope:
   - audit
 ai_relevance: high
 market_integrity_risk: low
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   []
@@ -30,7 +30,10 @@ Standard record of source, query, timestamp, licence, result count, hash, and li
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Energy analysis often depends on sources that are public, restricted,
+query-only, revised, or licence-specific. A source ledger lets readers see what
+was queried, when it was accessed, what may be reused, and what remains only a
+citation.
 
 ## Scope
 

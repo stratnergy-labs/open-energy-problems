@@ -13,7 +13,7 @@ market_scope:
   - metadata
 ai_relevance: medium
 market_integrity_risk: low
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - open-energy-ontology
@@ -30,7 +30,9 @@ Controlled vocabulary and definitions for energy-market artefacts.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Energy-market work crosses engineering, software, regulation, finance, and grid
+operations. Shared terminology reduces ambiguity when comparing datasets,
+schemas, benchmarks, simulations, and public disclosures.
 
 ## Scope
 

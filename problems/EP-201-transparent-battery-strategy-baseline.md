@@ -13,7 +13,7 @@ market_scope:
   - intraday
 ai_relevance: medium
 market_integrity_risk: high
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   []
@@ -26,25 +26,36 @@ interactive_url: null
 
 ## Problem
 
-Simple reproducible DA/ID battery arbitrage baselines that are useful for comparison but not live alpha.
+Define simple reproducible DA/ID battery arbitrage baselines that are useful
+for comparison, teaching, and sanity checks, without becoming live trading
+guidance.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Battery revenue claims need humble baselines. Before comparing complex
+optimisers, reviewers need to know how a simple rule, perfect-foresight toy
+model, or constrained arbitrage baseline performs under the same data,
+efficiency, degradation, and fee assumptions.
 
 ## Scope
 
-No accepted artefact is listed yet. Candidate baselines should be simplified, documented, delayed, and unsuitable for operational trading replication.
+Candidate baselines should be simplified, documented, delayed, and unsuitable
+for operational trading replication. This card covers baseline strategy logic,
+not the full stack for forecasts, replay, accounting, and reporting; that
+larger problem is tracked in `EP-202`.
 
 ## Existing Artefacts
 
-Related contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.
+No accepted artefact is listed yet. Related benchmark work may inform this
+problem, but a baseline should not be upgraded until source, licence, timing,
+and market-integrity caveats are reviewed.
 
 ## Open Questions
 
-- Which evidence is reproducible from public material?
-- Which data can be reused, cited only, or linked only?
-- What review would change the status or evidence-strength classification?
+- Which baseline is simple enough to inspect but still useful for comparison?
+- Which public or synthetic data can be used without licence problems?
+- How should degradation, efficiency, fees, and market-product eligibility be
+  represented?
 
 ## Market-Integrity And Licence Notes
 

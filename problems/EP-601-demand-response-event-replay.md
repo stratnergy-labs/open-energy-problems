@@ -15,7 +15,7 @@ market_scope:
   - event_replay
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - openleadr
@@ -34,7 +34,9 @@ Replayable artefacts for demand-response and DER events.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Demand-response claims need event-level evidence: what signal was sent, what
+baseline was used, what response was delivered, and what rebound or non-delivery
+followed. Replayable artefacts make those claims easier to audit.
 
 ## Scope
 

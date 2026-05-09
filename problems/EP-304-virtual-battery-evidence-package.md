@@ -14,7 +14,7 @@ market_scope:
   - benchmarks
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions: []
 public_post_url: null
@@ -26,15 +26,21 @@ interactive_url: null
 
 ## Problem
 
-Define the artefact package that accompanies virtual battery benchmark runs.
+Define the evidence package that should accompany virtual battery and
+flexibility benchmark runs.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+A virtualised flexibility claim should come with enough evidence to inspect the
+inputs, assumptions, run timing, limitations, and licence terms. Without that
+package, readers cannot tell whether a result is reproducible, illustrative, or
+only a public claim.
 
 ## Scope
 
-Evidence packages should include source ledger, assumptions, replay data, metrics, caveats, and licence notes. No accepted open reference package is listed yet.
+Evidence packages should include source ledger, assumptions, sample or replay
+data, schema version, metrics, caveats, and licence notes. This card supports
+the broader virtualiser problem in `EP-303`.
 
 ## Existing Artefacts
 
@@ -42,9 +48,9 @@ No contribution is currently accepted for this problem. Source URLs and licence 
 
 ## Open Questions
 
-- Which evidence is reproducible from public material?
-- Which data can be reused, cited only, or linked only?
-- What review would change the status or evidence-strength classification?
+- What minimum files should be present in a virtual battery evidence package?
+- How should source hashes, query timestamps, and licence caveats be recorded?
+- Which examples can be public, synthetic, or link-only?
 
 ## Market-Integrity And Licence Notes
 

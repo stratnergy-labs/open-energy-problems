@@ -15,7 +15,7 @@ market_scope:
   - grid_stress
 ai_relevance: medium
 market_integrity_risk: low
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - pypsa
@@ -33,7 +33,9 @@ Reproducible grid-stress scenarios for DER and battery behaviour.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Grid stress determines where flexibility, storage, and demand response actually
+help. Open modelling references make topology, assumptions, data limitations,
+and scenario design visible enough for review.
 
 ## Scope
 

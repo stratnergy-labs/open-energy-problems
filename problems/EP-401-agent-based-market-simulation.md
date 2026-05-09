@@ -13,7 +13,7 @@ market_scope:
   - policy_analysis
 ai_relevance: medium
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - assume
@@ -30,7 +30,10 @@ Open simulations for market behaviour, strategy interaction, and policy analysis
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Market design changes can produce second-order effects through strategy
+interaction, congestion, scarcity, and participant behaviour. Open simulations
+make those assumptions easier to inspect before claims enter policy or product
+debates.
 
 ## Scope
 

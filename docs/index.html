@@ -101,7 +101,7 @@
     <header>
       <p class="eyebrow">Germany-first open energy register</p>
       <h1>Which energy problems have real open references?</h1>
-      <p class="lede">Search public problems and tracked references for batteries, forecasting, MaStR access, grid models, demand response, open solvers, and related energy infrastructure.</p>
+      <p class="lede">Search public problems and tracked references for batteries, virtualisers, trading stacks, forecasting, MaStR access, grid models, demand response, open solvers, and related energy infrastructure.</p>
       <div class="hero-actions">
         <a href="#problem-table">Browse problems</a>
         <a href="#tracked-projects">Find a project</a>
@@ -118,7 +118,7 @@
     </header>
 
     <section class="controls" aria-label="Problem filters">
-      <label>Search<input id="search" type="search" placeholder="ISEA, enspired, OpenSTEF, MaStR, PyPSA"></label>
+      <label>Search<input id="search" type="search" placeholder="virtualiser, trading stack, ISEA, OpenSTEF, MaStR"></label>
       <label>Area<select id="area"></select></label>
       <label>Status<select id="status"></select></label>
       <label>Evidence<select id="evidence"></select></label>
@@ -135,6 +135,43 @@
     <section class="quick-guide" aria-label="How to read the register">
       <strong>Quick read:</strong> green means a useful reference exists for a stated scope; yellow means partial progress or public disclosure; red means no accepted open reference is listed yet. Problem titles open the GitHub source cards.
     </section>
+
+    <section class="section-head" aria-label="Headline open problems heading">
+      <h2>Headline open problems</h2>
+      <p>Some gaps are listed before good references exist. That makes them easier to review, challenge, or fill.</p>
+    </section>
+
+    <table class="seed-table" aria-label="Headline open problems">
+      <thead>
+        <tr>
+          <th>Problem</th>
+          <th>What is missing</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-202-open-full-stack-battery-trading-reference-stack.md">Open full-stack battery trading reference stack</a></td>
+          <td>Safe public stack for data inputs, forecasts, optimisation, constraints, replay, accounting, and reporting.</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-303-open-source-flexibility-virtualiser.md">Open source flexibility virtualiser</a></td>
+          <td>Reference virtualiser for capabilities, constraints, availability, uncertainty, and fulfilment records.</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-203-open-market-replay-and-backtesting-harness.md">Open market replay and backtesting harness</a></td>
+          <td>Replay environment that shows what was known at decision time and makes backtest assumptions visible.</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-305-open-flexibility-portfolio-accounting.md">Open flexibility portfolio accounting</a></td>
+          <td>Method for availability, reservation, activation, fulfilment, rebound, overcommitment, baseline error, and caveats.</td>
+          <td>Open</td>
+        </tr>
+      </tbody>
+    </table>
 
     <section class="section-head" aria-label="Seed references heading">
       <h2>Examples and seed references</h2>

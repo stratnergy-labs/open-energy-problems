@@ -13,7 +13,7 @@ market_scope:
   - portfolio_performance
 ai_relevance: medium
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - enspired-portfolio-performance
@@ -30,7 +30,9 @@ Actual-performance transparency for BESS optimisers.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Actual portfolio disclosures help distinguish theoretical battery revenues from
+reported operating performance. They are valuable evidence, but they need clear
+separation from open data, open code, and reproducible benchmarks.
 
 ## Scope
 

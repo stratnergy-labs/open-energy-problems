@@ -5,13 +5,13 @@
     "asset_class": [
       "battery_storage"
     ],
-    "body": "# Open BESS Revenue Index for Germany\n\n## Problem\n\nCreate a transparent, reproducible benchmark for estimating battery revenue potential across German market products.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nSolved for the narrow scope of a public reference benchmark, not for full optimiser performance or live market strategy.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Open BESS Revenue Index for Germany\n\n## Problem\n\nCreate a transparent, reproducible benchmark for estimating battery revenue potential across German market products.\n\n## Why It Matters\n\nA public revenue index gives researchers, developers, policymakers, and storage\nowners a common starting point for discussing battery economics. It is not a\nsubstitute for optimiser performance, but it makes market opportunity claims\neasier to inspect.\n\n## Scope\n\nSolved for the narrow scope of a public reference benchmark, not for full optimiser performance or live market strategy.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Germany",
     "id": "EP-001",
     "interactive_url": null,
     "lane": "market-benchmarks",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "low",
     "market_scope": [
@@ -37,13 +37,13 @@
     "asset_class": [
       "battery_storage"
     ],
-    "body": "# Public Actual BESS Portfolio Performance\n\n## Problem\n\nActual-performance transparency for BESS optimisers.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nPublic disclosures can inform debate, but do not automatically provide reusable data or reproducible infrastructure.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Public Actual BESS Portfolio Performance\n\n## Problem\n\nActual-performance transparency for BESS optimisers.\n\n## Why It Matters\n\nActual portfolio disclosures help distinguish theoretical battery revenues from\nreported operating performance. They are valuable evidence, but they need clear\nseparation from open data, open code, and reproducible benchmarks.\n\n## Scope\n\nPublic disclosures can inform debate, but do not automatically provide reusable data or reproducible infrastructure.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "C",
     "geography": "Europe",
     "id": "EP-002",
     "interactive_url": null,
     "lane": "market-benchmarks",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -66,13 +66,13 @@
       "battery_storage",
       "energy_storage"
     ],
-    "body": "# Open ESS Trading Benchmark\n\n## Problem\n\nOpen benchmark tools for ESS value under defined market assumptions.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nBenchmark strategy examples must remain educational and delayed, not live trading instructions.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Open ESS Trading Benchmark\n\n## Problem\n\nOpen benchmark tools for ESS value under defined market assumptions.\n\n## Why It Matters\n\nOpen ESS benchmarks make assumptions visible: market products, price inputs,\nstorage constraints, fees, degradation, and time resolution. That helps readers\ncompare methods without mistaking a benchmark for live trading performance.\n\n## Scope\n\nBenchmark strategy examples must remain educational and delayed, not live trading instructions.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Europe",
     "id": "EP-003",
     "interactive_url": null,
     "lane": "market-benchmarks",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -94,13 +94,13 @@
     "asset_class": [
       "load"
     ],
-    "body": "# Open Short-Term Load Forecast Benchmark\n\n## Problem\n\nReproducible benchmark for short-term load forecasts.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nEvaluate source coverage, model assumptions, data licence, and out-of-sample reproducibility.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Open Short-Term Load Forecast Benchmark\n\n## Problem\n\nReproducible benchmark for short-term load forecasts.\n\n## Why It Matters\n\nShort-term forecasts shape dispatch, imbalance management, congestion analysis,\nand flexibility valuation. Open forecasting benchmarks make it easier to inspect\ndata inputs, model assumptions, validation windows, and reproducibility.\n\n## Scope\n\nEvaluate source coverage, model assumptions, data licence, and out-of-sample reproducibility.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Europe",
     "id": "EP-101",
     "interactive_url": null,
     "lane": "forecasting",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "low",
     "market_scope": [
@@ -123,13 +123,13 @@
       "battery_storage",
       "flexibility"
     ],
-    "body": "# Forecast Decision-Quality Benchmark\n\n## Problem\n\nEvaluate forecasts by downstream trading or dispatch value, not only error metrics.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nDecision-quality evaluation should use synthetic or delayed examples and avoid publishing exploitable live strategy.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Forecast Decision-Quality Benchmark\n\n## Problem\n\nEvaluate forecasts by downstream trading or dispatch value, not only error metrics.\n\n## Why It Matters\n\nLower forecast error does not always produce better operational decisions. This\nproblem asks how forecasts should be judged when the downstream objective is\ndispatch quality, trading value, grid relief, or avoided imbalance cost.\n\n## Scope\n\nDecision-quality evaluation should use synthetic or delayed examples and avoid publishing exploitable live strategy.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Global",
     "id": "EP-103",
     "interactive_url": null,
     "lane": "forecasting",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -149,13 +149,13 @@
     "asset_class": [
       "battery_storage"
     ],
-    "body": "# Transparent Battery Strategy Baseline\n\n## Problem\n\nSimple reproducible DA/ID battery arbitrage baselines that are useful for comparison but not live alpha.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nNo accepted artefact is listed yet. Candidate baselines should be simplified, documented, delayed, and unsuitable for operational trading replication.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Transparent Battery Strategy Baseline\n\n## Problem\n\nDefine simple reproducible DA/ID battery arbitrage baselines that are useful\nfor comparison, teaching, and sanity checks, without becoming live trading\nguidance.\n\n## Why It Matters\n\nBattery revenue claims need humble baselines. Before comparing complex\noptimisers, reviewers need to know how a simple rule, perfect-foresight toy\nmodel, or constrained arbitrage baseline performs under the same data,\nefficiency, degradation, and fee assumptions.\n\n## Scope\n\nCandidate baselines should be simplified, documented, delayed, and unsuitable\nfor operational trading replication. This card covers baseline strategy logic,\nnot the full stack for forecasts, replay, accounting, and reporting; that\nlarger problem is tracked in `EP-202`.\n\n## Existing Artefacts\n\nNo accepted artefact is listed yet. Related benchmark work may inform this\nproblem, but a baseline should not be upgraded until source, licence, timing,\nand market-integrity caveats are reviewed.\n\n## Open Questions\n\n- Which baseline is simple enough to inspect but still useful for comparison?\n- Which public or synthetic data can be used without licence problems?\n- How should degradation, efficiency, fees, and market-product eligibility be\n  represented?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Europe",
     "id": "EP-201",
     "interactive_url": null,
     "lane": "trading-logic",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "high",
     "market_scope": [
@@ -173,16 +173,73 @@
     "ai_relevance": "high",
     "analysis_url": null,
     "asset_class": [
+      "battery_storage"
+    ],
+    "body": "# Open Full-Stack Battery Trading Reference Stack\n\n## Problem\n\nBuild a public, non-operational reference stack for battery trading research:\ndata inputs, forecasts, optimisation model, asset constraints, replay or\nbacktest harness, accounting, and benchmark reporting.\n\n## Why It Matters\n\nBattery strategy claims are difficult to compare when the forecast inputs,\nmarket data, optimisation assumptions, degradation costs, fees, constraints, and\nsettlement logic are split across private systems. An open reference stack would\nlet researchers test ideas against a shared structure without publishing live\ntrading logic.\n\n## Scope\n\nThe target is a delayed, synthetic, or research-grade stack for German and\nEuropean market examples. It should be useful for comparison, teaching, and\nreview, but unsuitable for direct operational deployment. It should separate\nmarket data rights, forecast assumptions, objective functions, asset limits,\ntransaction costs, degradation assumptions, and reporting metrics.\n\nOut of scope: current bids, live dispatch instructions, proprietary optimiser\nlogic, customer-specific assets, market coordination, and unrestricted\nautomation against live markets.\n\n## Existing Artefacts\n\nNo accepted reference artefact is listed yet. Relevant partial work may include\nopen ESS benchmarks, public battery revenue indexes, open optimisation tooling,\nand market simulators, but no tracked contribution currently covers the full\nstack for this problem.\n\n## Open Questions\n\n- What is the minimum safe reference stack that is useful without becoming\n  operational trading guidance?\n- Which market data can be redistributed, linked, or used only through a source\n  ledger?\n- How should forecast uncertainty, battery degradation, grid constraints, fees,\n  and balancing-market eligibility be represented?\n- What benchmark outputs are informative without encouraging live strategy\n  copying?\n\n## Market-Integrity And Licence Notes\n\nUse delayed, synthetic, public, or licence-compatible data only. Do not add live\nstrategy, current bids, operational dispatch instructions, customer-sensitive\ndata, or restricted data copies to this problem card.",
+    "evidence_strength": "D",
+    "geography": "Germany",
+    "id": "EP-202",
+    "interactive_url": null,
+    "lane": "trading-logic",
+    "last_updated": "2026-05-09",
+    "maintainer": "stratnergy",
+    "market_integrity_risk": "high",
+    "market_scope": [
+      "day_ahead",
+      "intraday",
+      "balancing",
+      "backtesting"
+    ],
+    "openness_level": 0,
+    "path": "problems/EP-202-open-full-stack-battery-trading-reference-stack.md",
+    "public_post_url": null,
+    "related_contributions": [],
+    "status": "OPEN",
+    "title": "Open Full-Stack Battery Trading Reference Stack"
+  },
+  {
+    "ai_relevance": "high",
+    "analysis_url": null,
+    "asset_class": [
       "battery_storage",
       "flexibility"
     ],
-    "body": "# Open Virtual Battery Schema\n\n## Problem\n\nDefine a machine-readable schema for virtual battery state.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nNo accepted reference artefact is listed yet. Candidate external schemas, if any, should be reviewed for scope, licence, field definitions, validation examples, and operational-safety implications before being added as contributions.\n\n## Existing Artefacts\n\nNo contribution is currently accepted for this problem. Source URLs and licence details require human verification before any candidate artefact is listed.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Open Market Replay And Backtesting Harness\n\n## Problem\n\nCreate a reusable replay environment for testing storage and flexibility\nmethods against historical or synthetic market conditions, with clear controls\nfor data leakage, market timing, fees, asset constraints, and reporting.\n\n## Why It Matters\n\nMany energy trading and dispatch claims are backtests, but backtests are easy to\noverstate. A common replay harness would make assumptions visible: what was\nknown at decision time, what data was delayed, how prices were settled, what\ncosts were included, and which constraints were enforced.\n\n## Scope\n\nThe harness should support delayed public datasets, synthetic examples, and\nclearly documented assumptions. It should record decision timestamps, source\nversions, market-product definitions, unit conversions, transaction costs,\ndegradation assumptions, and benchmark metrics.\n\nOut of scope: live trading integration, current order-book replication,\nproprietary strategy code, and unrestricted use of restricted market data.\n\n## Existing Artefacts\n\nNo accepted reference artefact is listed yet. Related partial areas include\nopen ESS trading benchmarks, forecast decision-quality benchmarks, agent-based\nmarket simulation, and source-ledger records.\n\n## Open Questions\n\n- Which market products and time resolutions should be covered first?\n- How should the harness prevent look-ahead bias and accidental use of revised\n  data?\n- Which data licences permit replay publication, and which require link-only\n  source ledgers?\n- What benchmark metrics should be reported besides gross revenue?\n\n## Market-Integrity And Licence Notes\n\nReplay examples should be delayed, synthetic, or licence-compatible. Do not add\nlive strategy, current bids, operational dispatch instructions, customer-\nsensitive data, or restricted data copies to this problem card.",
+    "evidence_strength": "D",
+    "geography": "Europe",
+    "id": "EP-203",
+    "interactive_url": null,
+    "lane": "trading-logic",
+    "last_updated": "2026-05-09",
+    "maintainer": "stratnergy",
+    "market_integrity_risk": "high",
+    "market_scope": [
+      "day_ahead",
+      "intraday",
+      "balancing",
+      "backtesting"
+    ],
+    "openness_level": 0,
+    "path": "problems/EP-203-open-market-replay-and-backtesting-harness.md",
+    "public_post_url": null,
+    "related_contributions": [],
+    "status": "OPEN",
+    "title": "Open Market Replay And Backtesting Harness"
+  },
+  {
+    "ai_relevance": "high",
+    "analysis_url": null,
+    "asset_class": [
+      "battery_storage",
+      "flexibility"
+    ],
+    "body": "# Open Virtual Battery Schema\n\n## Problem\n\nDefine a machine-readable schema for virtual battery state, constraints,\navailability, uncertainty, and evidence caveats.\n\n## Why It Matters\n\nVirtual batteries are only useful if other people can inspect what the object\nmeans. A schema should make state of charge, power limits, duration, location,\navailability, confidence, reservations, and caveats explicit enough for review.\n\n## Scope\n\nThis is the schema layer for the broader open-source virtualiser problem in\n`EP-303`. Candidate external schemas should be reviewed for scope, licence,\nfield definitions, validation examples, interoperability, and operational-safety\nimplications before being added as contributions.\n\n## Existing Artefacts\n\nNo contribution is currently accepted for this problem. Source URLs and licence details require human verification before any candidate artefact is listed.\n\n## Open Questions\n\n- Which fields are required for a minimum useful virtual battery object?\n- How should firm, interruptible, uncertain, reserved, and unavailable capacity\n  be represented?\n- Which validation examples can be public without exposing sensitive asset\n  data?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Global",
     "id": "EP-301",
     "interactive_url": null,
     "lane": "virtualisation",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -202,13 +259,13 @@
       "flexibility",
       "demand_response"
     ],
-    "body": "# Firm vs Interruptible Flexibility\n\n## Problem\n\nDefine firm, interruptible, reserved, unavailable, fulfilled, and over-committed flexibility.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nDefinitions should avoid vendor-specific claims and clarify contractual, physical, and market layers.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Firm vs Interruptible Flexibility\n\n## Problem\n\nDefine firm, interruptible, reserved, unavailable, fulfilled, and over-committed flexibility.\n\n## Why It Matters\n\nFlexibility claims often mix physical capability, contractual commitment,\nforecast availability, and delivered response. Clear definitions make it easier\nto review whether a flexibility product can be relied on for market, grid, or\nportfolio decisions.\n\n## Scope\n\nDefinitions should avoid vendor-specific claims and clarify contractual,\nphysical, telemetry, baseline, and market layers. The definitions should support\nthe wider virtualiser and portfolio-accounting problems in `EP-303` and\n`EP-305`.\n\n## Existing Artefacts\n\nNo contribution is currently accepted for this problem. Relevant standards,\nmarket rules, and open terminology projects may become candidates after source\nand licence review.\n\n## Open Questions\n\n- Which definitions are stable across markets, and which are product-specific?\n- How should reserved but undelivered flexibility be treated?\n- How should baseline uncertainty and rebound be reflected in public claims?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Global",
     "id": "EP-302",
     "interactive_url": null,
     "lane": "virtualisation",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -227,15 +284,44 @@
     "analysis_url": null,
     "asset_class": [
       "battery_storage",
+      "flexibility",
+      "demand_response"
+    ],
+    "body": "# Open Source Flexibility Virtualiser\n\n## Problem\n\nBuild an open reference virtualiser that turns asset capabilities, constraints,\navailability, uncertainty, and fulfilment records into a machine-readable\nflexibility representation.\n\n## Why It Matters\n\nFlexibility is often discussed as if it were a simple quantity. In practice, it\ndepends on physical limits, customer constraints, telemetry, baseline choices,\ncontract terms, grid location, rebound effects, and confidence intervals. An\nopen virtualiser would make those assumptions inspectable and comparable.\n\n## Scope\n\nThe target artefact is a reference implementation or specification that can\ningest sample asset states and produce a virtual battery or flexibility object.\nIt should expose inputs, constraints, timestamps, uncertainty, reserved capacity,\nfulfilled capacity, unavailable capacity, and caveats.\n\nSupporting subproblems include `EP-301` for the schema, `EP-302` for firm and\ninterruptible definitions, and `EP-304` for evidence packages.\n\nOut of scope: controlling real assets, publishing customer-sensitive telemetry,\nor claiming availability without evidence.\n\n## Existing Artefacts\n\nNo accepted reference artefact is listed yet. Related tracked references in\ndemand response and energy management may provide useful components, but no\ntracked contribution currently covers the full virtualiser problem.\n\n## Open Questions\n\n- Which asset classes should the first reference virtualiser support?\n- How should availability, uncertainty, baseline error, rebound, and fulfilment\n  be represented?\n- What is the minimum evidence package needed for a virtualised flexibility\n  claim?\n- How should location and grid constraints be included without exposing\n  sensitive asset data?\n\n## Market-Integrity And Licence Notes\n\nUse synthetic or consented sample data. Do not add operational control\ninstructions, customer-sensitive telemetry, confidential optimiser logic, or\nrestricted data copies to this problem card.",
+    "evidence_strength": "D",
+    "geography": "Germany",
+    "id": "EP-303",
+    "interactive_url": null,
+    "lane": "virtualisation",
+    "last_updated": "2026-05-09",
+    "maintainer": "stratnergy",
+    "market_integrity_risk": "medium",
+    "market_scope": [
+      "virtualisation",
+      "dispatch",
+      "contracts"
+    ],
+    "openness_level": 0,
+    "path": "problems/EP-303-open-source-flexibility-virtualiser.md",
+    "public_post_url": null,
+    "related_contributions": [],
+    "status": "OPEN",
+    "title": "Open Source Flexibility Virtualiser"
+  },
+  {
+    "ai_relevance": "high",
+    "analysis_url": null,
+    "asset_class": [
+      "battery_storage",
       "flexibility"
     ],
-    "body": "# Virtual Battery Evidence Package\n\n## Problem\n\nDefine the artefact package that accompanies virtual battery benchmark runs.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nEvidence packages should include source ledger, assumptions, replay data, metrics, caveats, and licence notes. No accepted open reference package is listed yet.\n\n## Existing Artefacts\n\nNo contribution is currently accepted for this problem. Source URLs and licence details require human verification before any candidate artefact is listed.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Virtual Battery Evidence Package\n\n## Problem\n\nDefine the evidence package that should accompany virtual battery and\nflexibility benchmark runs.\n\n## Why It Matters\n\nA virtualised flexibility claim should come with enough evidence to inspect the\ninputs, assumptions, run timing, limitations, and licence terms. Without that\npackage, readers cannot tell whether a result is reproducible, illustrative, or\nonly a public claim.\n\n## Scope\n\nEvidence packages should include source ledger, assumptions, sample or replay\ndata, schema version, metrics, caveats, and licence notes. This card supports\nthe broader virtualiser problem in `EP-303`.\n\n## Existing Artefacts\n\nNo contribution is currently accepted for this problem. Source URLs and licence details require human verification before any candidate artefact is listed.\n\n## Open Questions\n\n- What minimum files should be present in a virtual battery evidence package?\n- How should source hashes, query timestamps, and licence caveats be recorded?\n- Which examples can be public, synthetic, or link-only?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Global",
     "id": "EP-304",
     "interactive_url": null,
     "lane": "virtualisation",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -253,15 +339,44 @@
     "ai_relevance": "medium",
     "analysis_url": null,
     "asset_class": [
+      "flexibility",
+      "demand_response",
+      "battery_storage"
+    ],
+    "body": "# Open Flexibility Portfolio Accounting\n\n## Problem\n\nDefine an open accounting method for flexibility portfolios: availability,\nreservation, activation, fulfilment, non-delivery, rebound, overcommitment,\nbaseline error, and settlement caveats.\n\n## Why It Matters\n\nFlexibility portfolios combine assets with different constraints and evidence\nquality. Without shared accounting, it is hard to tell whether a portfolio\nclaim describes physical capability, contracted capacity, expected availability,\ndelivered response, or a commercial position.\n\n## Scope\n\nThe target artefact is a public accounting schema, worked examples, and review\nchecklist. It should make portfolio-level claims traceable to asset-level\nassumptions while protecting sensitive asset and customer data.\n\nOut of scope: settlement advice for specific contracts, live dispatch\ninstructions, customer-specific data, or claims that cannot be independently\nreviewed from the disclosed evidence.\n\n## Existing Artefacts\n\nNo accepted reference artefact is listed yet. Relevant partial areas include\ndemand-response event replay, virtual battery schemas, source ledgers, and\nshared energy terminology.\n\n## Open Questions\n\n- How should firm, interruptible, reserved, unavailable, fulfilled, and\n  over-committed flexibility be reconciled at portfolio level?\n- What evidence is needed to distinguish claimed flexibility from delivered\n  flexibility?\n- How should rebound, baseline error, location, and uncertainty be recorded?\n- Which fields can be public without disclosing sensitive customer or asset\n  information?\n\n## Market-Integrity And Licence Notes\n\nUse aggregated, synthetic, delayed, or consented examples. Do not add customer-\nsensitive data, operational control instructions, live positions, or restricted\ndata copies to this problem card.",
+    "evidence_strength": "D",
+    "geography": "Germany",
+    "id": "EP-305",
+    "interactive_url": null,
+    "lane": "virtualisation",
+    "last_updated": "2026-05-09",
+    "maintainer": "stratnergy",
+    "market_integrity_risk": "medium",
+    "market_scope": [
+      "virtualisation",
+      "contracts",
+      "settlement"
+    ],
+    "openness_level": 0,
+    "path": "problems/EP-305-open-flexibility-portfolio-accounting.md",
+    "public_post_url": null,
+    "related_contributions": [],
+    "status": "OPEN",
+    "title": "Open Flexibility Portfolio Accounting"
+  },
+  {
+    "ai_relevance": "medium",
+    "analysis_url": null,
+    "asset_class": [
       "market"
     ],
-    "body": "# Agent-Based Market Simulation Benchmark\n\n## Problem\n\nOpen simulations for market behaviour, strategy interaction, and policy analysis.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nKeep market simulations research-oriented and avoid coordinating real market behaviour.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Agent-Based Market Simulation Benchmark\n\n## Problem\n\nOpen simulations for market behaviour, strategy interaction, and policy analysis.\n\n## Why It Matters\n\nMarket design changes can produce second-order effects through strategy\ninteraction, congestion, scarcity, and participant behaviour. Open simulations\nmake those assumptions easier to inspect before claims enter policy or product\ndebates.\n\n## Scope\n\nKeep market simulations research-oriented and avoid coordinating real market behaviour.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Europe",
     "id": "EP-401",
     "interactive_url": null,
     "lane": "market-simulation",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -285,13 +400,13 @@
       "battery_storage",
       "der"
     ],
-    "body": "# Open Grid Stress Modelling\n\n## Problem\n\nReproducible grid-stress scenarios for DER and battery behaviour.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nGrid models need explicit assumptions, topology caveats, and data-rights notes.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Open Grid Stress Modelling\n\n## Problem\n\nReproducible grid-stress scenarios for DER and battery behaviour.\n\n## Why It Matters\n\nGrid stress determines where flexibility, storage, and demand response actually\nhelp. Open modelling references make topology, assumptions, data limitations,\nand scenario design visible enough for review.\n\n## Scope\n\nGrid models need explicit assumptions, topology caveats, and data-rights notes.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Global",
     "id": "EP-501",
     "interactive_url": null,
     "lane": "grid-stress",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "low",
     "market_scope": [
@@ -316,13 +431,13 @@
       "der",
       "flexibility"
     ],
-    "body": "# Demand Response Event Replay\n\n## Problem\n\nReplayable artefacts for demand-response and DER events.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nReplay packs should use synthetic or consented data and avoid operational customer leakage.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Demand Response Event Replay\n\n## Problem\n\nReplayable artefacts for demand-response and DER events.\n\n## Why It Matters\n\nDemand-response claims need event-level evidence: what signal was sent, what\nbaseline was used, what response was delivered, and what rebound or non-delivery\nfollowed. Replayable artefacts make those claims easier to audit.\n\n## Scope\n\nReplay packs should use synthetic or consented data and avoid operational customer leakage.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Global",
     "id": "EP-601",
     "interactive_url": null,
     "lane": "demand-response",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "medium",
     "market_scope": [
@@ -348,13 +463,13 @@
       "generation",
       "assets"
     ],
-    "body": "# AI-Accessible Energy Asset Registries\n\n## Problem\n\nMake official energy asset registries queryable by AI systems in a structured, safe, reproducible way.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nRegistry connectors need rate limits, provenance, licence handling, and result hashing.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# AI-Accessible Energy Asset Registries\n\n## Problem\n\nMake official energy asset registries queryable by AI systems in a structured, safe, reproducible way.\n\n## Why It Matters\n\nAsset registries are core evidence for grid, market, and planning questions.\nAI-facing access can be useful only if provenance, query limits, source\ntimestamps, licences, and result caveats are explicit.\n\n## Scope\n\nRegistry connectors need rate limits, provenance, licence handling, and result hashing.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Germany",
     "id": "EP-701",
     "interactive_url": null,
     "lane": "open-data",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "low",
     "market_scope": [
@@ -380,13 +495,13 @@
     "asset_class": [
       "data"
     ],
-    "body": "# Energy Source-Ledger Schema\n\n## Problem\n\nStandard record of source, query, timestamp, licence, result count, hash, and limitations.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nThis is a schema problem first; examples should avoid copying restricted source data.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Energy Source-Ledger Schema\n\n## Problem\n\nStandard record of source, query, timestamp, licence, result count, hash, and limitations.\n\n## Why It Matters\n\nEnergy analysis often depends on sources that are public, restricted,\nquery-only, revised, or licence-specific. A source ledger lets readers see what\nwas queried, when it was accessed, what may be reused, and what remains only a\ncitation.\n\n## Scope\n\nThis is a schema problem first; examples should avoid copying restricted source data.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "D",
     "geography": "Global",
     "id": "EP-702",
     "interactive_url": null,
     "lane": "open-data",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "low",
     "market_scope": [
@@ -406,13 +521,13 @@
     "asset_class": [
       "terminology"
     ],
-    "body": "# Shared Energy Terminology\n\n## Problem\n\nControlled vocabulary and definitions for energy-market artefacts.\n\n## Why It Matters\n\nA shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.\n\n## Scope\n\nTerminology cards should distinguish adopted definitions, proposed definitions, and disputed terms.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
+    "body": "# Shared Energy Terminology\n\n## Problem\n\nControlled vocabulary and definitions for energy-market artefacts.\n\n## Why It Matters\n\nEnergy-market work crosses engineering, software, regulation, finance, and grid\noperations. Shared terminology reduces ambiguity when comparing datasets,\nschemas, benchmarks, simulations, and public disclosures.\n\n## Scope\n\nTerminology cards should distinguish adopted definitions, proposed definitions, and disputed terms.\n\n## Existing Artefacts\n\nRelated contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.\n\n## Open Questions\n\n- Which evidence is reproducible from public material?\n- Which data can be reused, cited only, or linked only?\n- What review would change the status or evidence-strength classification?\n\n## Market-Integrity And Licence Notes\n\nDo not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.",
     "evidence_strength": "B",
     "geography": "Global",
     "id": "EP-801",
     "interactive_url": null,
     "lane": "terminology",
-    "last_updated": "2026-04-26",
+    "last_updated": "2026-05-09",
     "maintainer": "stratnergy",
     "market_integrity_risk": "low",
     "market_scope": [

@@ -14,7 +14,7 @@ market_scope:
   - contracts
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   []
@@ -31,21 +31,29 @@ Define firm, interruptible, reserved, unavailable, fulfilled, and over-committed
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Flexibility claims often mix physical capability, contractual commitment,
+forecast availability, and delivered response. Clear definitions make it easier
+to review whether a flexibility product can be relied on for market, grid, or
+portfolio decisions.
 
 ## Scope
 
-Definitions should avoid vendor-specific claims and clarify contractual, physical, and market layers.
+Definitions should avoid vendor-specific claims and clarify contractual,
+physical, telemetry, baseline, and market layers. The definitions should support
+the wider virtualiser and portfolio-accounting problems in `EP-303` and
+`EP-305`.
 
 ## Existing Artefacts
 
-Related contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.
+No contribution is currently accepted for this problem. Relevant standards,
+market rules, and open terminology projects may become candidates after source
+and licence review.
 
 ## Open Questions
 
-- Which evidence is reproducible from public material?
-- Which data can be reused, cited only, or linked only?
-- What review would change the status or evidence-strength classification?
+- Which definitions are stable across markets, and which are product-specific?
+- How should reserved but undelivered flexibility be treated?
+- How should baseline uncertainty and rebound be reflected in public claims?
 
 ## Market-Integrity And Licence Notes
 

@@ -12,7 +12,7 @@ market_scope:
   - forecasting
 ai_relevance: high
 market_integrity_risk: low
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - openstef
@@ -29,7 +29,9 @@ Reproducible benchmark for short-term load forecasts.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Short-term forecasts shape dispatch, imbalance management, congestion analysis,
+and flexibility valuation. Open forecasting benchmarks make it easier to inspect
+data inputs, model assumptions, validation windows, and reproducibility.
 
 ## Scope
 

@@ -15,7 +15,7 @@ market_scope:
   - aFRR
 ai_relevance: medium
 market_integrity_risk: low
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - isea-battery-revenue-index
@@ -34,7 +34,10 @@ Create a transparent, reproducible benchmark for estimating battery revenue pote
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+A public revenue index gives researchers, developers, policymakers, and storage
+owners a common starting point for discussing battery economics. It is not a
+substitute for optimiser performance, but it makes market opportunity claims
+easier to inspect.
 
 ## Scope
 

@@ -13,7 +13,7 @@ market_scope:
   - virtualisation
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions: []
 public_post_url: null
@@ -25,15 +25,21 @@ interactive_url: null
 
 ## Problem
 
-Define a machine-readable schema for virtual battery state.
+Define a machine-readable schema for virtual battery state, constraints,
+availability, uncertainty, and evidence caveats.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Virtual batteries are only useful if other people can inspect what the object
+means. A schema should make state of charge, power limits, duration, location,
+availability, confidence, reservations, and caveats explicit enough for review.
 
 ## Scope
 
-No accepted reference artefact is listed yet. Candidate external schemas, if any, should be reviewed for scope, licence, field definitions, validation examples, and operational-safety implications before being added as contributions.
+This is the schema layer for the broader open-source virtualiser problem in
+`EP-303`. Candidate external schemas should be reviewed for scope, licence,
+field definitions, validation examples, interoperability, and operational-safety
+implications before being added as contributions.
 
 ## Existing Artefacts
 
@@ -41,9 +47,11 @@ No contribution is currently accepted for this problem. Source URLs and licence 
 
 ## Open Questions
 
-- Which evidence is reproducible from public material?
-- Which data can be reused, cited only, or linked only?
-- What review would change the status or evidence-strength classification?
+- Which fields are required for a minimum useful virtual battery object?
+- How should firm, interruptible, uncertain, reserved, and unavailable capacity
+  be represented?
+- Which validation examples can be public without exposing sensitive asset
+  data?
 
 ## Market-Integrity And Licence Notes
 

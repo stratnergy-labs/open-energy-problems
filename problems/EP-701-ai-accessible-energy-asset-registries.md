@@ -15,7 +15,7 @@ market_scope:
   - mcp
 ai_relevance: high
 market_integrity_risk: low
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - official-mastr-register
@@ -36,7 +36,9 @@ Make official energy asset registries queryable by AI systems in a structured, s
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Asset registries are core evidence for grid, market, and planning questions.
+AI-facing access can be useful only if provenance, query limits, source
+timestamps, licences, and result caveats are explicit.
 
 ## Scope
 

@@ -10,6 +10,10 @@ patterns, reproducible methods, and carefully reviewed public disclosures. See
 which problem each one helps address, what it proves, and what still needs
 review.
 
+Some problems are deliberately listed before good references exist. That is the
+point: the register should make the gaps visible enough that people can review,
+challenge, or help fill them.
+
 The register is organised around problems, not vendors or projects. For each
 problem, it tracks how far there is an open reference: what exists, what kind of
 openness it provides, what evidence it supports, and what remains missing.
@@ -22,6 +26,17 @@ Energy is different from mathematics. In mathematics, a solved problem is often
 a proof. In energy, a useful answer is often a reference object: an open
 benchmark, dataset, schema, simulator, source ledger, reproducible method, or
 carefully reviewed public disclosure.
+
+## Headline Open Problems
+
+A few high-value gaps now have explicit problem cards:
+
+| Problem | What is missing |
+| --- | --- |
+| [EP-202 Open Full-Stack Battery Trading Reference Stack](problems/EP-202-open-full-stack-battery-trading-reference-stack.md) | A safe, delayed or synthetic public stack covering data inputs, forecasts, optimisation, constraints, replay, accounting, and reporting. |
+| [EP-303 Open Source Flexibility Virtualiser](problems/EP-303-open-source-flexibility-virtualiser.md) | A reference virtualiser that turns capabilities, constraints, availability, uncertainty, and fulfilment records into an inspectable flexibility object. |
+| [EP-203 Open Market Replay And Backtesting Harness](problems/EP-203-open-market-replay-and-backtesting-harness.md) | A replay environment that shows what was known at decision time and makes backtest assumptions visible. |
+| [EP-305 Open Flexibility Portfolio Accounting](problems/EP-305-open-flexibility-portfolio-accounting.md) | A public method for availability, reservation, activation, fulfilment, rebound, overcommitment, baseline error, and caveats. |
 
 ## Examples And Seed References
 
@@ -123,17 +138,17 @@ deeper review. Basic verification stays in the public repo.
 
 ## Status Snapshot
 
-Seed snapshot as of 2026-04-29. The traffic lights describe repository classification, not project quality or commercial usefulness.
+Seed snapshot as of 2026-05-09. The traffic lights describe repository classification, not project quality or commercial usefulness.
 
 | Light | Meaning | Count | Current problem IDs |
 | --- | --- | ---: | --- |
 | 🟢 | Reference available or solved for a narrow stated scope | 5 | EP-001, EP-003, EP-101, EP-401, EP-801 |
 | 🟡 | Partial progress or public disclosure, with important reproducibility gaps | 6 | EP-002, EP-501, EP-601, EP-701, EP-901, EP-902 |
-| 🔴 | Open problem with no accepted open reference yet | 6 | EP-103, EP-201, EP-301, EP-302, EP-304, EP-702 |
+| 🔴 | Open problem with no accepted open reference yet | 10 | EP-103, EP-201, EP-202, EP-203, EP-301, EP-302, EP-303, EP-304, EP-305, EP-702 |
 
 Current seed map:
 
-- 17 problem cards.
+- 21 problem cards.
 - 23 tracked references.
 - 7 project relationship cards.
 - 10 problem areas.

@@ -15,7 +15,7 @@ market_scope:
   - dispatch
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   []
@@ -32,7 +32,9 @@ Evaluate forecasts by downstream trading or dispatch value, not only error metri
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Lower forecast error does not always produce better operational decisions. This
+problem asks how forecasts should be judged when the downstream objective is
+dispatch quality, trading value, grid relief, or avoided imbalance cost.
 
 ## Scope
 

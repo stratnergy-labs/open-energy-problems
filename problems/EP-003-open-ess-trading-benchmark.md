@@ -14,7 +14,7 @@ market_scope:
   - intraday
 ai_relevance: medium
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-05-09
 maintainer: stratnergy
 related_contributions:
   - gigastorage-battery-trading-benchmark
@@ -31,7 +31,9 @@ Open benchmark tools for ESS value under defined market assumptions.
 
 ## Why It Matters
 
-A shared public card lets maintainers compare open artefacts, public disclosures, and remaining evidence gaps without flattening them into the same category.
+Open ESS benchmarks make assumptions visible: market products, price inputs,
+storage constraints, fees, degradation, and time resolution. That helps readers
+compare methods without mistaking a benchmark for live trading performance.
 
 ## Scope
 
