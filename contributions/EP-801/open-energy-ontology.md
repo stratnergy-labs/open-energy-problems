@@ -12,7 +12,7 @@ evidence_strength: B
 maturity: REFERENCE_AVAILABLE
 ai_relevance: medium
 review_status: needs_review
-last_checked: 2026-04-26
+last_checked: 2026-09-05
 ---
 
 # Open Energy Ontology
@@ -29,3 +29,7 @@ This contribution is linked to `EP-801` as an open terminology and ontology refe
 
 - Code licence and data licence must be reviewed separately.
 - This card must not be used as endorsement or evidence of operational performance without supporting sources.
+
+## Review Notes
+
+- AI-assisted source check on 2026-09-05 via the GitHub API: the repository licence is reported as CC0-1.0; the card's `MIT OR CC0-1.0` needs a licence review against the repository's LICENSE files. Last push 2026-09-03, 163 stars.

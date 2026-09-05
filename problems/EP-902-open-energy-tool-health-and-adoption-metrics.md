@@ -16,8 +16,9 @@ market_scope:
   - reproducibility
 ai_relevance: medium
 market_integrity_risk: low
-last_updated: 2026-04-29
+last_updated: 2026-09-05
 maintainer: stratnergy
+card_completeness: draft
 related_contributions:
   - openmod-tracker
 public_post_url: null

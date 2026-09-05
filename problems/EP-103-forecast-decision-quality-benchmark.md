@@ -15,8 +15,9 @@ market_scope:
   - dispatch
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-05-09
+last_updated: 2026-09-05
 maintainer: stratnergy
+card_completeness: stub
 related_contributions:
   []
 public_post_url: null
@@ -25,6 +26,8 @@ interactive_url: null
 ---
 
 # Forecast Decision-Quality Benchmark
+
+> **Stub.** This card states a label, not yet a problem. It needs a problem statement, a definition of done and a baseline before it can leave `stub`. Start from the [problem-card template](../templates/problem-card-template.md).
 
 ## Problem
 
@@ -50,6 +53,6 @@ Related contribution IDs are listed in front matter. Source URLs and licence det
 - Which data can be reused, cited only, or linked only?
 - What review would change the status or evidence-strength classification?
 
-## Market-Integrity And Licence Notes
+## Review Notes
 
-Do not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.
+- No card-specific caveats recorded yet. General guardrails: [Market Integrity Policy](../MARKET_INTEGRITY_POLICY.md) and [Data and Licence Policy](../DATA_AND_LICENSE_POLICY.md).

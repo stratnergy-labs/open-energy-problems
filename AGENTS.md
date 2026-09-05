@@ -10,7 +10,11 @@ The project is not a link directory. It is a structured problem and evidence rep
 
 - Prefer small, reviewable PRs.
 - Do not invent facts about external projects.
-- Do not mark a problem as solved unless the status is explicitly requested.
+- Do not hand-set a green status. `REFERENCE_AVAILABLE` and `SOLVED_FOR_SCOPE`
+  are only valid when a linked contribution has `review_status: accepted`
+  with a source URL and a licence; the validator rejects anything else.
+- Do not set `review_status: accepted` yourself. Record what you checked in
+  the card's Review Notes and leave acceptance to a maintainer.
 - Keep public problem cards self-contained.
 - Separate code licence from data licence.
 - Treat public commercial disclosures differently from open-source artefacts.

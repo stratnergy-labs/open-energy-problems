@@ -16,8 +16,9 @@ market_scope:
   - flexibility
 ai_relevance: medium
 market_integrity_risk: medium
-last_updated: 2026-04-26
+last_updated: 2026-09-05
 maintainer: stratnergy
+card_completeness: draft
 related_contributions:
   - highs
   - scip

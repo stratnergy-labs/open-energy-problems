@@ -49,6 +49,7 @@
     .problem-title a { color: #285f55; text-decoration: none; border-bottom: 1px solid currentColor; }
     .repo-note { display: block; margin-top: 6px; color: #64736d; font-size: 12px; }
     .pill { display: inline-flex; align-items: center; min-height: 24px; border: 1px solid #c8c0b0; border-radius: 999px; padding: 3px 8px; font-size: 12px; color: #3f4b46; background: #f8f6f1; }
+    .pill-warn { border-color: #b8874f; color: #7a5230; background: #fbf3e8; margin-left: 6px; }
     .section-head { display: grid; gap: 6px; margin: 26px 0 12px; }
     .section-head h2 { margin: 0; font-size: 24px; }
     .section-head p { margin: 0; max-width: 760px; color: #3f4b46; line-height: 1.5; }
@@ -101,7 +102,7 @@
     <header>
       <p class="eyebrow">Germany-first open energy register</p>
       <h1>Which energy problems have real open references?</h1>
-      <p class="lede">Search public problems and tracked references for batteries, virtualisers, trading stacks, forecasting, MaStR access, grid models, demand response, open solvers, and related energy infrastructure.</p>
+      <p class="lede">Search public problems and tracked references for batteries, virtualisers, trading stacks, forecasting, MaStR access, grid models, demand response, open solvers, and related energy infrastructure. Each complete card says what would count as done and which naive baseline a reference must beat.</p>
       <div class="hero-actions">
         <a href="#problem-table">Browse problems</a>
         <a href="#tracked-projects">Find a project</a>
@@ -133,12 +134,12 @@
     </section>
 
     <section class="quick-guide" aria-label="How to read the register">
-      <strong>Quick read:</strong> green means a useful reference exists for a stated scope; yellow means partial progress or public disclosure; red means no accepted open reference is listed yet. Problem titles open the GitHub source cards.
+      <strong>Quick read:</strong> green means a reviewed open reference exists for a stated scope; yellow means a candidate reference, partial progress, or a public disclosure is listed; red means no reference is listed yet. Status is derived from linked references by the validator, never hand-set. Cards marked <em>Stub</em> or <em>Draft</em> still need a definition of done. Problem titles open the GitHub source cards.
     </section>
 
     <section class="section-head" aria-label="Headline open problems heading">
       <h2>Headline open problems</h2>
-      <p>Some gaps are listed before good references exist. That makes them easier to review, challenge, or fill.</p>
+      <p>Some gaps are listed before good references exist. That makes them easier to review, challenge, or fill. Each headline card states a definition of done and a baseline.</p>
     </section>
 
     <table class="seed-table" aria-label="Headline open problems">
@@ -150,6 +151,26 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-004-previsible-battery-revenue-index.md">Previsible battery revenue index for Germany</a></td>
+          <td>A battery index that is transparent, investable, and systematic: public rules on a standard reference battery, decisions that use only information available before each market's gate closure, versioned without retroactive change. Existing references are hindsight ceilings or closed simulations.</td>
+          <td>Public disclosure only</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-104-public-forecast-scoreboard.md">Public forecast scoreboard</a></td>
+          <td>Dated, frozen forecasts of scoreable primitives with fixed scoring rules, a naive baseline, results by horizon, and a separate ledger for decisions.</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-005-reference-battery-specification.md">Reference battery specification</a></td>
+          <td>A machine-readable standard battery so that ceilings, indices, forecasts, and disclosures are computed on the same asset.</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-703-as-of-archive-of-german-market-data.md">As-of archive of German market data</a></td>
+          <td>Publication lags, revision policies, and vintage snapshots so that what was known at decision time can be reconstructed.</td>
+          <td>Candidate reference</td>
+        </tr>
         <tr>
           <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/problems/EP-202-open-full-stack-battery-trading-reference-stack.md">Open full-stack battery trading reference stack</a></td>
           <td>Safe public stack for data inputs, forecasts, optimisation, constraints, replay, accounting, and reporting.</td>
@@ -175,7 +196,7 @@
 
     <section class="section-head" aria-label="Seed references heading">
       <h2>Examples and seed references</h2>
-      <p>Start with these 23 tracked references. Some cards still need source or licence review.</p>
+      <p>Start with these 26 tracked references. None has passed source and licence review yet; several carry AI-assisted checks awaiting maintainer confirmation.</p>
     </section>
 
     <table class="seed-table" aria-label="Seed references by area">
@@ -189,13 +210,18 @@
       <tbody>
         <tr>
           <td>Battery revenue and trading</td>
-          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-001/isea-battery-revenue-index.md">ISEA Battery Revenue Index</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-003/gigastorage-battery-trading-benchmark.md">GigaStorage Battery Trading Benchmark</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-002/enspired-portfolio-performance.md">enspired Portfolio Performance</a></td>
-          <td>Benchmark, trading benchmark, and public commercial disclosure.</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-001/isea-battery-revenue-index.md">ISEA Battery Revenue Index</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-001/gigastorage-battery-trading-benchmark.md">GigaStorage Battery Trading Benchmark</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-004/modo-me-bess-de.md">Modo Energy ME BESS DE</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-002/enspired-portfolio-performance.md">enspired Portfolio Performance</a></td>
+          <td>Hindsight ceiling, open ceiling code, closed calibrated simulation, and public commercial disclosure are four different things.</td>
         </tr>
         <tr>
           <td>Forecasting</td>
-          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-101/openstef.md">OpenSTEF</a></td>
-          <td>Reproducible forecasting method.</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-101/openstef.md">OpenSTEF</a>, <a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-102/epftoolbox.md">epftoolbox</a></td>
+          <td>Reproducible forecasting method; open price-forecast benchmark.</td>
+        </tr>
+        <tr>
+          <td>Open market data</td>
+          <td><a href="https://github.com/stratnergy-labs/open-energy-problems/blob/main/contributions/EP-703/smard-market-data.md">SMARD</a></td>
+          <td>Redistributable German market data under CC BY 4.0; no vintage preservation.</td>
         </tr>
         <tr>
           <td>Market simulation</td>
@@ -331,10 +357,13 @@
       <section>
         <h2>Status</h2>
         <ul>
-          <li>Open: problem stated, no accepted open reference.</li>
-          <li>Partial: meaningful progress, but important gaps remain.</li>
-          <li>Reference available: useful public reference exists.</li>
-          <li>Solved for scope: open reference exists for a narrow stated scope.</li>
+          <li>Open: problem stated, no reference listed.</li>
+          <li>Candidate reference: a relevant reference is listed but not yet reviewed.</li>
+          <li>Partial: listed references cover part of the problem.</li>
+          <li>Public disclosure: a commercial or institutional disclosure exists, no open reference.</li>
+          <li>Reference available: a reviewed open reference exists.</li>
+          <li>Solved for scope: a reviewed reference meets the card's definition of done.</li>
+          <li>Superseded: merged into another card.</li>
         </ul>
       </section>
       <section>
@@ -373,8 +402,18 @@
       PARTIAL: 'Partial',
       PUBLIC_DISCLOSURE: 'Public disclosure',
       REFERENCE_AVAILABLE: 'Reference available',
-      SOLVED_FOR_SCOPE: 'Solved for scope'
+      SOLVED_FOR_SCOPE: 'Solved for scope',
+      CANDIDATE_REFERENCE: 'Candidate reference',
+      SUPERSEDED: 'Superseded',
+      BLOCKED: 'Blocked',
+      NEEDS_REVIEW: 'Needs review',
+      REJECTED_OUT_OF_SCOPE: 'Out of scope'
     };
+    const completenessLabels = { stub: 'Stub: label only', draft: 'Draft: no definition of done', complete: '' };
+    function completenessPill(problem) {
+      const label = completenessLabels[problem.card_completeness];
+      return label ? `<span class="pill pill-warn">${escapeHtml(label)}</span>` : '';
+    }
     const typeLabels = {
       AI_ASSISTED_ANALYSIS: 'AI-assisted analysis',
       BENCHMARK: 'Benchmark',
@@ -636,7 +675,7 @@
         const references = related.length ? related.map((item) => `<a href="#reference-${escapeHtml(item.id)}">${escapeHtml(item.title)}</a>`).join('<br>') : '<span class="pill">None yet</span>';
         return `<tr>
           <td class="id">${escapeHtml(problem.id)}</td>
-          <td><div class="problem-title"><a href="${problemUrl(problem)}">${escapeHtml(problem.title)}</a></div><span class="repo-note">GitHub problem card</span><span class="pill">AI relevance: ${escapeHtml(labelFor(problem.ai_relevance))}</span></td>
+          <td><div class="problem-title"><a href="${problemUrl(problem)}">${escapeHtml(problem.title)}</a></div><span class="repo-note">GitHub problem card</span><span class="pill">AI relevance: ${escapeHtml(labelFor(problem.ai_relevance))}</span>${completenessPill(problem)}</td>
           <td>${escapeHtml(labelFor(problem.lane))}</td>
           <td>${escapeHtml(statusLabels[problem.status] || labelFor(problem.status))}</td>
           <td>Level ${escapeHtml(problem.openness_level)}</td>
