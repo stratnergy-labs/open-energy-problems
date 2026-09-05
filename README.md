@@ -29,24 +29,46 @@ carefully reviewed public disclosure.
 
 ## Headline Open Problems
 
-A few high-value gaps now have explicit problem cards:
+Each headline card states a definition of done and a baseline, so it is clear
+what would change its status:
 
 | Problem | What is missing |
 | --- | --- |
+| [EP-004 Previsible Battery Revenue Index for Germany](problems/EP-004-previsible-battery-revenue-index.md) | A battery index that is transparent, investable, and systematic: public rules, a standard reference battery, decisions that use only information available before each market's gate closure, versioned without retroactive change. Existing references are hindsight ceilings or closed simulations. |
+| [EP-104 Public Forecast Scoreboard](problems/EP-104-public-forecast-scoreboard.md) | A register of dated, frozen forecasts of scoreable primitives with fixed scoring rules, a naive baseline, results by horizon, and a separate ledger for decisions. |
+| [EP-005 Reference Battery Specification](problems/EP-005-reference-battery-specification.md) | A machine-readable standard battery so that ceilings, indices, forecasts, and disclosures are computed on the same asset. |
+| [EP-703 As-Of Archive Of German Market Data](problems/EP-703-as-of-archive-of-german-market-data.md) | Publication lags, revision policies, and vintage snapshots, so that "what was known at time t" can be reconstructed. |
 | [EP-202 Open Full-Stack Battery Trading Reference Stack](problems/EP-202-open-full-stack-battery-trading-reference-stack.md) | A safe, delayed or synthetic public stack covering data inputs, forecasts, optimisation, constraints, replay, accounting, and reporting. |
 | [EP-303 Open Source Flexibility Virtualiser](problems/EP-303-open-source-flexibility-virtualiser.md) | A reference virtualiser that turns capabilities, constraints, availability, uncertainty, and fulfilment records into an inspectable flexibility object. |
 | [EP-203 Open Market Replay And Backtesting Harness](problems/EP-203-open-market-replay-and-backtesting-harness.md) | A replay environment that shows what was known at decision time and makes backtest assumptions visible. |
 | [EP-305 Open Flexibility Portfolio Accounting](problems/EP-305-open-flexibility-portfolio-accounting.md) | A public method for availability, reservation, activation, fulfilment, rebound, overcommitment, baseline error, and caveats. |
 
+## Status Rules
+
+Status is derived from evidence, not asserted. The validator rejects a card
+that claims more than its linked references support:
+
+- `REFERENCE_AVAILABLE` and `SOLVED_FOR_SCOPE` require a linked contribution
+  with `review_status: accepted`, a source URL, and a licence.
+- `OPEN` means no reference is listed. `CANDIDATE_REFERENCE` means a relevant
+  reference is listed but unreviewed.
+- A problem cannot be more open, or better evidenced, than its best reference.
+- Every card carries `card_completeness`: `stub`, `draft`, or `complete`. Only
+  a card with a definition of done and a baseline can be `complete`.
+
+See [status definitions](index/status_definitions.md) for the full table.
+
 ## Examples And Seed References
 
-Start with these 23 tracked references. Some cards still need source or licence
-review.
+Start with these 26 tracked references. No card has passed source and licence
+review yet; several have AI-assisted checks recorded in their Review Notes
+awaiting maintainer confirmation.
 
 | Area | Seed references | What this illustrates |
 | --- | --- | --- |
-| Battery revenue and trading benchmarks | [ISEA Battery Revenue Index](contributions/EP-001/isea-battery-revenue-index.md), [GigaStorage Battery Trading Benchmark](contributions/EP-003/gigastorage-battery-trading-benchmark.md), [enspired Portfolio Performance](contributions/EP-002/enspired-portfolio-performance.md) | Benchmark, trading benchmark, and public commercial disclosure are related but different. |
-| Forecasting | [OpenSTEF](contributions/EP-101/openstef.md) | Reproducible forecasting method. |
+| Battery revenue and trading benchmarks | [ISEA Battery Revenue Index](contributions/EP-001/isea-battery-revenue-index.md), [GigaStorage Battery Trading Benchmark](contributions/EP-001/gigastorage-battery-trading-benchmark.md), [Modo Energy ME BESS DE](contributions/EP-004/modo-me-bess-de.md), [enspired Portfolio Performance](contributions/EP-002/enspired-portfolio-performance.md) | Hindsight ceiling, open ceiling code, closed calibrated simulation, and public commercial disclosure are four different things. |
+| Forecasting | [OpenSTEF](contributions/EP-101/openstef.md), [epftoolbox](contributions/EP-102/epftoolbox.md) | Reproducible forecasting method; open price-forecast benchmark. |
+| Open market data | [SMARD](contributions/EP-703/smard-market-data.md) | Redistributable German market data under CC BY 4.0; no vintage preservation. |
 | Market simulation | [ASSUME](contributions/EP-401/assume.md) | Agent-based market simulation. |
 | Grid modelling | [PyPSA](contributions/EP-501/pypsa.md), [LF Energy Power Grid Model](contributions/EP-501/lf-energy-power-grid-model.md) | Open modelling and grid-analysis infrastructure. |
 | Demand response and flexibility | [OpenLEADR](contributions/EP-601/openleadr.md), [FlexMeasures](contributions/EP-601/flexmeasures.md), [OpenEMS](contributions/EP-601/openems.md) | Event, flexibility, and energy-management tooling. |
@@ -85,7 +107,9 @@ Each problem card asks:
 
 - What is the problem?
 - Why does it matter for the grid, market design, or open energy software?
-- Which open references or public disclosures are relevant?
+- What would count as done, and what naive baseline must a reference beat?
+- Which open references or public disclosures are relevant, and why do they
+  fall short?
 - What is the openness level?
 - What is the evidence strength?
 - What gaps remain?
@@ -109,9 +133,10 @@ status, openness level, evidence strength, or problem fit.
 
 Traffic-light status is conservative:
 
-- 🟢 means a useful open reference exists for a stated scope.
-- 🟡 means there is partial progress, public disclosure, or relevant open tooling, but important gaps remain.
-- 🔴 means the problem is still open in this register because no accepted reference artefact is listed.
+- 🟢 means a reviewed open reference exists for a stated scope.
+- 🟡 means a candidate reference, partial progress, or a public disclosure is listed, but review or important gaps remain.
+- 🔴 means the problem is still open in this register because no reference is listed.
+- ⚪ means the card is superseded, blocked, or awaiting classification.
 
 ## How To Contribute
 
@@ -138,21 +163,22 @@ deeper review. Basic verification stays in the public repo.
 
 ## Status Snapshot
 
-Seed snapshot as of 2026-05-09. The traffic lights describe repository classification, not project quality or commercial usefulness.
+Snapshot as of 2026-09-05. The traffic lights describe repository classification, not project quality or commercial usefulness.
 
 | Light | Meaning | Count | Current problem IDs |
 | --- | --- | ---: | --- |
-| 🟢 | Reference available or solved for a narrow stated scope | 5 | EP-001, EP-003, EP-101, EP-401, EP-801 |
-| 🟡 | Partial progress or public disclosure, with important reproducibility gaps | 6 | EP-002, EP-501, EP-601, EP-701, EP-901, EP-902 |
-| 🔴 | Open problem with no accepted open reference yet | 10 | EP-103, EP-201, EP-202, EP-203, EP-301, EP-302, EP-303, EP-304, EP-305, EP-702 |
+| 🟢 | Reviewed open reference available | 0 | none: no contribution has passed source and licence review yet |
+| 🟡 | Candidate reference, partial progress, or public disclosure | 13 | EP-001, EP-002, EP-004, EP-101, EP-102, EP-401, EP-501, EP-601, EP-701, EP-703, EP-801, EP-901, EP-902 |
+| 🔴 | Open problem with no reference listed | 14 | EP-005, EP-006, EP-103, EP-104, EP-201, EP-202, EP-203, EP-301, EP-302, EP-303, EP-304, EP-305, EP-702, EP-704 |
+| ⚪ | Superseded | 1 | EP-003 (merged into EP-001) |
 
-Current seed map:
+Current map:
 
-- 21 problem cards.
-- 23 tracked references.
+- 28 problem cards: 8 complete, 11 draft, 9 stub.
+- 26 tracked references.
 - 7 project relationship cards.
 - 10 problem areas.
-- 0 accepted source/licence reviews; seed contribution cards remain `needs_review` until source URLs and licence terms are verified.
+- 0 accepted source/licence reviews. Five cards were previously shown green on unreviewed references; they were reclassified on 2026-09-05 when the status rules became mechanical. See [the status-rule review](docs/status-rule-review-2026-09-05.md) and the [changelog](CHANGELOG.md).
 
 For the full status table, filters, open-solution levels, evidence strength, and tracked references, use the [GitHub Pages explorer](https://stratnergy-labs.github.io/open-energy-problems/). Each problem links back to its GitHub card.
 

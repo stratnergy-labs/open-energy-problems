@@ -16,6 +16,7 @@
     "market_integrity_risk",
     "last_updated",
     "maintainer",
+    "card_completeness",
     "related_contributions"
   ],
   "properties": {
@@ -27,10 +28,35 @@
       "type": "string"
     },
     "lane": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "market-benchmarks",
+        "forecasting",
+        "trading-logic",
+        "virtualisation",
+        "market-simulation",
+        "grid-stress",
+        "demand-response",
+        "open-data",
+        "terminology",
+        "computational-infrastructure",
+        "ai-assisted-analysis"
+      ]
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "CANDIDATE_REFERENCE",
+        "PARTIAL",
+        "PUBLIC_DISCLOSURE",
+        "REFERENCE_AVAILABLE",
+        "SOLVED_FOR_SCOPE",
+        "SUPERSEDED",
+        "BLOCKED",
+        "NEEDS_REVIEW",
+        "REJECTED_OUT_OF_SCOPE"
+      ]
     },
     "openness_level": {
       "type": "integer",
@@ -92,6 +118,20 @@
     },
     "public_post_url": {},
     "analysis_url": {},
-    "interactive_url": {}
+    "interactive_url": {},
+    "card_completeness": {
+      "type": "string",
+      "enum": [
+        "stub",
+        "draft",
+        "complete"
+      ],
+      "description": "complete requires `## Definition Of Done` and `## Baseline` sections in the body"
+    },
+    "superseded_by": {
+      "type": "string",
+      "pattern": "^EP-[0-9]{3}$",
+      "description": "required when status is SUPERSEDED"
+    }
   }
 }

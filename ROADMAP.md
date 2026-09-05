@@ -18,6 +18,13 @@ python3 scripts/validate_frontmatter.py
 python3 scripts/build_index.py
 ```
 
+## Milestone 0.5: Status Rules And Acceptance Criteria (done 2026-09-05)
+
+- Status derived from linked references by the validator; no hand-set green.
+- `card_completeness` with definition-of-done and baseline sections.
+- Headline problems for the previsible index, forecast scoreboard, reference
+  battery, and as-of data archive.
+
 ## Milestone 1: Static Problem Explorer
 
 - Problem index page.

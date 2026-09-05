@@ -26,7 +26,21 @@
       "type": "string"
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "AI_ASSISTED_ANALYSIS",
+        "BENCHMARK",
+        "DATASET",
+        "MCP_CONNECTOR",
+        "METHODOLOGY",
+        "INVENTORY",
+        "PARTIAL_PROGRESS",
+        "PUBLIC_DISCLOSURE",
+        "REFERENCE_SOLUTION",
+        "SCHEMA",
+        "SOFTWARE_INFRASTRUCTURE",
+        "SIMULATOR"
+      ]
     },
     "project_url": {},
     "repository_url": {},
@@ -48,7 +62,13 @@
       ]
     },
     "maturity": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "NEEDS_REVIEW",
+        "PARTIAL",
+        "PUBLIC_DISCLOSURE",
+        "REFERENCE_AVAILABLE"
+      ]
     },
     "ai_relevance": {
       "type": "string",
@@ -59,7 +79,13 @@
       ]
     },
     "review_status": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "needs_review",
+        "accepted",
+        "rejected"
+      ],
+      "description": "accepted requires a source URL and a licence field"
     },
     "last_checked": {
       "type": "string"

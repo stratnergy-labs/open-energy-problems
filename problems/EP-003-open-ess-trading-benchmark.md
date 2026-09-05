@@ -2,9 +2,10 @@
 id: EP-003
 title: Open ESS Trading Benchmark
 lane: market-benchmarks
-status: REFERENCE_AVAILABLE
-openness_level: 5
-evidence_strength: B
+status: SUPERSEDED
+superseded_by: EP-001
+openness_level: 0
+evidence_strength: D
 geography: Europe
 asset_class:
   - battery_storage
@@ -14,10 +15,10 @@ market_scope:
   - intraday
 ai_relevance: medium
 market_integrity_risk: medium
-last_updated: 2026-05-09
+last_updated: 2026-09-05
 maintainer: stratnergy
-related_contributions:
-  - gigastorage-battery-trading-benchmark
+card_completeness: draft
+related_contributions: []
 public_post_url: null
 analysis_url: null
 interactive_url: null
@@ -27,28 +28,21 @@ interactive_url: null
 
 ## Problem
 
-Open benchmark tools for ESS value under defined market assumptions.
+Superseded on 2026-09-05. This card asked for "open benchmark tools for ESS
+value under defined market assumptions", which is the same object as the
+revenue ceiling in [EP-001](EP-001-open-bess-revenue-index.md): both listed
+references compute the optimal value of a storage system on realised prices.
+Keeping two cards for one problem made the register look more solved than it
+was.
 
-## Why It Matters
+## Where The Content Went
 
-Open ESS benchmarks make assumptions visible: market products, price inputs,
-storage constraints, fees, degradation, and time resolution. That helps readers
-compare methods without mistaking a benchmark for live trading performance.
+- The ceiling benchmark problem, its definition of done, and the GigaStorage
+  reference now live in `EP-001`.
+- The distinct problem hiding inside this card, a strategy that can be
+  followed without hindsight, is stated in
+  [EP-004](EP-004-previsible-battery-revenue-index.md).
 
-## Scope
+## Review Notes
 
-Benchmark strategy examples must remain educational and delayed, not live trading instructions.
-
-## Existing Artefacts
-
-Related contribution IDs are listed in front matter. Source URLs and licence details require human verification before claims are upgraded.
-
-## Open Questions
-
-- Which evidence is reproducible from public material?
-- Which data can be reused, cited only, or linked only?
-- What review would change the status or evidence-strength classification?
-
-## Market-Integrity And Licence Notes
-
-Do not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.
+- Retained so that existing links resolve. Do not add references here.

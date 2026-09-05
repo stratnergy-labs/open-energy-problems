@@ -14,8 +14,9 @@ market_scope:
   - benchmarks
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-05-09
+last_updated: 2026-09-05
 maintainer: stratnergy
+card_completeness: draft
 related_contributions: []
 public_post_url: null
 analysis_url: null
@@ -52,6 +53,6 @@ No contribution is currently accepted for this problem. Source URLs and licence 
 - How should source hashes, query timestamps, and licence caveats be recorded?
 - Which examples can be public, synthetic, or link-only?
 
-## Market-Integrity And Licence Notes
+## Review Notes
 
-Do not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.
+- No card-specific caveats recorded yet. General guardrails: [Market Integrity Policy](../MARKET_INTEGRITY_POLICY.md) and [Data and Licence Policy](../DATA_AND_LICENSE_POLICY.md).

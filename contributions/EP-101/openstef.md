@@ -12,7 +12,7 @@ evidence_strength: B
 maturity: REFERENCE_AVAILABLE
 ai_relevance: high
 review_status: needs_review
-last_checked: 2026-04-26
+last_checked: 2026-09-05
 ---
 
 # OpenSTEF
@@ -29,3 +29,7 @@ This contribution is linked to `EP-101` as a reference project for short-term lo
 
 - Code licence and data licence must be reviewed separately.
 - This card must not be used as endorsement or evidence of operational performance without supporting sources.
+
+## Review Notes
+
+- AI-assisted source check on 2026-09-05 via the GitHub API: licence MPL-2.0, last push 2026-09-04, 167 stars, not archived. Fit and evidence review pending.

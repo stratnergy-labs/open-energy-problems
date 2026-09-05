@@ -14,8 +14,9 @@ market_scope:
   - contracts
 ai_relevance: high
 market_integrity_risk: medium
-last_updated: 2026-05-09
+last_updated: 2026-09-05
 maintainer: stratnergy
+card_completeness: draft
 related_contributions:
   []
 public_post_url: null
@@ -55,6 +56,6 @@ and licence review.
 - How should reserved but undelivered flexibility be treated?
 - How should baseline uncertainty and rebound be reflected in public claims?
 
-## Market-Integrity And Licence Notes
+## Review Notes
 
-Do not add live strategy, current bids, operational dispatch instructions, customer-sensitive data, or restricted data copies to this problem card.
+- No card-specific caveats recorded yet. General guardrails: [Market Integrity Policy](../MARKET_INTEGRITY_POLICY.md) and [Data and Licence Policy](../DATA_AND_LICENSE_POLICY.md).

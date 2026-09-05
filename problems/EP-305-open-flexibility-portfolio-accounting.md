@@ -16,8 +16,9 @@ market_scope:
   - settlement
 ai_relevance: medium
 market_integrity_risk: medium
-last_updated: 2026-05-09
+last_updated: 2026-09-05
 maintainer: stratnergy
+card_completeness: draft
 related_contributions: []
 public_post_url: null
 analysis_url: null
